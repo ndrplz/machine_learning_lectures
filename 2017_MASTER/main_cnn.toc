@@ -1,5 +1,0 @@
-\select@language {english}
-\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
-\beamer@sectionintoc {2}{Architecture}{6}{0}{2}
-\beamer@sectionintoc {3}{Credits}{27}{0}{3}
-\beamer@sectionintoc {4}{References}{29}{0}{4}
