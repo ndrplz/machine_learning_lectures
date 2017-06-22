@@ -1,0 +1,5 @@
+\select@language {english}
+\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@sectionintoc {2}{Linear classifiers}{5}{0}{2}
+\beamer@sectionintoc {3}{Neural Networks}{13}{0}{3}
+\beamer@sectionintoc {4}{Training a DNN}{20}{0}{4}
