@@ -1,0 +1,48 @@
+\begin{thebibliography}{1}
+
+\bibitem{goodfellow2013maxout}
+I.~J. Goodfellow, D.~Warde-Farley, M.~Mirza, A.~Courville, and Y.~Bengio.
+\newblock Maxout networks.
+\newblock {\em arXiv preprint arXiv:1302.4389}, 2013.
+
+\bibitem{he2015delving}
+K.~He, X.~Zhang, S.~Ren, and J.~Sun.
+\newblock Delving deep into rectifiers: Surpassing human-level performance on
+  imagenet classification.
+\newblock In {\em Proceedings of the IEEE international conference on computer
+  vision}, pages 1026--1034, 2015.
+
+\bibitem{he2016deep}
+K.~He, X.~Zhang, S.~Ren, and J.~Sun.
+\newblock Deep residual learning for image recognition.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition}, pages 770--778, 2016.
+
+\bibitem{krizhevsky2012imagenet}
+A.~Krizhevsky, I.~Sutskever, and G.~E. Hinton.
+\newblock Imagenet classification with deep convolutional neural networks.
+\newblock In {\em Advances in neural information processing systems}, pages
+  1097--1105, 2012.
+
+\bibitem{simonyan2014very}
+K.~Simonyan and A.~Zisserman.
+\newblock Very deep convolutional networks for large-scale image recognition.
+\newblock {\em arXiv preprint arXiv:1409.1556}, 2014.
+
+\bibitem{springenberg2014striving}
+J.~T. Springenberg, A.~Dosovitskiy, T.~Brox, and M.~Riedmiller.
+\newblock Striving for simplicity: The all convolutional net.
+\newblock {\em arXiv preprint arXiv:1412.6806}, 2014.
+
+\bibitem{szegedy2016rethinking}
+C.~Szegedy, V.~Vanhoucke, S.~Ioffe, J.~Shlens, and Z.~Wojna.
+\newblock Rethinking the inception architecture for computer vision.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition}, pages 2818--2826, 2016.
+
+\bibitem{yu2015multi}
+F.~Yu and V.~Koltun.
+\newblock Multi-scale context aggregation by dilated convolutions.
+\newblock {\em arXiv preprint arXiv:1511.07122}, 2015.
+
+\end{thebibliography}

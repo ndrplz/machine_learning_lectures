@@ -1,0 +1,1867 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.6.20)  22 JUN 2017 11:58
+entering extended mode
+**./main_cnn.tex
+(main_cnn.tex
+LaTeX2e <2017-04-15>
+Babel <3.10> and hyphenation patterns for 75 language(s) loaded.
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\beamer.cls"
+Document Class: beamer 2017/01/23 v3.41 A class for typesetting presentations
+("C:\Program Files\MiKTeX 2.9\tex\latex\etoolbox\etoolbox.sty"
+Package: etoolbox 2017/01/02 v2.4 e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count79
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\beamerbasemodes.sty"
+\beamer@tempbox=\box26
+\beamer@tempcount=\count80
+\c@beamerpauses=\count81
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\beamerbasedecode.sty"
+\beamer@slideinframe=\count82
+\beamer@minimum=\count83
+)
+\beamer@commentbox=\box27
+\beamer@modecount=\count84
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+)
+\headheight=\dimen102
+\headdp=\dimen103
+\footheight=\dimen104
+\sidebarheight=\dimen105
+\beamer@tempdim=\dimen106
+\beamer@finalheight=\dimen107
+\beamer@animht=\dimen108
+\beamer@animdp=\dimen109
+\beamer@animwd=\dimen110
+\beamer@leftmargin=\dimen111
+\beamer@rightmargin=\dimen112
+\beamer@leftsidebar=\dimen113
+\beamer@rightsidebar=\dimen114
+\beamer@boxsize=\dimen115
+\beamer@vboxoffset=\dimen116
+\beamer@descdefault=\dimen117
+\beamer@descriptionwidth=\dimen118
+\beamer@lastskip=\skip41
+\beamer@areabox=\box28
+\beamer@animcurrent=\box29
+\beamer@animshowbox=\box30
+\beamer@sectionbox=\box31
+\beamer@logobox=\box32
+\beamer@linebox=\box33
+\beamer@sectioncount=\count85
+\beamer@subsubsectionmax=\count86
+\beamer@subsectionmax=\count87
+\beamer@sectionmax=\count88
+\beamer@totalheads=\count89
+\beamer@headcounter=\count90
+\beamer@partstartpage=\count91
+\beamer@sectionstartpage=\count92
+\beamer@subsectionstartpage=\count93
+\beamer@animationtempa=\count94
+\beamer@animationtempb=\count95
+\beamer@xpos=\count96
+\beamer@ypos=\count97
+\beamer@showpartnumber=\count98
+\beamer@currentsubsection=\count99
+\beamer@coveringdepth=\count100
+\beamer@sectionadjust=\count101
+\beamer@tocsectionnumber=\count102
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\beamerbaseoptions.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+))
+\beamer@paperwidth=\skip42
+\beamer@paperheight=\skip43
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count103
+\Gm@cntv=\count104
+\c@Gm@tempcnt=\count105
+\Gm@bindingoffset=\dimen119
+\Gm@wd@mp=\dimen120
+\Gm@odd@mp=\dimen121
+\Gm@even@mp=\dimen122
+\Gm@layoutwidth=\dimen123
+\Gm@layoutheight=\dimen124
+\Gm@layouthoffset=\dimen125
+\Gm@layoutvoffset=\dimen126
+\Gm@dimlist=\toks15
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\size11.clo"
+File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\basiclayer\pgfcore.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2017/04/14 v1.1b Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def"
+File: pdftex.def 2017/01/12 v0.06k Graphics/color for pdfTeX
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count106
+))
+\Gin@req@height=\dimen127
+\Gin@req@width=\dimen128
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\systemlayer\pgfsys.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\utilities\pgfrcs.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfutil-common.tex"
+\pgfutil@everybye=\toks16
+\pgfutil@tempdima=\dimen129
+\pgfutil@tempdimb=\dimen130
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfutil-common-lists.te
+x")) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfutil-latex.def"
+\pgfutil@abb=\box34
+("C:\Program Files\MiKTeX 2.9\tex\latex\ms\everyshi.sty"
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfrcs.code.tex"
+Package: pgfrcs 2015/08/07 v3.0.1a (rcs-revision 1.31)
+))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys.code.tex"
+Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeys.code.tex"
+\pgfkeys@pathtoks=\toks17
+\pgfkeys@temptoks=\toks18
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeysfiltered.code.te
+x"
+\pgfkeys@tmptoks=\toks19
+))
+\pgf@x=\dimen131
+\pgf@y=\dimen132
+\pgf@xa=\dimen133
+\pgf@ya=\dimen134
+\pgf@xb=\dimen135
+\pgf@yb=\dimen136
+\pgf@xc=\dimen137
+\pgf@yc=\dimen138
+\w@pgf@writea=\write3
+\r@pgf@reada=\read1
+\c@pgf@counta=\count107
+\c@pgf@countb=\count108
+\c@pgf@countc=\count109
+\c@pgf@countd=\count110
+\t@pgf@toka=\toks20
+\t@pgf@tokb=\toks21
+\t@pgf@tokc=\toks22
+ ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgf.cfg"
+File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-pdftex.def"
+File: pgfsys-pdftex.def 2014/10/11  (rcs-revision 1.35)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-common-pdf.def
+"
+File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
+)))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsyssoftpath.code.t
+ex"
+File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
+\pgfsyssoftpath@smallbuffer@items=\count111
+\pgfsyssoftpath@bigbuffer@items=\count112
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsysprotocol.code.t
+ex"
+File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
+)) ("C:\Program Files\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcore.code.tex"
+Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmath.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathcalc.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathutil.code.tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathparser.code.tex"
+\pgfmath@dimen=\dimen139
+\pgfmath@count=\count113
+\pgfmath@box=\box35
+\pgfmath@toks=\toks23
+\pgfmath@stack@operand=\toks24
+\pgfmath@stack@operation=\toks25
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.basic.code.
+tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.trigonometr
+ic.code.tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.random.code
+.tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.comparison.
+code.tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.base.code.t
+ex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.round.code.
+tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.misc.code.t
+ex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.integerarit
+hmetics.code.tex")))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfloat.code.tex"
+\c@pgfmathroundto@lastzeros=\count114
+))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepoints.code.tex
+"
+File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
+\pgf@picminx=\dimen140
+\pgf@picmaxx=\dimen141
+\pgf@picminy=\dimen142
+\pgf@picmaxy=\dimen143
+\pgf@pathminx=\dimen144
+\pgf@pathmaxx=\dimen145
+\pgf@pathminy=\dimen146
+\pgf@pathmaxy=\dimen147
+\pgf@xx=\dimen148
+\pgf@xy=\dimen149
+\pgf@yx=\dimen150
+\pgf@yy=\dimen151
+\pgf@zx=\dimen152
+\pgf@zy=\dimen153
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepathconstruct.c
+ode.tex"
+File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
+\pgf@path@lastx=\dimen154
+\pgf@path@lasty=\dimen155
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepathusage.code.
+tex"
+File: pgfcorepathusage.code.tex 2014/11/02  (rcs-revision 1.24)
+\pgf@shorten@end@additional=\dimen156
+\pgf@shorten@start@additional=\dimen157
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorescopes.code.tex
+"
+File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
+\pgfpic=\box36
+\pgf@hbox=\box37
+\pgf@layerbox@main=\box38
+\pgf@picture@serial@count=\count115
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoregraphicstate.co
+de.tex"
+File: pgfcoregraphicstate.code.tex 2014/11/02  (rcs-revision 1.12)
+\pgflinewidth=\dimen158
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoretransformations
+.code.tex"
+File: pgfcoretransformations.code.tex 2015/08/07  (rcs-revision 1.20)
+\pgf@pt@x=\dimen159
+\pgf@pt@y=\dimen160
+\pgf@pt@temp=\dimen161
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorequick.code.tex"
+File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreobjects.code.te
+x"
+File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepathprocessing.
+code.tex"
+File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorearrows.code.tex
+"
+File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
+\pgfarrowsep=\dimen162
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreshade.code.tex"
+File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
+\pgf@max=\dimen163
+\pgf@sys@shading@range@num=\count116
+) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreimage.code.te
+x"
+File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreexternal.code.t
+ex"
+File: pgfcoreexternal.code.tex 2014/07/09  (rcs-revision 1.21)
+\pgfexternal@startupbox=\box39
+))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorelayers.code.tex
+"
+File: pgfcorelayers.code.tex 2013/07/18  (rcs-revision 1.7)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoretransparency.co
+de.tex"
+File: pgfcoretransparency.code.tex 2013/09/30  (rcs-revision 1.5)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepatterns.code.t
+ex"
+File: pgfcorepatterns.code.tex 2013/11/07  (rcs-revision 1.5)
+))) ("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\utilities\xxcolor.sty"
+Package: xxcolor 2003/10/24 ver 0.1
+\XC@nummixins=\count117
+\XC@countmixins=\count118
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\atbegshi.sty"
+Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty"
+Package: hyperref 2017/03/14 v6.85a Hypertext links for LaTeX
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-hyperref.sty"
+Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
+
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-generic.sty"
+Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
+Package hobsub Info: Skipping package `infwarerr' (already loaded).
+Package hobsub Info: Skipping package `ltxcmds' (already loaded).
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package hobsub Info: Skipping package `ifvtex' (already loaded).
+Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
+Package hobsub Info: Skipping package `ifpdf' (already loaded).
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
+)
+Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
+Package: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
+Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
+Package: xcolor-patch 2016/05/16 xcolor patch
+Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
+Package hobsub Info: Skipping package `atbegshi' (already loaded).
+Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
+Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\auxhook.sty"
+Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+)
+\@linkdim=\dimen164
+\Hy@linkcounter=\count119
+\Hy@pagecounter=\count120
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
+File: pd1enc.def 2017/03/14 v6.85a Hyperref: PDFDocEncoding definition (HO)
+)
+\Hy@SavedSpaceFactor=\count121
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Option `bookmarks' set `true' on input line 4374.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 4374.
+Package hyperref Info: Option `implicit' set `false' on input line 4374.
+Package hyperref Info: Hyper figures OFF on input line 4498.
+Package hyperref Info: Link nesting OFF on input line 4503.
+Package hyperref Info: Hyper index ON on input line 4506.
+Package hyperref Info: Plain pages OFF on input line 4513.
+Package hyperref Info: Backreferencing OFF on input line 4518.
+Package hyperref Info: Implicit mode OFF; no redefinition of LaTeX internals.
+Package hyperref Info: Bookmarks ON on input line 4751.
+\c@Hy@tempcnt=\count122
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\url\url.sty"
+\Urlmuskip=\muskip10
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5104.
+\XeTeXLinkMargin=\dimen165
+\Fld@menulength=\count123
+\Field@Width=\dimen166
+\Fld@charsize=\dimen167
+Package hyperref Info: Hyper figures OFF on input line 6358.
+Package hyperref Info: Link nesting OFF on input line 6363.
+Package hyperref Info: Hyper index ON on input line 6366.
+Package hyperref Info: backreferencing OFF on input line 6373.
+Package hyperref Info: Link coloring OFF on input line 6378.
+Package hyperref Info: Link coloring with OCG OFF on input line 6383.
+Package hyperref Info: PDF/A mode OFF on input line 6388.
+LaTeX Info: Redefining \ref on input line 6428.
+LaTeX Info: Redefining \pageref on input line 6432.
+\Hy@abspage=\count124
+
+
+Package hyperref Message: Stopped early.
+
+)
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
+File: hpdftex.def 2017/03/14 v6.85a Hyperref driver for pdfTeX
+\Fld@listcount=\count125
+\c@bookmark@seq@number=\count126
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
+Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\beamerbaserequires.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\beamerbasecompatibility.sty")
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\beamerbasefont.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks26
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\sansmathaccent\sansmathaccent.sty"
+Package: sansmathaccent 2013/03/28
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\filehook\filehook.sty"
+Package: filehook 2011/10/12 v0.5d Hooks for input files
+)))
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\beamerbasetranslator.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\translator\translator.sty"
+Package: translator 2010/06/12 ver 1.10
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\translator\translator-language-m
+appings.tex")))
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\beamerbasemisc.sty")
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\beamerbasetwoscreens.sty")
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\beamerbaseoverlay.sty"
+\beamer@argscount=\count127
+\beamer@lastskipcover=\skip44
+\beamer@trivlistdepth=\count128
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\beamerbasetitle.sty")
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\beamerbasesection.sty"
+\c@lecture=\count129
+\c@part=\count130
+\c@section=\count131
+\c@subsection=\count132
+\c@subsubsection=\count133
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\beamerbaseframe.sty"
+\beamer@framebox=\box40
+\beamer@frametitlebox=\box41
+\beamer@zoombox=\box42
+\beamer@zoomcount=\count134
+\beamer@zoomframecount=\count135
+\beamer@frametextheight=\dimen168
+\c@subsectionslide=\count136
+\beamer@frametopskip=\skip45
+\beamer@framebottomskip=\skip46
+\beamer@frametopskipautobreak=\skip47
+\beamer@framebottomskipautobreak=\skip48
+\beamer@envbody=\toks27
+\framewidth=\dimen169
+\c@framenumber=\count137
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\beamerbaseverbatim.sty"
+\beamer@verbatimfileout=\write4
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\beamerbaseframesize.sty"
+\beamer@splitbox=\box43
+\beamer@autobreakcount=\count138
+\beamer@autobreaklastheight=\dimen170
+\beamer@frametitletoks=\toks28
+\beamer@framesubtitletoks=\toks29
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\beamerbaseframecomponents.sty"
+\beamer@footins=\box44
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\beamerbasecolor.sty")
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\beamerbasenotes.sty"
+\beamer@frameboxcopy=\box45
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\beamerbasetoc.sty")
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\beamerbasetemplates.sty"
+\beamer@sbttoks=\toks30
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\beamerbaseauxtemplates.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\beamerbaseboxes.sty"
+\bmb@box=\box46
+\bmb@colorbox=\box47
+\bmb@boxshadow=\box48
+\bmb@boxshadowball=\box49
+\bmb@boxshadowballlarge=\box50
+\bmb@temp=\dimen171
+\bmb@dima=\dimen172
+\bmb@dimb=\dimen173
+\bmb@prevheight=\dimen174
+)
+\beamer@blockheadheight=\dimen175
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\beamerbaselocalstructure.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\enumerate.sty"
+Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
+\@enLab=\toks31
+)
+\c@figure=\count139
+\c@table=\count140
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\beamerbasenavigation.sty"
+\beamer@section@min@dim=\dimen176
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\beamerbasetheorems.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
+Package: amsmath 2016/11/05 v2.16a AMS math features
+\@mathmargin=\skip51
+
+For additional information on amsmath, use the `?' option.
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
+Package: amstext 2000/06/29 v2.01 AMS text
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks32
+\ex@=\dimen177
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen178
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count141
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count142
+\leftroot@=\count143
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count144
+\DOTSCASE@=\count145
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box51
+\strutbox@=\box52
+\big@size=\dimen179
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count146
+\c@MaxMatrixCols=\count147
+\dotsspace@=\muskip11
+\c@parentequation=\count148
+\dspbrk@lvl=\count149
+\tag@help=\toks33
+\row@=\count150
+\column@=\count151
+\maxfields@=\count152
+\andhelp@=\toks34
+\eqnshift@=\dimen180
+\alignsep@=\dimen181
+\tagshift@=\dimen182
+\tagwidth@=\dimen183
+\totwidth@=\dimen184
+\lineht@=\dimen185
+\@envbody=\toks35
+\multlinegap=\skip52
+\multlinetaggap=\skip53
+\mathdisplay@stack=\toks36
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\amscls\amsthm.sty"
+Package: amsthm 2015/03/04 v2.20.2
+\thm@style=\toks37
+\thm@bodyfont=\toks38
+\thm@headfont=\toks39
+\thm@notefont=\toks40
+\thm@headpunct=\toks41
+\thm@preskip=\skip54
+\thm@postskip=\skip55
+\thm@headsep=\skip56
+\dth@everypar=\toks42
+)
+\c@theorem=\count153
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\beamerbasethemes.sty"))
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\themes\theme\beamerthemedefault.
+sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\themes\font\beamerfontthemedefau
+lt.sty")
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\themes\color\beamercolorthemedef
+ault.sty")
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\themes\inner\beamerinnerthemedef
+ault.sty"
+\beamer@dima=\dimen186
+\beamer@dimb=\dimen187
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\themes\outer\beamerouterthemedef
+ault.sty"))) (beamerthememetropolis.sty
+Package: beamerthememetropolis 2017/01/23 v1.2 Metropolis Beamer theme
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgfopts\pgfopts.sty"
+Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\utilities\pgfkeys.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeys.code.tex"))
+\pgfopts@list@add@a@toks=\toks43
+\pgfopts@list@add@b@toks=\toks44
+)
+(beamerinnerthememetropolis.sty
+Package: beamerinnerthememetropolis 2017/01/23 Metropolis inner theme
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\calc.sty"
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count154
+\calc@Bcount=\count155
+\calc@Adimen=\dimen188
+\calc@Bdimen=\dimen189
+\calc@Askip=\skip57
+\calc@Bskip=\skip58
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count156
+\calc@Cskip=\skip59
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\frontendlayer\tikz.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\basiclayer\pgf.sty"
+Package: pgf 2015/08/07 v3.0.1a (rcs-revision 1.15)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\modules\pgfmoduleshapes.code.tex"
+File: pgfmoduleshapes.code.tex 2014/03/21  (rcs-revision 1.35)
+\pgfnodeparttextbox=\box53
+) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\modules\pgfmoduleplot.code.tex"
+File: pgfmoduleplot.code.tex 2015/08/03  (rcs-revision 1.13)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\compatibility\pgfcomp-version-0-65.
+sty"
+Package: pgfcomp-version-0-65 2007/07/03 v3.0.1a (rcs-revision 1.7)
+\pgf@nodesepstart=\dimen190
+\pgf@nodesepend=\dimen191
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\compatibility\pgfcomp-version-1-18.
+sty"
+Package: pgfcomp-version-1-18 2007/07/23 v3.0.1a (rcs-revision 1.1)
+)) ("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\utilities\pgffor.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\math\pgfmath.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmath.code.tex"))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgffor.code.tex"
+Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmath.code.tex")
+\pgffor@iter=\dimen192
+\pgffor@skip=\dimen193
+\pgffor@stack=\toks45
+\pgffor@toks=\toks46
+))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\tikz.code.tex"
+Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\libraries\pgflibraryplothandlers.
+code.tex"
+File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
+\pgf@plot@mark@count=\count157
+\pgfplotmarksize=\dimen194
+)
+\tikz@lastx=\dimen195
+\tikz@lasty=\dimen196
+\tikz@lastxsaved=\dimen197
+\tikz@lastysaved=\dimen198
+\tikzleveldistance=\dimen199
+\tikzsiblingdistance=\dimen256
+\tikz@figbox=\box54
+\tikz@figbox@bg=\box55
+\tikz@tempbox=\box56
+\tikz@tempbox@bg=\box57
+\tikztreelevel=\count158
+\tikznumberofchildren=\count159
+\tikznumberofcurrentchild=\count160
+\tikz@fig@count=\count161
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\modules\pgfmodulematrix.code.tex"
+File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
+\pgfmatrixcurrentrow=\count162
+\pgfmatrixcurrentcolumn=\count163
+\pgf@matrix@numberofcolumns=\count164
+)
+\tikz@expandcount=\count165
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikz
+librarytopaths.code.tex"
+File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
+)))
+\metropolis@titleseparator@linewidth=\skip60
+\metropolis@progressonsectionpage=\skip61
+\metropolis@progressonsectionpage@linewidth=\skip62
+\metropolis@blocksep=\skip63
+\metropolis@blockadjust=\skip64
+\metropolis@parskip=\skip65
+) (beamerouterthememetropolis.sty
+Package: beamerouterthememetropolis 2017/01/23 Metropolis outer theme
+\metropolis@frametitle@padding=\skip66
+\metropolis@progressinheadfoot=\skip67
+\metropolis@progressinheadfoot@linewidth=\skip68
+)
+(beamercolorthememetropolis.sty
+Package: beamercolorthememetropolis 2017/01/23 Metropolis color theme
+) (beamerfontthememetropolis.sty
+Package: beamerfontthememetropolis 2017/01/23 Metropolis font theme
+
+
+Package beamerthememetropolis Warning: You need to compile with XeLaTeX or LuaL
+aTeX to use the Fira fonts on input line 95.
+
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\themes\font\beamerfontthemestruc
+turebold.sty") ("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
+Package: babel 2017/05/19 3.10 The Babel package
+
+*************************************
+* Local config file bblopts.cfg used
+*
+("C:\Program Files\MiKTeX 2.9\tex\latex\arabi\bblopts.cfg"
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\babel-english\english.ldf"
+Language: english 2017/01/24 v3.3q English support from the babel system
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
+File: babel.def 2017/05/19 3.10 Babel common definitions
+\babel@savecnt=\count166
+\U@D=\dimen257
+LaTeX Info: Redefining \textlatin on input line 1648.
+)
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
+\l@newzealand = a dialect from \language\l@british 
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+Package: inputenc 2015/03/17 v1.2c Input encoding file
+\inpenc@prehook=\toks47
+\inpenc@posthook=\toks48
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\ucs\utf8x.def"
+File: utf8x.def 2004/10/17 UCS: Input encoding UTF-8
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\ucs\ucs.sty"
+Package: ucs 2013/05/11 v2.2 UCS: Unicode input support
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\ucs\uni-global.def"
+File: uni-global.def 2013/05/13 UCS: Unicode global data
+)
+\uc@secondtry=\count167
+\uc@combtoks=\toks49
+\uc@combtoksb=\toks50
+\uc@temptokena=\toks51
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.sty"
+\lst@mode=\count168
+\lst@gtempboxa=\box58
+\lst@token=\toks52
+\lst@length=\count169
+\lst@currlwidth=\dimen258
+\lst@column=\count170
+\lst@pos=\count171
+\lst@lostspace=\dimen259
+\lst@width=\dimen260
+\lst@newlines=\count172
+\lst@lineno=\count173
+\lst@maxwidth=\dimen261
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count174
+\lst@skipnumbers=\count175
+\lst@framebox=\box59
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.cfg"
+File: listings.cfg 2015/06/04 1.6 listings configuration
+))
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
+Package hyperref Info: Option `colorlinks' set `true' on input line 25.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\animate\animate.sty"
+Package: animate 2017/05/18 PDF animations from files and inline graphics
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\xkeyval\xkeyval.sty"
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\xkeyval\xkeyval.tex"
+("C:\Program Files\MiKTeX 2.9\tex\generic\xkeyval\xkvutils.tex"
+\XKV@toks=\toks53
+\XKV@tempa@toks=\toks54
+)
+\XKV@depth=\count176
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\ifdraft.sty"
+Package: ifdraft 2016/05/16 v1.4 Detect class options draft and final (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\media9\pdfbase.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\expl3.sty"
+Package: expl3 2017/05/29 L3 programming layer (loader) 
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\expl3-code.tex"
+Package: expl3 2017/05/29 L3 programming layer (code)
+\c_max_int=\count177
+\l_tmpa_int=\count178
+\l_tmpb_int=\count179
+\g_tmpa_int=\count180
+\g_tmpb_int=\count181
+\g__intarray_font_int=\count182
+\g__prg_map_int=\count183
+\c_log_iow=\count184
+\l_iow_line_count_int=\count185
+\l__iow_line_target_int=\count186
+\l__iow_one_indent_int=\count187
+\l__iow_indent_int=\count188
+\c_zero_dim=\dimen262
+\c_max_dim=\dimen263
+\l_tmpa_dim=\dimen264
+\l_tmpb_dim=\dimen265
+\g_tmpa_dim=\dimen266
+\g_tmpb_dim=\dimen267
+\c_zero_skip=\skip69
+\c_max_skip=\skip70
+\l_tmpa_skip=\skip71
+\l_tmpb_skip=\skip72
+\g_tmpa_skip=\skip73
+\g_tmpb_skip=\skip74
+\c_zero_muskip=\muskip12
+\c_max_muskip=\muskip13
+\l_tmpa_muskip=\muskip14
+\l_tmpb_muskip=\muskip15
+\g_tmpa_muskip=\muskip16
+\g_tmpb_muskip=\muskip17
+\l_keys_choice_int=\count189
+\c__fp_leading_shift_int=\count190
+\c__fp_middle_shift_int=\count191
+\c__fp_trailing_shift_int=\count192
+\c__fp_big_leading_shift_int=\count193
+\c__fp_big_middle_shift_int=\count194
+\c__fp_big_trailing_shift_int=\count195
+\c__fp_Bigg_leading_shift_int=\count196
+\c__fp_Bigg_middle_shift_int=\count197
+\c__fp_Bigg_trailing_shift_int=\count198
+\c__fp_rand_size_int=\count199
+\c__fp_rand_four_int=\count266
+\c__fp_rand_eight_int=\count267
+\l__sort_length_int=\count268
+\l__sort_min_int=\count269
+\l__sort_top_int=\count270
+\l__sort_max_int=\count271
+\l__sort_true_max_int=\count272
+\l__sort_block_int=\count273
+\l__sort_begin_int=\count274
+\l__sort_end_int=\count275
+\l__sort_A_int=\count276
+\l__sort_B_int=\count277
+\l__sort_C_int=\count278
+\l__tl_build_start_index_int=\count279
+\l__tl_build_index_int=\count280
+\l__tl_analysis_normal_int=\count281
+\l__tl_analysis_index_int=\count282
+\l__tl_analysis_nesting_int=\count283
+\l__tl_analysis_type_int=\count284
+\l__regex_internal_a_int=\count285
+\l__regex_internal_b_int=\count286
+\l__regex_internal_c_int=\count287
+\l__regex_balance_int=\count288
+\l__regex_group_level_int=\count289
+\l__regex_mode_int=\count290
+\c__regex_cs_in_class_mode_int=\count291
+\c__regex_cs_mode_int=\count292
+\l__regex_catcodes_int=\count293
+\l__regex_default_catcodes_int=\count294
+\c__regex_catcode_D_int=\count295
+\c__regex_catcode_S_int=\count296
+\c__regex_catcode_L_int=\count297
+\c__regex_catcode_O_int=\count298
+\c__regex_catcode_A_int=\count299
+\c__regex_all_catcodes_int=\count300
+\l__regex_show_lines_int=\count301
+\l__regex_min_state_int=\count302
+\l__regex_max_state_int=\count303
+\l__regex_left_state_int=\count304
+\l__regex_right_state_int=\count305
+\l__regex_capturing_group_int=\count306
+\l__regex_min_pos_int=\count307
+\l__regex_max_pos_int=\count308
+\l__regex_current_pos_int=\count309
+\l__regex_start_pos_int=\count310
+\l__regex_success_pos_int=\count311
+\l__regex_current_char_int=\count312
+\l__regex_current_catcode_int=\count313
+\l__regex_last_char_int=\count314
+\l__regex_case_changed_char_int=\count315
+\l__regex_current_state_int=\count316
+\l__regex_step_int=\count317
+\l__regex_min_active_int=\count318
+\l__regex_max_active_int=\count319
+\l__regex_replacement_csnames_int=\count320
+\l__regex_match_count_int=\count321
+\l__regex_min_submatch_int=\count322
+\l__regex_submatch_int=\count323
+\l__regex_zeroth_submatch_int=\count324
+\c_empty_box=\box60
+\l_tmpa_box=\box61
+\l_tmpb_box=\box62
+\g_tmpa_box=\box63
+\g_tmpb_box=\box64
+\l__box_top_dim=\dimen268
+\l__box_bottom_dim=\dimen269
+\l__box_left_dim=\dimen270
+\l__box_right_dim=\dimen271
+\l__box_top_new_dim=\dimen272
+\l__box_bottom_new_dim=\dimen273
+\l__box_left_new_dim=\dimen274
+\l__box_right_new_dim=\dimen275
+\l__box_internal_box=\box65
+\l__coffin_internal_box=\box66
+\l__coffin_internal_dim=\dimen276
+\l__coffin_offset_x_dim=\dimen277
+\l__coffin_offset_y_dim=\dimen278
+\l__coffin_x_dim=\dimen279
+\l__coffin_y_dim=\dimen280
+\l__coffin_x_prime_dim=\dimen281
+\l__coffin_y_prime_dim=\dimen282
+\c_empty_coffin=\box67
+\l__coffin_aligned_coffin=\box68
+\l__coffin_aligned_internal_coffin=\box69
+\l_tmpa_coffin=\box70
+\l_tmpb_coffin=\box71
+\l__coffin_display_coffin=\box72
+\l__coffin_display_coord_coffin=\box73
+\l__coffin_display_pole_coffin=\box74
+\l__coffin_display_offset_dim=\dimen283
+\l__coffin_display_x_dim=\dimen284
+\l__coffin_display_y_dim=\dimen285
+\l__coffin_bounding_shift_dim=\dimen286
+\l__coffin_left_corner_dim=\dimen287
+\l__coffin_right_corner_dim=\dimen288
+\l__coffin_bottom_corner_dim=\dimen289
+\l__coffin_top_corner_dim=\dimen290
+\l__coffin_scaled_total_height_dim=\dimen291
+\l__coffin_scaled_width_dim=\dimen292
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3pdfmode.def"
+File: l3pdfmode.def 2017/03/18 v L3 Experimental driver: PDF mode
+\l__driver_color_stack_int=\count325
+\l__driver_tmp_box=\box75
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3packages\l3keys2e\l3keys2e.sty"
+Package: l3keys2e 2017/05/29 LaTeX2e option processing using LaTeX3 keys
+)
+Package: pdfbase 2017/03/23 v0.14 driver independent access to low-level PDF fe
+atures
+\g_pbs_page_int=\count326
+\g_pbs_oc_int=\count327
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\ocgx2\ocgbase.sty"
+Package: ocgbase 2017/03/30 v0.10 support package for ocgx2.sty
+)
+\@anim@box=\box76
+\@anim@measbox=\box77
+\@anim@tmpdima=\dimen293
+\@anim@tmpdimb=\dimen294
+\@anim@num=\count328
+\@anim@curframe=\count329
+\@anim@curframe@zb=\count330
+\@anim@resizeflags=\count331
+\@anim@skipfram=\count332
+\@anim@mulframecnt=\count333
+\@anim@@tmlnfile=\read2
+\@anim@tmpcnt=\count334
+\c@@anim@ltxcnt=\count335
+\@anim@curlayer=\count336
+\@anim@lineno=\count337
+\@anim@curfield=\count338
+\@anim@@resizeflags=\count339
+) (main_cnn.aux
+(src/titlepage.aux) (src/outline.aux))
+\openout1 = `main_cnn.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: custom
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: includehead includefoot 
+* h-part:(L,W,R)=(28.45274pt, 398.3386pt, 28.45274pt)
+* v-part:(T,H,B)=(0.0pt, 256.0748pt, 0.0pt)
+* \paperwidth=455.24408pt
+* \paperheight=256.0748pt
+* \textwidth=398.3386pt
+* \textheight=227.62207pt
+* \oddsidemargin=-43.81725pt
+* \evensidemargin=-43.81725pt
+* \topmargin=-72.26999pt
+* \headheight=14.22636pt
+* \headsep=0.0pt
+* \topskip=11.0pt
+* \footskip=14.22636pt
+* \marginparwidth=4.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count340
+\scratchdimen=\dimen295
+\scratchbox=\box78
+\nofMPsegments=\count341
+\nofMParguments=\count342
+\everyMPshowfont=\toks55
+\MPscratchCnt=\count343
+\MPscratchDim=\dimen296
+\MPnumerator=\count344
+\makeMPintoPDFobject=\count345
+\everyMPtoPDFconversion=\toks56
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+)
+ABD: EveryShipout initializing macros
+\AtBeginShipoutBox=\box79
+Package hyperref Info: Link coloring ON on input line 50.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
+Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
+Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
+)
+\c@section@level=\count346
+)
+LaTeX Info: Redefining \ref on input line 50.
+LaTeX Info: Redefining \pageref on input line 50.
+LaTeX Info: Redefining \nameref on input line 50.
+
+(main_cnn.out) (main_cnn.out)
+\@outlinefile=\write5
+\openout5 = `main_cnn.out'.
+
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 50.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 50.
+\symnumbers=\mathgroup6
+\sympureletters=\mathgroup7
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 50.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 50.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 50.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 50.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 50.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 50.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 50.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 50.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 50.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 50.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 50.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 50.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 50.
+LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 50.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 50.
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/cmr/bx/n on input line 50.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/bx/n on input line 50.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 50.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 50.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/bx/n on input line 50.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 50.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
+(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 5
+0.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  OT1/cmss/bx/it --> OT1/mathkerncmss/m/sl on input line 
+50.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
+ut line 50.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\translator\dicts\translator-basi
+c-dictionary\translator-basic-dictionary-English.dict"
+Dictionary: translator-basic-dictionary, Language: English 
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\translator\dicts\translator-bibl
+iography-dictionary\translator-bibliography-dictionary-English.dict"
+Dictionary: translator-bibliography-dictionary, Language: English 
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\translator\dicts\translator-envi
+ronment-dictionary\translator-environment-dictionary-English.dict"
+Dictionary: translator-environment-dictionary, Language: English 
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\translator\dicts\translator-mont
+hs-dictionary\translator-months-dictionary-English.dict"
+Dictionary: translator-months-dictionary, Language: English 
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\translator\dicts\translator-numb
+ers-dictionary\translator-numbers-dictionary-English.dict"
+Dictionary: translator-numbers-dictionary, Language: English 
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\translator\dicts\translator-theo
+rem-dictionary\translator-theorem-dictionary-English.dict"
+Dictionary: translator-theorem-dictionary, Language: English 
+)
+LaTeX Info: Redefining \includegraphics on input line 50.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\ucs\ucsencs.def"
+File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
+)
+\c@lstlisting=\count347
+ (main_cnn.nav)
+\openout2 = `src/titlepage.aux'.
+
+
+(src/titlepage.tex
+Overfull \vbox (45.4454pt too high) detected at line 5
+ []
+
+
+LaTeX Font Warning: Font shape `OT1/cmss/bx/n' in size <4> not available
+(Font)              size <5> substituted on input line 5.
+
+
+LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
+(Font)              size <5> substituted on input line 5.
+
+[1
+
+
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}])
+\openout2 = `src/outline.aux'.
+
+ (src/outline.tex
+(main_cnn.toc) <logo_unimore_white.png, id=42, 1185.42876pt x 488.82625pt>
+File: logo_unimore_white.png Graphic file (type png)
+
+<use logo_unimore_white.png>
+Package pdftex.def Info: logo_unimore_white.png used on input line 3.
+(pdftex.def)             Requested size: 46.66745pt x 19.24994pt.
+ [2
+
+
+
+ <./logo_unimore_white.png>])
+LaTeX Font Info:    Try loading font information for U+msa on input line 63.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 63.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
+line 63.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\sansmathaccent\ot1mathkerncmss.fd"
+File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
+thkerncmss.
+)
+[3
+
+
+]
+LaTeX Font Info:    Try loading font information for OMS+cmss on input line 74.
+
+LaTeX Font Info:    No file OMScmss.fd. on input line 74.
+
+
+LaTeX Font Warning: Font shape `OMS/cmss/bx/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textbullet' on input line 74.
+
+File: logo_unimore_white.png Graphic file (type png)
+<use logo_unimore_white.png>
+Package pdftex.def Info: logo_unimore_white.png used on input line 74.
+(pdftex.def)             Requested size: 46.66745pt x 19.24994pt.
+ [4
+
+]
+File: logo_unimore_white.png Graphic file (type png)
+ <use logo_unimore_white.png>
+Package pdftex.def Info: logo_unimore_white.png used on input line 84.
+(pdftex.def)             Requested size: 46.66745pt x 19.24994pt.
+ [5
+
+] [6
+
+]
+<img/cnn/cnn_vs_dnn.jpg, id=76, 571.13374pt x 202.7575pt>
+File: img/cnn/cnn_vs_dnn.jpg Graphic file (type jpg)
+
+<use img/cnn/cnn_vs_dnn.jpg>
+Package pdftex.def Info: img/cnn/cnn_vs_dnn.jpg used on input line 103.
+(pdftex.def)             Requested size: 199.1693pt x 70.7063pt.
+File: logo_unimore_white.png Graphic file (type png)
+ <use logo_unimore_white.png>
+Package pdftex.def Info: logo_unimore_white.png used on input line 103.
+(pdftex.def)             Requested size: 46.66745pt x 19.24994pt.
+ [7
+
+ <./img/cnn/cnn_vs_dnn.jpg>] <img/cnn/cnn_architecture.jpg, id=85, 792.561pt x 
+239.09325pt>
+File: img/cnn/cnn_architecture.jpg Graphic file (type jpg)
+
+<use img/cnn/cnn_architecture.jpg>
+Package pdftex.def Info: img/cnn/cnn_architecture.jpg used on input line 115.
+(pdftex.def)             Requested size: 239.00558pt x 72.10065pt.
+File: logo_unimore_white.png Graphic file (type png)
+ <use logo_unimore_white.png>
+Package pdftex.def Info: logo_unimore_white.png used on input line 115.
+(pdftex.def)             Requested size: 46.66745pt x 19.24994pt.
+ [8
+
+ <./img/cnn/cnn_architecture.jpg>]
+<img/cnn/activation_maps.jpg, id=91, 531.78674pt x 246.9225pt>
+File: img/cnn/activation_maps.jpg Graphic file (type jpg)
+
+<use img/cnn/activation_maps.jpg>
+Package pdftex.def Info: img/cnn/activation_maps.jpg used on input line 129.
+(pdftex.def)             Requested size: 159.333pt x 73.97935pt.
+File: logo_unimore_white.png Graphic file (type png)
+ <use logo_unimore_white.png>
+Package pdftex.def Info: logo_unimore_white.png used on input line 129.
+(pdftex.def)             Requested size: 46.66745pt x 19.24994pt.
+
+Overfull \vbox (8.95358pt too high) detected at line 129
+ []
+
+[9
+
+ <./img/cnn/activation_maps.jpg>]
+File: logo_unimore_white.png Graphic file (type png)
+ <use logo_unimore_white.png>
+Package pdftex.def Info: logo_unimore_white.png used on input line 141.
+(pdftex.def)             Requested size: 46.66745pt x 19.24994pt.
+ [10
+
+]
+<img/cnn/conv_animation/conv_animation-0.png, id=113, 396.48125pt x 450.68375pt
+>
+File: img/cnn/conv_animation/conv_animation-0.png Graphic file (type png)
+ <use img/cnn/conv_animation/conv_animation-0.png>
+Package pdftex.def Info: img/cnn/conv_animation/conv_animation-0.png used on in
+put line 152.
+(pdftex.def)             Requested size: 396.48027pt x 450.68263pt.
+ <./img/cnn/conv_animation/conv_animation-0.png> <a0,fr0>
+<img/cnn/conv_animation/conv_animation-1.png, id=122, 396.48125pt x 450.68375pt
+>
+File: img/cnn/conv_animation/conv_animation-1.png Graphic file (type png)
+ <use img/cnn/conv_animation/conv_animation-1.png>
+Package pdftex.def Info: img/cnn/conv_animation/conv_animation-1.png used on in
+put line 152.
+(pdftex.def)             Requested size: 396.48027pt x 450.68263pt.
+ <./img/cnn/conv_animation/conv_animation-1.png> <a0,fr1>
+<img/cnn/conv_animation/conv_animation-2.png, id=131, 396.48125pt x 450.68375pt
+>
+File: img/cnn/conv_animation/conv_animation-2.png Graphic file (type png)
+ <use img/cnn/conv_animation/conv_animation-2.png>
+Package pdftex.def Info: img/cnn/conv_animation/conv_animation-2.png used on in
+put line 152.
+(pdftex.def)             Requested size: 396.48027pt x 450.68263pt.
+ <./img/cnn/conv_animation/conv_animation-2.png> <a0,fr2>
+<img/cnn/conv_animation/conv_animation-3.png, id=140, 396.48125pt x 450.68375pt
+>
+File: img/cnn/conv_animation/conv_animation-3.png Graphic file (type png)
+ <use img/cnn/conv_animation/conv_animation-3.png>
+Package pdftex.def Info: img/cnn/conv_animation/conv_animation-3.png used on in
+put line 152.
+(pdftex.def)             Requested size: 396.48027pt x 450.68263pt.
+ <./img/cnn/conv_animation/conv_animation-3.png> <a0,fr3>
+<img/cnn/conv_animation/conv_animation-4.png, id=149, 396.48125pt x 450.68375pt
+>
+File: img/cnn/conv_animation/conv_animation-4.png Graphic file (type png)
+ <use img/cnn/conv_animation/conv_animation-4.png>
+Package pdftex.def Info: img/cnn/conv_animation/conv_animation-4.png used on in
+put line 152.
+(pdftex.def)             Requested size: 396.48027pt x 450.68263pt.
+ <./img/cnn/conv_animation/conv_animation-4.png> <a0,fr4>
+<img/cnn/conv_animation/conv_animation-5.png, id=158, 396.48125pt x 450.68375pt
+>
+File: img/cnn/conv_animation/conv_animation-5.png Graphic file (type png)
+ <use img/cnn/conv_animation/conv_animation-5.png>
+Package pdftex.def Info: img/cnn/conv_animation/conv_animation-5.png used on in
+put line 152.
+(pdftex.def)             Requested size: 396.48027pt x 450.68263pt.
+ <./img/cnn/conv_animation/conv_animation-5.png> <a0,fr5>
+<img/cnn/conv_animation/conv_animation-6.png, id=167, 396.48125pt x 450.68375pt
+>
+File: img/cnn/conv_animation/conv_animation-6.png Graphic file (type png)
+ <use img/cnn/conv_animation/conv_animation-6.png>
+Package pdftex.def Info: img/cnn/conv_animation/conv_animation-6.png used on in
+put line 152.
+(pdftex.def)             Requested size: 396.48027pt x 450.68263pt.
+ <./img/cnn/conv_animation/conv_animation-6.png> <a0,fr6>
+<img/cnn/conv_animation/conv_animation-7.png, id=176, 396.48125pt x 450.68375pt
+>
+File: img/cnn/conv_animation/conv_animation-7.png Graphic file (type png)
+ <use img/cnn/conv_animation/conv_animation-7.png>
+Package pdftex.def Info: img/cnn/conv_animation/conv_animation-7.png used on in
+put line 152.
+(pdftex.def)             Requested size: 396.48027pt x 450.68263pt.
+ <./img/cnn/conv_animation/conv_animation-7.png> <a0,fr7>
+<img/cnn/conv_animation/conv_animation-8.png, id=185, 396.48125pt x 450.68375pt
+>
+File: img/cnn/conv_animation/conv_animation-8.png Graphic file (type png)
+ <use img/cnn/conv_animation/conv_animation-8.png>
+Package pdftex.def Info: img/cnn/conv_animation/conv_animation-8.png used on in
+put line 152.
+(pdftex.def)             Requested size: 396.48027pt x 450.68263pt.
+ <./img/cnn/conv_animation/conv_animation-8.png> <a0,fr8>
+<img/cnn/conv_animation/conv_animation-9.png, id=194, 396.48125pt x 450.68375pt
+>
+File: img/cnn/conv_animation/conv_animation-9.png Graphic file (type png)
+ <use img/cnn/conv_animation/conv_animation-9.png>
+Package pdftex.def Info: img/cnn/conv_animation/conv_animation-9.png used on in
+put line 152.
+(pdftex.def)             Requested size: 396.48027pt x 450.68263pt.
+ <./img/cnn/conv_animation/conv_animation-9.png> <a0,fr9>
+<img/cnn/conv_animation/conv_animation-10.png, id=203, 396.48125pt x 450.68375p
+t>
+File: img/cnn/conv_animation/conv_animation-10.png Graphic file (type png)
+ <use img/cnn/conv_animation/conv_animation-10.png>
+Package pdftex.def Info: img/cnn/conv_animation/conv_animation-10.png used on i
+nput line 152.
+(pdftex.def)             Requested size: 396.48027pt x 450.68263pt.
+ <./img/cnn/conv_animation/conv_animation-10.png> <a0,fr10>
+<img/cnn/conv_animation/conv_animation-11.png, id=212, 396.48125pt x 450.68375p
+t>
+File: img/cnn/conv_animation/conv_animation-11.png Graphic file (type png)
+ <use img/cnn/conv_animation/conv_animation-11.png>
+Package pdftex.def Info: img/cnn/conv_animation/conv_animation-11.png used on i
+nput line 152.
+(pdftex.def)             Requested size: 396.48027pt x 450.68263pt.
+ <./img/cnn/conv_animation/conv_animation-11.png> <a0,fr11>
+<img/cnn/conv_animation/conv_animation-12.png, id=221, 396.48125pt x 450.68375p
+t>
+File: img/cnn/conv_animation/conv_animation-12.png Graphic file (type png)
+ <use img/cnn/conv_animation/conv_animation-12.png>
+Package pdftex.def Info: img/cnn/conv_animation/conv_animation-12.png used on i
+nput line 152.
+(pdftex.def)             Requested size: 396.48027pt x 450.68263pt.
+ <./img/cnn/conv_animation/conv_animation-12.png> <a0,fr12>
+<img/cnn/conv_animation/conv_animation-13.png, id=230, 396.48125pt x 450.68375p
+t>
+File: img/cnn/conv_animation/conv_animation-13.png Graphic file (type png)
+ <use img/cnn/conv_animation/conv_animation-13.png>
+Package pdftex.def Info: img/cnn/conv_animation/conv_animation-13.png used on i
+nput line 152.
+(pdftex.def)             Requested size: 396.48027pt x 450.68263pt.
+ <./img/cnn/conv_animation/conv_animation-13.png> <a0,fr13>
+<img/cnn/conv_animation/conv_animation-14.png, id=239, 396.48125pt x 450.68375p
+t>
+File: img/cnn/conv_animation/conv_animation-14.png Graphic file (type png)
+ <use img/cnn/conv_animation/conv_animation-14.png>
+Package pdftex.def Info: img/cnn/conv_animation/conv_animation-14.png used on i
+nput line 152.
+(pdftex.def)             Requested size: 396.48027pt x 450.68263pt.
+ <./img/cnn/conv_animation/conv_animation-14.png> <a0,fr14>
+<img/cnn/conv_animation/conv_animation-15.png, id=248, 396.48125pt x 450.68375p
+t>
+File: img/cnn/conv_animation/conv_animation-15.png Graphic file (type png)
+ <use img/cnn/conv_animation/conv_animation-15.png>
+Package pdftex.def Info: img/cnn/conv_animation/conv_animation-15.png used on i
+nput line 152.
+(pdftex.def)             Requested size: 396.48027pt x 450.68263pt.
+ <./img/cnn/conv_animation/conv_animation-15.png> <a0,fr15>
+<img/cnn/conv_animation/conv_animation-16.png, id=257, 396.48125pt x 450.68375p
+t>
+File: img/cnn/conv_animation/conv_animation-16.png Graphic file (type png)
+ <use img/cnn/conv_animation/conv_animation-16.png>
+Package pdftex.def Info: img/cnn/conv_animation/conv_animation-16.png used on i
+nput line 152.
+(pdftex.def)             Requested size: 396.48027pt x 450.68263pt.
+ <./img/cnn/conv_animation/conv_animation-16.png> <a0,fr16>
+<img/cnn/conv_animation/conv_animation-17.png, id=266, 396.48125pt x 450.68375p
+t>
+File: img/cnn/conv_animation/conv_animation-17.png Graphic file (type png)
+ <use img/cnn/conv_animation/conv_animation-17.png>
+Package pdftex.def Info: img/cnn/conv_animation/conv_animation-17.png used on i
+nput line 152.
+(pdftex.def)             Requested size: 396.48027pt x 450.68263pt.
+ <./img/cnn/conv_animation/conv_animation-17.png> <a0,fr17>
+<img/cnn/conv_animation/conv_animation-18.png, id=275, 396.48125pt x 450.68375p
+t>
+File: img/cnn/conv_animation/conv_animation-18.png Graphic file (type png)
+ <use img/cnn/conv_animation/conv_animation-18.png>
+Package pdftex.def Info: img/cnn/conv_animation/conv_animation-18.png used on i
+nput line 152.
+(pdftex.def)             Requested size: 396.48027pt x 450.68263pt.
+ <./img/cnn/conv_animation/conv_animation-18.png> <a0,fr18>
+<img/cnn/conv_animation/conv_animation-19.png, id=284, 396.48125pt x 450.68375p
+t>
+File: img/cnn/conv_animation/conv_animation-19.png Graphic file (type png)
+ <use img/cnn/conv_animation/conv_animation-19.png>
+Package pdftex.def Info: img/cnn/conv_animation/conv_animation-19.png used on i
+nput line 152.
+(pdftex.def)             Requested size: 396.48027pt x 450.68263pt.
+ <./img/cnn/conv_animation/conv_animation-19.png> <a0,fr19>
+<img/cnn/conv_animation/conv_animation-20.png, id=293, 396.48125pt x 450.68375p
+t>
+File: img/cnn/conv_animation/conv_animation-20.png Graphic file (type png)
+ <use img/cnn/conv_animation/conv_animation-20.png>
+Package pdftex.def Info: img/cnn/conv_animation/conv_animation-20.png used on i
+nput line 152.
+(pdftex.def)             Requested size: 396.48027pt x 450.68263pt.
+ <./img/cnn/conv_animation/conv_animation-20.png> <a0,fr20>
+<img/cnn/conv_animation/conv_animation-21.png, id=302, 396.48125pt x 450.68375p
+t>
+File: img/cnn/conv_animation/conv_animation-21.png Graphic file (type png)
+ <use img/cnn/conv_animation/conv_animation-21.png>
+Package pdftex.def Info: img/cnn/conv_animation/conv_animation-21.png used on i
+nput line 152.
+(pdftex.def)             Requested size: 396.48027pt x 450.68263pt.
+ <./img/cnn/conv_animation/conv_animation-21.png> <a0,fr21>
+<img/cnn/conv_animation/conv_animation-22.png, id=311, 396.48125pt x 450.68375p
+t>
+File: img/cnn/conv_animation/conv_animation-22.png Graphic file (type png)
+ <use img/cnn/conv_animation/conv_animation-22.png>
+Package pdftex.def Info: img/cnn/conv_animation/conv_animation-22.png used on i
+nput line 152.
+(pdftex.def)             Requested size: 396.48027pt x 450.68263pt.
+ <./img/cnn/conv_animation/conv_animation-22.png> <a0,fr22>
+<img/cnn/conv_animation/conv_animation-23.png, id=320, 396.48125pt x 450.68375p
+t>
+File: img/cnn/conv_animation/conv_animation-23.png Graphic file (type png)
+ <use img/cnn/conv_animation/conv_animation-23.png>
+Package pdftex.def Info: img/cnn/conv_animation/conv_animation-23.png used on i
+nput line 152.
+(pdftex.def)             Requested size: 396.48027pt x 450.68263pt.
+ <./img/cnn/conv_animation/conv_animation-23.png> <a0,fr23>
+<img/cnn/conv_animation/conv_animation-24.png, id=329, 396.48125pt x 450.68375p
+t>
+File: img/cnn/conv_animation/conv_animation-24.png Graphic file (type png)
+ <use img/cnn/conv_animation/conv_animation-24.png>
+Package pdftex.def Info: img/cnn/conv_animation/conv_animation-24.png used on i
+nput line 152.
+(pdftex.def)             Requested size: 396.48027pt x 450.68263pt.
+ <./img/cnn/conv_animation/conv_animation-24.png> <a0,fr24>
+File: logo_unimore_white.png Graphic file (type png)
+ <use logo_unimore_white.png>
+Package pdftex.def Info: logo_unimore_white.png used on input line 152.
+(pdftex.def)             Requested size: 46.66745pt x 19.24994pt.
+
+Overfull \vbox (14.61726pt too high) detected at line 152
+ []
+
+[11
+
+]
+<img/cnn/conv_animation_stride/conv_animation_stride-0.png, id=361, 295.1025pt 
+x 289.08pt>
+File: img/cnn/conv_animation_stride/conv_animation_stride-0.png Graphic file (t
+ype png)
+ <use img/cnn/conv_animation_stride/conv_animation_stride-0.png>
+Package pdftex.def Info: img/cnn/conv_animation_stride/conv_animation_stride-0.
+png used on input line 163.
+(pdftex.def)             Requested size: 295.10176pt x 289.07928pt.
+ <./img/cnn/conv_animation_stride/conv_animation_stride-0.png> <a1,fr0>
+<img/cnn/conv_animation_stride/conv_animation_stride-1.png, id=370, 295.1025pt 
+x 289.08pt>
+File: img/cnn/conv_animation_stride/conv_animation_stride-1.png Graphic file (t
+ype png)
+ <use img/cnn/conv_animation_stride/conv_animation_stride-1.png>
+Package pdftex.def Info: img/cnn/conv_animation_stride/conv_animation_stride-1.
+png used on input line 163.
+(pdftex.def)             Requested size: 295.10176pt x 289.07928pt.
+ <./img/cnn/conv_animation_stride/conv_animation_stride-1.png> <a1,fr1>
+<img/cnn/conv_animation_stride/conv_animation_stride-2.png, id=379, 295.1025pt 
+x 289.08pt>
+File: img/cnn/conv_animation_stride/conv_animation_stride-2.png Graphic file (t
+ype png)
+ <use img/cnn/conv_animation_stride/conv_animation_stride-2.png>
+Package pdftex.def Info: img/cnn/conv_animation_stride/conv_animation_stride-2.
+png used on input line 163.
+(pdftex.def)             Requested size: 295.10176pt x 289.07928pt.
+ <./img/cnn/conv_animation_stride/conv_animation_stride-2.png> <a1,fr2>
+<img/cnn/conv_animation_stride/conv_animation_stride-3.png, id=388, 295.1025pt 
+x 289.08pt>
+File: img/cnn/conv_animation_stride/conv_animation_stride-3.png Graphic file (t
+ype png)
+ <use img/cnn/conv_animation_stride/conv_animation_stride-3.png>
+Package pdftex.def Info: img/cnn/conv_animation_stride/conv_animation_stride-3.
+png used on input line 163.
+(pdftex.def)             Requested size: 295.10176pt x 289.07928pt.
+ <./img/cnn/conv_animation_stride/conv_animation_stride-3.png> <a1,fr3>
+File: logo_unimore_white.png Graphic file (type png)
+
+<use logo_unimore_white.png>
+Package pdftex.def Info: logo_unimore_white.png used on input line 163.
+(pdftex.def)             Requested size: 46.66745pt x 19.24994pt.
+ [12
+
+]
+<img/cnn/local_connectivity.jpg, id=419, 299.9205pt x 303.534pt>
+File: img/cnn/local_connectivity.jpg Graphic file (type jpg)
+
+<use img/cnn/local_connectivity.jpg>
+Package pdftex.def Info: img/cnn/local_connectivity.jpg used on input line 181.
+
+(pdftex.def)             Requested size: 95.6004pt x 96.75307pt.
+File: logo_unimore_white.png Graphic file (type png)
+ <use logo_unimore_white.png>
+Package pdftex.def Info: logo_unimore_white.png used on input line 181.
+(pdftex.def)             Requested size: 46.66745pt x 19.24994pt.
+ [13
+
+ <./img/cnn/local_connectivity.jpg>]
+("C:\Program Files\MiKTeX 2.9\tex\latex\ucs\uni-32.def"
+File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
+)
+File: logo_unimore_white.png Graphic file (type png)
+
+<use logo_unimore_white.png>
+Package pdftex.def Info: logo_unimore_white.png used on input line 189.
+(pdftex.def)             Requested size: 46.66745pt x 19.24994pt.
+ [14
+
+]
+<img/cnn/learned_weights.jpg, id=434, 711.25725pt x 281.853pt>
+File: img/cnn/learned_weights.jpg Graphic file (type jpg)
+
+<use img/cnn/learned_weights.jpg>
+Package pdftex.def Info: img/cnn/learned_weights.jpg used on input line 200.
+(pdftex.def)             Requested size: 318.67209pt x 126.28218pt.
+File: logo_unimore_white.png Graphic file (type png)
+ <use logo_unimore_white.png>
+Package pdftex.def Info: logo_unimore_white.png used on input line 200.
+(pdftex.def)             Requested size: 46.66745pt x 19.24994pt.
+
+Overfull \vbox (25.24141pt too high) detected at line 200
+ []
+
+[15
+
+ <./img/cnn/learned_weights.jpg>]
+File: logo_unimore_white.png Graphic file (type png)
+ <use logo_unimore_white.png>
+Package pdftex.def Info: logo_unimore_white.png used on input line 210.
+(pdftex.def)             Requested size: 46.66745pt x 19.24994pt.
+ [16
+
+]
+<img/cnn/pool.jpg, id=447, 1017.04968pt x 288.3272pt>
+File: img/cnn/pool.jpg Graphic file (type jpg)
+ <use img/cnn/pool.jpg>
+Package pdftex.def Info: img/cnn/pool.jpg used on input line 230.
+(pdftex.def)             Requested size: 358.50229pt x 101.63313pt.
+File: logo_unimore_white.png Graphic file (type png)
+
+<use logo_unimore_white.png>
+Package pdftex.def Info: logo_unimore_white.png used on input line 230.
+(pdftex.def)             Requested size: 46.66745pt x 19.24994pt.
+
+Overfull \vbox (16.8454pt too high) detected at line 230
+ []
+
+[17
+
+ <./img/cnn/pool.jpg>]
+File: logo_unimore_white.png Graphic file (type png)
+ <use logo_unimore_white.png>
+Package pdftex.def Info: logo_unimore_white.png used on input line 247.
+(pdftex.def)             Requested size: 46.66745pt x 19.24994pt.
+ [18
+
+]
+File: logo_unimore_white.png Graphic file (type png)
+
+<use logo_unimore_white.png>
+Package pdftex.def Info: logo_unimore_white.png used on input line 261.
+(pdftex.def)             Requested size: 46.66745pt x 19.24994pt.
+ [19
+
+]
+<img/cnn/semseg_in.jpg, id=466, 1233.408pt x 616.704pt>
+File: img/cnn/semseg_in.jpg Graphic file (type jpg)
+
+<use img/cnn/semseg_in.jpg>
+Package pdftex.def Info: img/cnn/semseg_in.jpg used on input line 275.
+(pdftex.def)             Requested size: 119.50279pt x 59.74493pt.
+
+<img/cnn/semseg_out.png, id=467, 2055.68pt x 1027.84pt>
+File: img/cnn/semseg_out.png Graphic file (type png)
+
+<use img/cnn/semseg_out.png>
+Package pdftex.def Info: img/cnn/semseg_out.png used on input line 275.
+(pdftex.def)             Requested size: 119.50279pt x 59.73866pt.
+File: logo_unimore_white.png Graphic file (type png)
+ <use logo_unimore_white.png>
+Package pdftex.def Info: logo_unimore_white.png used on input line 275.
+(pdftex.def)             Requested size: 46.66745pt x 19.24994pt.
+ [20
+
+ <./img/cnn/semseg_in.jpg> <./img/cnn/semseg_out.png (PNG copy)>]
+<img/cnn/act_sigmoid.jpg, id=477, 340.8735pt x 222.8325pt>
+File: img/cnn/act_sigmoid.jpg Graphic file (type jpg)
+
+<use img/cnn/act_sigmoid.jpg>
+Package pdftex.def Info: img/cnn/act_sigmoid.jpg used on input line 291.
+(pdftex.def)             Requested size: 119.50279pt x 78.11835pt.
+
+<img/cnn/act_tanh.jpg, id=478, 338.4645pt x 204.765pt>
+File: img/cnn/act_tanh.jpg Graphic file (type jpg)
+
+<use img/cnn/act_tanh.jpg>
+Package pdftex.def Info: img/cnn/act_tanh.jpg used on input line 291.
+(pdftex.def)             Requested size: 119.50279pt x 72.29683pt.
+
+<img/cnn/act_relu.jpg, id=479, 355.92975pt x 230.66174pt>
+File: img/cnn/act_relu.jpg Graphic file (type jpg)
+
+<use img/cnn/act_relu.jpg>
+Package pdftex.def Info: img/cnn/act_relu.jpg used on input line 291.
+(pdftex.def)             Requested size: 119.50279pt x 77.4455pt.
+File: logo_unimore_white.png Graphic file (type png)
+ <use logo_unimore_white.png>
+Package pdftex.def Info: logo_unimore_white.png used on input line 291.
+(pdftex.def)             Requested size: 46.66745pt x 19.24994pt.
+ [21
+
+ <./img/cnn/act_sigmoid.jpg> <./img/cnn/act_tanh.jpg> <./img/cnn/act_relu.jpg>]
+File: logo_unimore_white.png Graphic file (type png)
+
+<use logo_unimore_white.png>
+Package pdftex.def Info: logo_unimore_white.png used on input line 302.
+(pdftex.def)             Requested size: 46.66745pt x 19.24994pt.
+ [22
+
+]
+File: logo_unimore_white.png Graphic file (type png)
+ <use logo_unimore_white.png>
+Package pdftex.def Info: logo_unimore_white.png used on input line 313.
+(pdftex.def)             Requested size: 46.66745pt x 19.24994pt.
+ [23
+
+]
+File: logo_unimore_white.png Graphic file (type png)
+
+<use logo_unimore_white.png>
+Package pdftex.def Info: logo_unimore_white.png used on input line 330.
+(pdftex.def)             Requested size: 46.66745pt x 19.24994pt.
+
+Overfull \vbox (2.25471pt too high) detected at line 330
+ []
+
+[24
+
+]
+File: logo_unimore_white.png Graphic file (type png)
+ <use logo_unimore_white.png>
+Package pdftex.def Info: logo_unimore_white.png used on input line 340.
+(pdftex.def)             Requested size: 46.66745pt x 19.24994pt.
+ [25
+
+]
+<img/cnn/vgg16.jpg, id=517, 852.18375pt x 154.176pt>
+File: img/cnn/vgg16.jpg Graphic file (type jpg)
+ <use img/cnn/vgg16.jpg>
+Package pdftex.def Info: img/cnn/vgg16.jpg used on input line 356.
+(pdftex.def)             Requested size: 318.67209pt x 57.65352pt.
+File: logo_unimore_white.png Graphic file (type png)
+
+<use logo_unimore_white.png>
+Package pdftex.def Info: logo_unimore_white.png used on input line 356.
+(pdftex.def)             Requested size: 46.66745pt x 19.24994pt.
+ [26
+
+ <./img/cnn/vgg16.jpg>] [27
+
+]
+File: logo_unimore_white.png Graphic file (type png)
+
+<use logo_unimore_white.png>
+Package pdftex.def Info: logo_unimore_white.png used on input line 388.
+(pdftex.def)             Requested size: 46.66745pt x 19.24994pt.
+ [28
+
+] [29
+
+] (main_cnn.bbl)
+File: logo_unimore_white.png Graphic file (type png)
+
+<use logo_unimore_white.png>
+Package pdftex.def Info: logo_unimore_white.png used on input line 400.
+(pdftex.def)             Requested size: 46.66745pt x 19.24994pt.
+ [30
+
+]
+File: logo_unimore_white.png Graphic file (type png)
+ <use logo_unimore_white.png>
+Package pdftex.def Info: logo_unimore_white.png used on input line 400.
+(pdftex.def)             Requested size: 46.66745pt x 19.24994pt.
+ [31
+
+
+]
+File: logo_unimore_white.png Graphic file (type png)
+
+<use logo_unimore_white.png>
+Package pdftex.def Info: logo_unimore_white.png used on input line 400.
+(pdftex.def)             Requested size: 46.66745pt x 19.24994pt.
+ [32
+
+
+]
+\tf@nav=\write6
+\openout6 = `main_cnn.nav'.
+
+\tf@toc=\write7
+\openout7 = `main_cnn.toc'.
+
+\tf@snm=\write8
+\openout8 = `main_cnn.snm'.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 401.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 401.
+ (main_cnn.aux (src/titlepage.aux)
+(src/outline.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 401.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 401.
+Package rerunfilecheck Info: File `main_cnn.out' has not changed.
+(rerunfilecheck)             Checksum: 79A917654F04EF5814974D289B5620CC;185.
+
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 1.0pt have occurred.
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 31687 strings out of 493323
+ 625138 string characters out of 3139054
+ 688507 words of memory out of 3000000
+ 34519 multiletter control sequences out of 15000+200000
+ 543826 words of font info for 70 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 74i,13n,86p,10393b,809s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmss12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmssi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mssi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssi8.p
+fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on main_cnn.pdf (32 pages, 1866201 bytes).
+PDF statistics:
+ 619 PDF objects out of 1000 (max. 8388607)
+ 77 named destinations out of 1000 (max. 500000)
+ 877 words of extra memory for PDF output out of 10000 (max. 10000000)
+
