@@ -363,12 +363,58 @@ Then overfitting is prevented through proper \textbf{regularization techniques} 
 
 \section{Training a DNN}
 
+\begin{frame}{Backpropagation}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}{Weights Initialization}
 When initializing the weights in the neural network, turns out that \textbf{random initialization} is very important to \textbf{break the symmetry}.\\
 \vspace{0.2cm}
 Indeed, if all weights were initialized to the same value (\emph{e.g.} $0$) then all neurons would compute the same output, the same gradient and would eventually undergo to the same update. Clearly, this is bad.\\
 \vspace{0.2cm}
 Common practice is to initialize all weights to small random numbers centered on zero (eventually scaled by neuron's \emph{fan-in} \cite{glorot2010understanding,he2015delving}) and all biases to zero.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Objective Function}
+
+The \textbf{objective or loss function} is the \textbf{cost} we want to minimize by appropriately learning network parameters during training.
+
+Objective function is usually made up by the sum of two terms:
+\begin{itemize}
+\item A \emph{regularization term} which has the role to mitigate the risk of overfitting.
+\item A \emph{data term} that measures the goodness of model's predictions. This is computed as the average loss over individual examples, that is $$L=\frac{1}{N} \sum_i L_i$$ where $N$ is the number of training examples.
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Objective Function}
+The choice of the data loss depends on the task we want to solve.
+\begin{itemize}
+	\item \textbf{Classification}:
+	\begin{itemize}
+		\item \emph{hinge loss}:
+		\begin{equation}
+		L_i = max_{j\neq y_i}(0, f_j - f_{y_i} + 1)
+		\end{equation}
+		\item \emph{softmax loss}:
+		\begin{equation}
+		L_i = -log\left(\frac{e^{f_{y_i}}}{\sum_j e^{f_j}}\right)
+		\end{equation}
+	\end{itemize}
+	\item \textbf{Regression}:
+	\begin{itemize}
+		\item \emph{Mean Squared Error (MSE)}
+		\begin{equation}
+		L_i = || f - y_i ||^2_2
+		\end{equation}
+	\end{itemize}
+\end{itemize}
+These are just examples. The objective function is heavily task-dependent and is often customized to meet the specific problem constraints.
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -392,11 +438,6 @@ At testing time, no dropout is applied. This can be interpreted as taking the av
 \end{columns}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{Backpropagation}
-
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
