@@ -399,7 +399,7 @@ The choice of the data loss depends on the task we want to solve.
 	\begin{itemize}
 		\item \emph{hinge loss}:
 		\begin{equation}
-		L_i = max_{j\neq y_i}(0, f_j - f_{y_i} + 1)
+		L_i = \sum_{j\neq y_i}max(0, f_j - f_{y_i} + 1)
 		\end{equation}
 		\item \emph{softmax loss}:
 		\begin{equation}
