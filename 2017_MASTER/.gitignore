@@ -8,3 +8,4 @@
 *.aux
 *.bbl
 *.blg
+src/*.aux
