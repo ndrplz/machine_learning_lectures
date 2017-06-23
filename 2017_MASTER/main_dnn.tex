@@ -190,7 +190,7 @@ Indeed, when \textbf{cross-entropy loss} is applied to neuron's output, we can o
 \end{frame}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Neural Networks}
 When we connect an ensemble of neurons in an acyclic graph is when the magic happens and we get an actual \textbf{neural network}.
@@ -210,14 +210,42 @@ Neural networks are arranged in \textbf{layers}, with one \textit{input layer}, 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Neural Networks}
-From the computational point of view, we can express the 4-layer network previously depicted as follows.
-\begin{equation*}
-a
-\end{equation*}
-
+The 4-layer network previously depicted can be simply expressed as:
+\begin{equation}\label{eq:feedforward}
+out = \phi(\mathbf{W_3}\phi(\mathbf{W_2}\phi(\mathbf{W_1x})))
+\end{equation}
+where:
+\begin{columns}
+\begin{column}{0.6\textwidth}
+\begin{itemize}
+\item $\phi$ is the activation function
+\item $\mathbf{x} \in \R^{6}$ is the input 
+\item $\mathbf{W_1} \in \R^{4x6}$ are the weights of first layer
+\item $\mathbf{W_2} \in \R^{3x4}$ are the weights of second layer
+\item $\mathbf{W_3} \in \R^{1x3}$ are the weights of third layer
+\end{itemize}
+\end{column}
+\begin{column}{0.4\textwidth}
+\includegraphics[width=0.8\textwidth]{img/dnn/neural_network.jpg}   
+\end{column}
+\end{columns}
+\vspace{0.1cm}
+\small{Notice that to ease the notation biases have been incorporated into weight matrices W.}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Forward propagation}
+
+\textbf{Forward propagation} is the process of computing the network output given its input.
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.5\textwidth]{img/dnn/forward_prop.jpg}
+\end{tabular}
+\end{figure}
+The formula of forward propagation for our toy network above is the one in Eq. \ref{eq:feedforward}.
+
+\end{frame}
 
 \begin{frame}{Deep Neural Networks: why now}
 \end{frame}
@@ -228,11 +256,7 @@ a
 
 \section{Training a DNN}
 
-\begin{frame}{Forward propagation}
 
-Forward propagation is the process of computing the network output given its input.
-
-\end{frame}
 
 \begin{frame}{Backpropagation}
 
