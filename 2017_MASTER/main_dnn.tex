@@ -363,6 +363,37 @@ Then overfitting is prevented through proper \textbf{regularization techniques} 
 
 \section{Training a DNN}
 
+\begin{frame}{Weights Initialization}
+When initializing the weights in the neural network, turns out that \textbf{random initialization} is very important to \textbf{break the symmetry}.\\
+\vspace{0.2cm}
+Indeed, if all weights were initialized to the same value (\emph{e.g.} $0$) then all neurons would compute the same output, the same gradient and would eventually undergo to the same update. Clearly, this is bad.\\
+\vspace{0.2cm}
+Common practice is to initialize all weights to small random numbers centered on zero (eventually scaled by neuron's \emph{fan-in} \cite{glorot2010understanding,he2015delving}) and all biases to zero.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Dropout}
+\vspace{0.5cm}
+\begin{columns}
+\begin{column}{0.3\textwidth}
+\begin{tabular}{c}
+\includegraphics[width=0.65\textwidth]{img/dnn/dropout_no.jpg}\\
+\includegraphics[width=0.65\textwidth]{img/dnn/dropout_yes.jpg}
+\end{tabular}
+\end{column}
+\begin{column}{0.7\textwidth}
+Besides traditional regularization techniques (\emph{e.g.} $L_n$ weight regularization), neural networks feature a simple and extremely effective regularization which is  \textbf{dropout}~\cite{srivastava2014dropout}.\\
+\vspace{0.5cm}
+During the training process, each neuron is set to zero (dropped) with a \emph{drop probability} $p$. This can be seen as sampling at each training step a different sub-network and updating only the corresponding portion of parameters.\\
+\vspace{0.5cm}
+At testing time, no dropout is applied. This can be interpreted as taking the average prediction of the ensemble of sub-networks.
+\end{column}
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}{Backpropagation}
 
 \end{frame}
