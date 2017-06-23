@@ -251,6 +251,47 @@ The formula of forward propagation for our toy network above is the one in Eq. \
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Representational Power}
+It has been shown (\emph{e.g.} \cite{cybenko1989approximation}) that any continuous function $f(x)$ can be approximated at arbitrary precision $\epsilon > 0$ by a neural network $g(x)$ with at least one hidden layer.\\
+That is:
+\begin{equation*}
+\forall x, \quad |f(x) - g(x)| < \epsilon
+\end{equation*}
+For this reason neural networks with at least one hidden layers are referred to as \textbf{universal approximators}.
+In practice however networks with more layers often outperform 2-layer nets, despite the fact that on paper their representational power is equal.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Setting Hyperparameters}
+The number of layers in the network, as well as the number of neurons in each layers, are so called \textbf{hyperparameters} of the architecture.\\
+\vspace{0.25cm}
+Keep in mind that:
+\begin{itemize}
+\item the bigger the size and the number of layers, the more the \textbf{capacity} of the network increases, which is good because the space of representable functions grow.\\
+\item bigger networks without proper regularization are way more prone to \textbf{overfit} the training data, which is bad.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Setting Hyperparameters}
+\begin{columns}
+\begin{column}{0.6\textwidth}
+\includegraphics[width=0.9\textwidth]{img/dnn/dnn_overfit.jpg}\\
+\includegraphics[width=0.9\textwidth]{img/dnn/dnn_overfit_reg.jpg}
+\end{column}
+\begin{column}{0.4\textwidth}
+In practice, usually networks are made as big as computational budget allows.\\
+\vspace{0.5cm}
+Then overfitting is prevented through proper \textbf{regularization techniques} (\emph{e.g.} dropout, L2 regularization, input noise).
+\end{column}
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
