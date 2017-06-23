@@ -157,7 +157,7 @@ L_i = -log\left(\frac{e^{f_{y_{i}}}}{\sum_j e^{f_{j}}}\right)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Neural Networks}
+\section{Modeling a Neuron}
 
 \begin{frame}{Introduction}
 Neural Networks are a mathematical model \textbf{coarsely} inspired by the way our own brain works.
@@ -189,8 +189,77 @@ It's easy to see that a single neuron can be used to implement a binary classifi
 Indeed, when \textbf{cross-entropy loss} is applied to neuron's output, we can optimize a \textbf{binary Softmax classifier} (\emph{a.k.a.} Logistic regression).
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Neuron Activation}
+
+\textbf{Activation functions} are non-linear functions computed on the output of each neuron.\\
+There are a number of different activation functions you could use. In practice, the three most widely used functions have been \textit{sigmoid}, \textit{tanh} and \textit{ReLu}. Nonetheless, more complex activation functions exist (\emph{e.g.} \cite{he2015delving,goodfellow2013maxout}).
+
+\textbf{Why do we bother using activations?}\\
+\pause
+Composition of linear functions is a linear function. Without nonlinearities, neural networks would reduce to 1 layer logistic regression.
+
+%\begin{figure}
+%\begin{tabular}{ccc}
+%\includegraphics[width=0.3\textwidth]{img/cnn/act_sigmoid.jpg}&
+%\includegraphics[width=0.3\textwidth]{img/cnn/act_tanh.jpg} & 
+%\includegraphics[width=0.3\textwidth]{img/cnn/act_relu.jpg}\\
+%Sigmoid & Tanh & ReLu
+%\end{tabular}
+%\end{figure}
+
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Neuron Activation}
+\begin{columns}
+\begin{column}{0.25\textwidth}
+\begin{tabular}{c}
+\\
+\includegraphics[width=\textwidth]{img/cnn/act_sigmoid.jpg}\\
+Sigmoid activation\\ \\
+\includegraphics[width=\textwidth]{img/cnn/act_tanh.jpg}\\
+Tanh activation
+\end{tabular}
+\end{column}
+\begin{column}{0.7\textwidth}
+\textbf{Sigmoid} nonlinearity has form $\sigma(x) = 1 / (1 + e^{-x})$. Sigmoid function squashes any real-valued input into range $[0, 1]$. It has seen frequent use historically, yet now it's rarely used. It has two major drawbacks:
+\begin{itemize}
+\item saturates and kill the gradient
+\item output is not zero centered
+\end{itemize}
+\textbf{Tanh} is a scaled sigmoid neuron: $tanh(x)=2\sigma(x)-1$. Differently to sigmoid, input is squashed in range [-1, 1], so the output is 0-centered. However, activation can still saturate and kill the gradient.
+\end{column}
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Neuron Activation}
+\begin{columns}
+\begin{column}{0.25\textwidth}
+\begin{tabular}{c}
+\includegraphics[width=\textwidth]{img/cnn/act_relu.jpg}\\
+ReLu activation\\ 
+\end{tabular}
+\end{column}
+\begin{column}{0.75\textwidth}
+\textbf{ReLu} stands for Rectified Linear Unit and computes the function $f(x) = max(0, x)$. ReLu activation was found to greatly accelerate the convergence of SGD compared to sigmoid/tanh functions \cite{krizhevsky2012imagenet}. Furthermore, ReLu can be implemented by a simple threshold, \emph{w.r.t.} other activations which require complex operations.
+\end{column}
+\end{columns}
+\end{frame}
+
+%\textbf{Why using non-linear activations at all?}\\
+%Composition of linear functions is a linear function. Without nonlinearities, neural networks would reduce to 1 layer logistic regression.
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Neural Networks}
 
 \begin{frame}{Neural Networks}
 When we connect an ensemble of neurons in an acyclic graph is when the magic happens and we get an actual \textbf{neural network}.
@@ -247,9 +316,6 @@ The formula of forward propagation for our toy network above is the one in Eq. \
 
 \end{frame}
 
-\begin{frame}{Deep Neural Networks: why now}
-\end{frame}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Representational Power}
@@ -296,8 +362,6 @@ Then overfitting is prevented through proper \textbf{regularization techniques} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Training a DNN}
-
-
 
 \begin{frame}{Backpropagation}
 
