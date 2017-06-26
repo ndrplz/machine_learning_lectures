@@ -2,6 +2,8 @@
 
 This repository contains a **miscellaneous collection of lectures and lab lectures on deep learning** prepared for teaching activity during my PhD @ University of Modena and Reggio Emilia.
 
+<img src="https://github.com/ndrplz/deep_learning_lectures/blob/master/2017_MASTER/img/dnn/backprop/backprop.gif" height="200">
+
 ---
 
 ### 2017 - Lectures on Deep Learning @ [Master of II Level on Visual Computing, UniMoRe, Italy](http://www.mastermumet.unimore.it/)
