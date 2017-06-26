@@ -195,12 +195,26 @@ Indeed, when \textbf{cross-entropy loss} is applied to neuron's output, we can o
 \begin{frame}{Neuron Activation}
 
 \textbf{Activation functions} are non-linear functions computed on the output of each neuron.\\
-There are a number of different activation functions you could use. In practice, the three most widely used functions have been \textit{sigmoid}, \textit{tanh} and \textit{ReLu}. Nonetheless, more complex activation functions exist (\emph{e.g.} \cite{he2015delving,goodfellow2013maxout}).
-
-\textbf{Why do we bother using activations?}\\
-\pause
-Composition of linear functions is a linear function. Without nonlinearities, neural networks would reduce to 1 layer logistic regression.
-
+There are a number of different activation functions you could use. In practice, the three most widely used functions have been \textit{sigmoid}, \textit{tanh} and \textit{ReLu}. Nonetheless, more complex activation functions exist (\emph{e.g.} \cite{he2015delving,goodfellow2013maxout}).\\
+\vspace{0.8cm}
+\begin{columns}
+\begin{column}{0.25\textwidth}
+\begin{tabular}{c}
+\\
+\includegraphics[width=\textwidth]{img/cnn/act_sigmoid.jpg}\\
+\end{tabular}
+\end{column}
+\begin{column}{0.7\textwidth}
+\textbf{Sigmoid} nonlinearity has form $\sigma(x) = 1 / (1 + e^{-x})$. Sigmoid function squashes any real-valued input into range $[0, 1]$. It has seen frequent use historically, yet now it's rarely used. It has two major drawbacks:
+\begin{itemize}
+\item saturates and kill the gradient
+\item output is not zero centered
+\end{itemize}
+\end{column}
+\end{columns}
+%\textbf{Why do we bother using activations?}\\
+%\pause
+%Composition of linear functions is a linear function. Without nonlinearities, neural networks would reduce to 1 layer logistic regression.
 %\begin{figure}
 %\begin{tabular}{ccc}
 %\includegraphics[width=0.3\textwidth]{img/cnn/act_sigmoid.jpg}&
@@ -209,7 +223,6 @@ Composition of linear functions is a linear function. Without nonlinearities, ne
 %Sigmoid & Tanh & ReLu
 %\end{tabular}
 %\end{figure}
-
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -219,19 +232,17 @@ Composition of linear functions is a linear function. Without nonlinearities, ne
 \begin{column}{0.25\textwidth}
 \begin{tabular}{c}
 \\
-\includegraphics[width=\textwidth]{img/cnn/act_sigmoid.jpg}\\
-Sigmoid activation\\ \\
 \includegraphics[width=\textwidth]{img/cnn/act_tanh.jpg}\\
-Tanh activation
+Tanh activation\\
+\\
+\includegraphics[width=\textwidth]{img/cnn/act_relu.jpg}\\
+ReLu activation
 \end{tabular}
 \end{column}
 \begin{column}{0.7\textwidth}
-\textbf{Sigmoid} nonlinearity has form $\sigma(x) = 1 / (1 + e^{-x})$. Sigmoid function squashes any real-valued input into range $[0, 1]$. It has seen frequent use historically, yet now it's rarely used. It has two major drawbacks:
-\begin{itemize}
-\item saturates and kill the gradient
-\item output is not zero centered
-\end{itemize}
-\textbf{Tanh} is a scaled sigmoid neuron: $tanh(x)=2\sigma(x)-1$. Differently to sigmoid, input is squashed in range [-1, 1], so the output is 0-centered. However, activation can still saturate and kill the gradient.
+\textbf{Tanh} is a scaled sigmoid neuron: $tanh(x)=2\sigma(x)-1$. Differently to sigmoid, input is squashed in range [-1, 1], so the output is 0-centered. However, activation can still saturate and kill the gradient.\\
+\vspace{0.5cm}
+\textbf{ReLu} stands for Rectified Linear Unit and computes the function $f(x) = max(0, x)$. ReLu activation was found to greatly accelerate the convergence of SGD compared to sigmoid/tanh functions \cite{krizhevsky2012imagenet}. Furthermore, ReLu can be implemented by a simple threshold, \emph{w.r.t.} other activations which require complex operations.
 \end{column}
 \end{columns}
 \end{frame}
@@ -239,22 +250,18 @@ Tanh activation
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Neuron Activation}
-\begin{columns}
-\begin{column}{0.25\textwidth}
-\begin{tabular}{c}
-\includegraphics[width=\textwidth]{img/cnn/act_relu.jpg}\\
-ReLu activation\\ 
-\end{tabular}
-\end{column}
-\begin{column}{0.75\textwidth}
-\textbf{ReLu} stands for Rectified Linear Unit and computes the function $f(x) = max(0, x)$. ReLu activation was found to greatly accelerate the convergence of SGD compared to sigmoid/tanh functions \cite{krizhevsky2012imagenet}. Furthermore, ReLu can be implemented by a simple threshold, \emph{w.r.t.} other activations which require complex operations.
-\end{column}
-\end{columns}
+\textbf{Why using non-linear activations at all?}\\
+Composition of linear functions is a linear function. Without nonlinearities, neural networks would reduce to 1 layer logistic regression.\\
+Let's say we have the following function ($\phi$ represent nonlinear activations):
+\begin{equation*}
+f(\bm{x}) = \phi(\mathbf{W_2}\phi(\mathbf{W_1x}))
+\end{equation*}
+If we get rid of nonlinearities, this reduces to:
+\begin{equation*}
+f(\bm{x}) = \mathbf{W_2}\mathbf{W_1x} = \bm{Wx} \quad where \quad \bm{W}=\bm{W_2W_1}
+\end{equation*} 
+which is clearly still linear.
 \end{frame}
-
-%\textbf{Why using non-linear activations at all?}\\
-%Composition of linear functions is a linear function. Without nonlinearities, neural networks would reduce to 1 layer logistic regression.
-%\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -263,7 +270,7 @@ ReLu activation\\
 \section{Neural Networks}
 
 \begin{frame}{Neural Networks}
-When we connect an ensemble of neurons in an acyclic graph is when the magic happens and we get an actual \textbf{neural network}.
+When we connect an ensemble of neurons in a graph is when the magic happens and we get an actual \textbf{neural network}.
 \vspace{0.5cm}
 \begin{columns}
 \begin{column}{0.48\textwidth}
@@ -353,7 +360,7 @@ Keep in mind that:
 \begin{column}{0.4\textwidth}
 In practice, usually networks are made as big as computational budget allows.\\
 \vspace{0.5cm}
-Then overfitting is prevented through proper \textbf{regularization techniques} (\emph{e.g.} dropout, L2 regularization, input noise).
+Then overfitting is prevented through proper \textbf{regularization techniques} (\emph{e.g.} dropout, weight decay, input noise).
 \end{column}
 \end{columns}
 \end{frame}
