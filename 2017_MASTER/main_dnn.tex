@@ -12,6 +12,7 @@
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
 \usepackage{listings}             % Include the listings-package
+\usepackage{bm}	% math package
 \hypersetup{
     colorlinks = true,
     linkcolor = {black},
@@ -363,30 +364,20 @@ Then overfitting is prevented through proper \textbf{regularization techniques} 
 
 \section{Training a DNN}
 
-\begin{frame}{Backpropagation}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{Weights Initialization}
-When initializing the weights in the neural network, turns out that \textbf{random initialization} is very important to \textbf{break the symmetry}.\\
-\vspace{0.2cm}
-Indeed, if all weights were initialized to the same value (\emph{e.g.} $0$) then all neurons would compute the same output, the same gradient and would eventually undergo to the same update. Clearly, this is bad.\\
-\vspace{0.2cm}
-Common practice is to initialize all weights to small random numbers centered on zero (eventually scaled by neuron's \emph{fan-in} \cite{glorot2010understanding,he2015delving}) and all biases to zero.
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Objective Function}
 
-The \textbf{objective or loss function} is the \textbf{cost} we want to minimize by appropriately learning network parameters during training.
-
-Objective function is usually made up by the sum of two terms:
+The \textbf{objective or loss function} \textbf{measures the quality of our mapping} from input to output. This function has a form of this kind:
+\begin{equation*}
+L(\bm{\theta}; \mathbf{x, y})=\frac{1}{N} \sum_i L_i(\bm{\theta}; \mathbf{x_i, y_i}) + \alpha \Omega (\bm{\theta})
+\end{equation*}
+where $N$ is the number of training examples, $\theta$ is the set of network parameters and $\alpha$ weights the regularization's strength.
+In particular:
 \begin{itemize}
-\item A \emph{regularization term} which has the role to mitigate the risk of overfitting.
-\item A \emph{data term} that measures the goodness of model's predictions. This is computed as the average loss over individual examples, that is $$L=\frac{1}{N} \sum_i L_i$$ where $N$ is the number of training examples.
+\item The \emph{data term}, computed as an average over individual examples, measures the goodness of model's predictions \textit{w.r.t.} data labels. 
+\item The \emph{regularization term} which depends only on network parameters and has the role to mitigate the risk of overfitting.
 \end{itemize}
 \end{frame}
 
@@ -418,6 +409,37 @@ These are just examples. The objective function is heavily task-dependent and is
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}{Learning the parameters}
+During training phase, \textbf{we want to learn the set of network parameters which minimize the objective function} on the training set.\\
+\vspace{0.5cm}
+More formally:
+\begin{equation*}
+\bm{\theta}^* = argmin_{\theta} \left(\frac{1}{N} \sum_i L_i(\bm{\theta}; \mathbf{x_i, y_i}) + \alpha \Omega (\bm{\theta})\right)
+\end{equation*}
+\end{frame}
+
+\begin{frame}{Backpropagation}
+The algorithm used to compute the gradients of the loss functions with respect to its parameters is called \textbf{backpropagation}.\\
+\vspace{0.5cm}
+This procedure is based on \textit{chain rule of calculus}
+\begin{equation*}
+\frac{dz}{dx} = \frac{dz}{dy}\frac{dy}{dx} \quad where\ z = f(g(x)),\ y = g(x) 
+\end{equation*}
+and proceeds backwards \textit{w.r.t} the flow of computations performed to compute the loss itself (hence the name).
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Weights Initialization}
+When initializing the weights in the neural network, turns out that \textbf{random initialization} is very important to \textbf{break the symmetry}.\\
+\vspace{0.2cm}
+Indeed, if all weights were initialized to the same value (\emph{e.g.} $0$) then all neurons would compute the same output, the same gradient and would eventually undergo to the same update. Clearly, this is bad.\\
+\vspace{0.2cm}
+Common practice is to initialize all weights to small random numbers centered on zero (eventually scaled by neuron's \emph{fan-in} \cite{glorot2010understanding,he2015delving}) and all biases to zero.
+\end{frame}
 
 \begin{frame}{Dropout}
 \vspace{0.5cm}
