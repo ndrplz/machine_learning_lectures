@@ -18,6 +18,8 @@
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
 \usepackage{listings}             % Include the listings-package
+\usepackage{bm}	% math package
+
 \hypersetup{
     colorlinks = true,
     linkcolor = {black},
@@ -61,8 +63,83 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Recurrent Neural Networks: overview}
-\cite{yu2015multi}
+\begin{frame}{Recurrent Neural Networks}
+test \cite{cybenko1989approximation}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Recurrent Neural Networks}
+In \textbf{feedforward neural network} computation flows directly from input $\bm{x}$ through intermediate layers $\bm{h}$ to output $\bm{y}$.\\
+\vspace{0.5cm}
+\begin{columns}
+\begin{column}{0.3\textwidth}
+\begin{tabular}{c}
+	\includegraphics[width=0.7\textwidth]{img/rnn/vanilla_rnn.png}
+\end{tabular}
+\end{column}
+\begin{column}{0.7\textwidth}
+Conversely, some networks topology feature feedback connections, in other words model outputs are fed back into the model itself.\\
+\vspace{0.5cm}
+The term \textbf{recurrent neural networks} defines this family of models.
+\end{column}
+\end{columns}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Recurrent Neural Networks}
+Recurrent neural networks (RNN) are \textbf{specialized for processing sequences}. Similarly, we saw that convolutional neural networks are specialized for processing images.\\
+\vspace{0.4cm}
+RNNs boast a \textbf{much wider API with respect to feedforward neural networks}. Indeed, these models allow us to operate over \textit{sequences} of vectors in the input, in the output or even both.
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.7\textwidth]{img/rnn/rnn_api.jpg}
+\end{tabular}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Unfolding the Computational Graph}
+A recurrent computational graph can be unfolded into a sequential computational graph with a repetitive structure.
+\begin{equation*}
+\bm{h}^{(t)} = f(\bm{h}^{t-1}, \bm{x}^{(t)}; \bm{\theta})
+\end{equation*}
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.8\textwidth]{img/rnn/rnn_unfold.png}
+\end{tabular}
+\end{figure}
+\begin{columns}
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\\
+
+\begin{frame}{Hidden State}
+The hidden state $\bm{h}^{(t)}$ can be intuitively viewed as a \textit{lossy} summary of the sequence of past inputs fed to the network, in which are stored the main task-relevant aspects of the past sequence of inputs up to time $t$.\\
+\vspace{0.5cm}
+Since the an input sequence of arbitrary length $(\bm{x}^{(1)}, \bm{x}^{(2)}, ..., \bm{x}^{(t)})$ is mapped into a fixed size vector $\bm{h}^{(t)}$, this summary is necessarily lossy.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Backpropagation Through Time}
+how to unroll a recursive graph
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{The Challenge of Long-Term Dependencies}
+Vanishing and exploding gradient problem.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Long Short-Term Memory networks}
+Vanishing and exploding gradient problem.
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -70,6 +147,13 @@
 \begin{frame}{Notes}
 No matter how's the network topology, during backpropagation the network is unfolded in a DAG, so there are no loops.
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Credits}
+\include{src/credits}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
