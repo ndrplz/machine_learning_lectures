@@ -440,6 +440,40 @@ and proceeds backwards \textit{w.r.t} the flow of computations performed to comp
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}{Backpropagation}
+Backpropagation is a \textbf{local} process. Neurons are completely unaware of the complete topology of the network in which they are embedded.\\
+\vspace{0.5cm}
+Indeed, in order for backpropagation to work, \textbf{each neuron just need to be able to compute two things}:\\
+\vspace{0.5cm}
+\begin{columns}
+\begin{column}{0.3\textwidth}
+	\includegraphics[width=\textwidth]{img/dnn/single_neuron_forward.png}
+\end{column}
+\begin{column}{0.7\textwidth}
+	$\frac{\partial \bm{h_{i+1}}}{\partial \bm{W_{i+1}}}$ Derivative of its output with respect to its weights.\\
+	\vspace{0.2cm}
+	$\frac{\partial \bm{h_{i+1}}}{\partial \bm{h_{i}}}$ Derivative of its output with respect to its inputs.
+\end{column}
+\end{columns}
+\vspace{0.5cm}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Backpropagation}
+During backpropagation, the neuron will eventually discover the influence of its output value on the output of the whole network, that is will receive $\frac{\partial \bm{L}}{\partial \bm{h_{i+1}}}$.\\
+\vspace{0.5cm}
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.5\textwidth]{img/dnn/single_neuron_backward.png}
+\end{tabular}
+\end{figure}
+This gradient is then chained to local gradient and passed to previous neurons to continue the backpropagation flow.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}{Backpropagation: example}
 \begin{tabular}{c}
 \includegraphics[width=1.\textwidth]{img/dnn/backprop/backprop_0.png}
