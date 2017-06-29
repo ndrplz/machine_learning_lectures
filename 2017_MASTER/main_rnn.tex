@@ -223,11 +223,12 @@ Both issues can be mitigated through proper weight initialization, accurate choi
 \section{Advanced RNN Architectures}
 
 \begin{frame}{Advanced Recurrent Architectures}
-\textbf{Long Short-Term Memory (LSTM)} and \textbf{Gated Recurrent Unit (GRU)} are more complex recurrent architectures that have been proposed \cite{hochreiter1997long,cho2014learning} to overcome the issues in the gradient flow and to ease the learning of long-term dependencies.\\
-\vspace{0.5cm}
-Both these architectures feature advanced \textbf{learnable gating mechanisms} in order to explicitly learn long-term dependencies.\\
-%\vspace{0.5cm}
-%In the following we'll explore LSTM architecture which is more commonly used: yet, principles behind perfectly apply to GRU.
+\textbf{Long Short-Term Memory (LSTM)} and \textbf{Gated Recurrent Unit (GRU)} are more complex recurrent architectures that have been proposed \cite{hochreiter1997long,cho2014learning} to overcome the issues in the gradient flow and to ease the learning of long-term dependencies thanks to the introduction of \textbf{learnable gating mechanisms}.
+	\begin{figure}
+	\begin{tabular}{c}
+	\includegraphics[width=0.75\textwidth]{img/rnn/lstm_cell.png}
+	\end{tabular}
+	\end{figure}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -240,8 +241,8 @@ Let's see \textbf{how update equations look like for a LSTM model}. Please notic
 	\bm{f} = \sigma(\bm{x}^{(t)}\bm{U}_{f} + \bm{s}^{(t-1)}\bm{W}_{f})\\
 	\bm{o} = \sigma(\bm{x}^{(t)}\bm{U}_{o} + \bm{s}^{(t-1)}\bm{W}_{o})\\
 	\bm{g} = \tanh(\bm{x}^{(t)}\bm{U}_g + \bm{s}^{(t-1)}\bm{W}_g)\\
-	\bm{c}_t = \bm{c}_{t-1} \odot \bm{f} + \bm{g} \odot \bm{i}\\
-	\bm{s}_t = \tanh(\bm{c}_t) \odot \bm{o}
+	\bm{c}^{(t)} = \bm{c}^{(t-1)} \odot \bm{f} + \bm{g} \odot \bm{i}\\
+	\bm{s}^{(t)} = \tanh(\bm{c}^{(t)}) \odot \bm{o}
 	\end{cases}
 \end{equation}
 Here $\odot$ denotes element-wise multiplication. If this sounds complicated, in the following slides we'll parse each of these equations to make a sense out of it.
@@ -255,14 +256,44 @@ Here $\odot$ denotes element-wise multiplication. If this sounds complicated, in
 	\bm{i} = \sigma(\bm{x}^{(t)}\bm{U}_{i} + \bm{s}^{(t-1)}\bm{W}_{i})\\
 	\bm{f} = \sigma(\bm{x}^{(t)}\bm{U}_{f} + \bm{s}^{(t-1)}\bm{W}_{f})\\
 	\bm{o} = \sigma(\bm{x}^{(t)}\bm{U}_{o} + \bm{s}^{(t-1)}\bm{W}_{o})\\
+	\dots
 	\end{cases}
 \end{equation}\\
-\vspace{0.3cm}
+\vspace{0.2cm}
 These are the input, forget and output \textbf{gates} respectively. Each gate has the same dimension of the hidden state. Gates are multiplied element-wise with other functions of LSTM thus acting as \textbf{continuous, differentiable switches} thanks to the sigmoid activation function.\\
-\vspace{0.3cm}
+\vspace{0.2cm}
 \textit{Input} and \textit{output gates} controls how much of the input let through and how much of the internal state exposing to the external, respectively.	Conversely, \textit{forget gate} controls how much memory form previous time step must be overwritten.
 
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Long Short-Term Memory networks}
+\begin{equation}
+\begin{cases}
+\dots\\
+	\bm{g} = \tanh(\bm{x}^{(t)}\bm{U}_g + \bm{s}^{(t-1)}\bm{W}_g)\\
+	\dots\\
+	\end{cases}
+\end{equation}
+This equation computes what could intuitively be described a \textbf{candidate state}. Indeed, the equation is pretty much the same that we saw for vanilla RNN architecture. Nonetheless, the amount of influence of $\bm{g}$ on the LSTM memory cell is controlled by input gate $\bm{i}$.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Long Short-Term Memory networks}
+\begin{equation}
+\begin{cases}
+	\dots\\
+	\bm{c}^{(t)} = \bm{c}^{(t-1)} \odot \bm{f} + \bm{g} \odot \bm{i}\\
+	\bm{s}^{(t)} = \tanh(\bm{c}^{(t)}) \odot \bm{o}
+\end{cases}
+\end{equation}
+First equation computes the \textbf{update for memory cell} $\bm{c}$. The \textit{forget gate} controls how much of memory from previous steps $\bm{c}^{(t)}$ must be kept. \textit{Input gate} supervises the amount of newly computed state $\bm{g}$ that has to flow into the memory.\\
+\vspace{0.25cm}
+Eventually, last equation compute the \textbf{output hidden state} from the current memory. \textit{Output gate} regulates the amount of information to be exposed to successive layers.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
