@@ -2,40 +2,30 @@ import tensorflow as tf
 from lab_utils import get_mnist_data, EPS
 
 
-def single_layer_net(x):
+def tiny_convnet(x, keep_prob):
 
-    input_dim       = 784
-    n_classes       = 10
+    n_classes = 10
 
-    with tf.variable_scope('single_layer_net'):
+    x_image = tf.reshape(x, shape=[-1, 28, 28, 1])
 
-        W = tf.Variable(initial_value=tf.random_normal(shape=[input_dim, n_classes]), name='weights')
-        b = tf.Variable(initial_value=tf.zeros(shape=[n_classes]), name='biases')
+    with tf.variable_scope('tiny_cnn'):
 
-        logits = tf.matmul(x, W) + b
+        conv1_filters = 32
+        conv1 = tf.layers.conv2d(x_image, conv1_filters, kernel_size=(3, 3), padding='same')
+        pool1 = tf.layers.max_pooling2d(conv1, pool_size=(2, 2), strides=(2, 2), padding='same')
 
-        y = tf.nn.softmax(logits)
+        conv2_filters = 64
+        conv2 = tf.layers.conv2d(pool1, conv2_filters, kernel_size=(3, 3), padding='same')
+        pool2 = tf.layers.max_pooling2d(conv2, pool_size=(2, 2), strides=(2, 2), padding='same')
 
-        return y
+        pool2_flat = tf.reshape(pool2, shape=(-1, 7*7*conv2_filters))
 
+        pool2_drop = tf.nn.dropout(pool2_flat, keep_prob=keep_prob)
 
-def multi_layer_net(x):
+        hidden_units = 100
+        hidden = tf.layers.dense(pool2_drop, units=hidden_units, activation=tf.nn.relu)
 
-    input_dim       = 784
-    hidden_dim      = 100
-    n_classes       = 10
-
-    with tf.variable_scope('multi_layer_net'):
-
-        W_1 = tf.Variable(initial_value=tf.random_normal(shape=[input_dim, hidden_dim]), name='l1_weights')
-        b_1 = tf.Variable(initial_value=tf.zeros(shape=[hidden_dim]), name='l1_biases')
-
-        hidden_1 = tf.nn.relu(tf.matmul(x, W_1) + b_1)
-
-        W_2 = tf.Variable(initial_value=tf.random_normal(shape=[hidden_dim, n_classes]), name='l2_weights')
-        b_2 = tf.Variable(initial_value=tf.zeros(shape=[n_classes]), name='l2_biases')
-
-        logits = tf.matmul(hidden_1, W_2) + b_2
+        logits = tf.layers.dense(hidden, units=n_classes, activation=None)
 
         y = tf.nn.softmax(logits)
 
@@ -49,12 +39,13 @@ if __name__ == '__main__':
 
     # Placeholders
     x = tf.placeholder(dtype=tf.float32, shape=[None, 784])     # input placeholder
+    p = tf.placeholder(dtype=tf.float32)                        # dropout keep probability
 
     # Placeholder for targets
     targets = tf.placeholder(dtype=tf.float32, shape=[None, 10])
 
     # Define model output
-    y = single_layer_net(x)
+    y = tiny_convnet(x, keep_prob=p)
 
     # Define loss function
     loss = tf.reduce_mean(-tf.reduce_sum(targets * tf.log(y + EPS), reduction_indices=1))
@@ -74,7 +65,7 @@ if __name__ == '__main__':
         sess.run(init_op)
 
         # Training parameters
-        training_epochs = 5
+        training_epochs = 10
         batch_size      = 128
 
         # Number of batches to process to see whole dataset
@@ -84,7 +75,7 @@ if __name__ == '__main__':
 
             # During training measure accuracy on validation set to have an idea of what's happening
             val_accuracy = sess.run(fetches=accuracy,
-                                    feed_dict={x: mnist.validation.images, targets: mnist.validation.labels})
+                                    feed_dict={x: mnist.validation.images, targets: mnist.validation.labels, p: 1.})
             print('Epoch: {:06d} - VAL accuracy: {:.03f}'.format(epoch, val_accuracy))
 
             for _ in range(batches_each_epoch):
@@ -94,13 +85,14 @@ if __name__ == '__main__':
 
                 # Actually run one training step here
                 sess.run(fetches=[train_step],
-                         feed_dict={x: x_batch, targets: target_batch})
+                         feed_dict={x: x_batch, targets: target_batch, p: 0.5})
 
         # Eventually evaluate on whole test set when training ends
         test_accuracy = sess.run(fetches=accuracy,
-                                 feed_dict={x: mnist.test.images, targets: mnist.test.labels})
+                                 feed_dict={x: mnist.test.images, targets: mnist.test.labels, p: 1.})
         print('*' * 50)
         print('Training ended. TEST accuracy: {:.03f}'.format(test_accuracy))
+
 
 
 
