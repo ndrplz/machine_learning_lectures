@@ -159,7 +159,7 @@ Graph definition is totally separated from execution.\\
 \begin{frame}{Tensors}
 In this framework, we can think of \textbf{tensors} as \textbf{n-dimensional matrices}.\\
 \vspace{0.25cm}
-This allows to abstract over the precise structure, \textit{e.g.}:
+This allows to abstract over the precise data structure, \textit{e.g.}:
 \begin{itemize}
 \item[0-d] scalars
 \item[1-d] vectors
@@ -192,7 +192,31 @@ Example:
 \includegraphics[width=0.95\textwidth]{img/tf/placeholders.png}
 \end{tabular}
 \end{figure}
-Other advanced methods for feeding the computational graph exist, but we don't cover them in these introductory lectures.
+Other advanced methods for feeding the computational graph exist, yet these are out of the scope these introductory lectures.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Variables}
+\textbf{Variables} are the core types we want to use when building a machine learning models. Indeed, variables' derivatives can be automatically computed by TensorFlow, which make possible easily implementing \textbf{gradient-based learning} strategies.\\
+\vspace{0.5cm}
+For this reason, learnable parameters in a machine learning models (\textit{e.g.} weights and biases of a deep network) are implemented as trainable variables.
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.8\textwidth]{img/tf/variable_creation.jpg}
+\end{tabular}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Variable Initialization}
+When you launch the graph, \textbf{variables have to be explicitly initialized} before you can run operations that use their value. To this purpose the convenience function \texttt{global\_variables\_initializer} is commonly used.
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.95\textwidth]{img/tf/variable_initialization.png}
+\end{tabular}
+\end{figure}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -204,15 +228,19 @@ Other advanced methods for feeding the computational graph exist, but we don't c
 \includegraphics[width=0.7\textwidth]{img/tf/tensorboard.jpg}
 \end{tabular}
 \end{figure}
-
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-
-\begin{frame}
-\cite{tensorflow2015-whitepaper}
+\begin{frame}{TensorBoard}
+From a very high-level perspective, the lifecycle is the following:
+\begin{itemize}
+\item \textbf{tf.summary operations} can be attached to the nodes you'd like to collect summary data from.
+\item \textbf{tf.summary.FileWriter} object is in charge of writing generated logs to a certain directory \texttt{logdir}
+\item \textbf{TensorBoard} can be launched from command line as\\
+\texttt{tensorboard --logdir=<logdir>}. TensorBoard is now available through your web browser at \texttt{localhost:6006}.
+\end{itemize}
+Official tutorial here: \url{https://www.tensorflow.org/get_started/summaries_and_tensorboard}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
