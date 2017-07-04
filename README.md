@@ -2,16 +2,24 @@
 
 This repository contains a **miscellaneous collection of lectures and lab lectures on deep learning** prepared for teaching activity during my PhD @ University of Modena and Reggio Emilia.
 
-<img src="https://github.com/ndrplz/deep_learning_lectures/blob/master/2017_MASTER/img/dnn/backprop/backprop.gif" height="200">
+<img src="https://github.com/ndrplz/deep_learning_lectures/blob/master/2017_MASTER/slides/img/dnn/backprop/backprop.gif" height="200">
 
 ---
 
 ## 2017 - Lectures on Deep Learning @ [Master of II Level on Visual Computing, UniMoRe, Italy](http://www.mastermumet.unimore.it/)
 Crash course on Deep Learning and Temporal Data Processing. Both pdf slides and LaTeX source code is available. 
-  ### PDF slides
-  - **[DNN.pdf](2017_MASTER/main_dnn.pdf)** -  slides on **neural network and deep neural networks**.
-  - **[CNN.pdf](2017_MASTER/main_cnn.pdf)** - slides on **convolutional neural networks**.
-  - **[RNN.pdf](2017_MASTER/main_rnn.pdf)** - slides on **recurrent neural networks**. 
+  ### THEORY
+  - **[DNN.pdf](2017_MASTER/slides/main_dnn.pdf)** -  slides on **neural network and deep neural networks**.
+  - **[CNN.pdf](2017_MASTER/slides/main_cnn.pdf)** - slides on **convolutional neural networks**.
+  - **[RNN.pdf](2017_MASTER/slides/main_rnn.pdf)** - slides on **recurrent neural networks**. 
+  ### PRACTICE
+  ##### SLIDES
+  - **[TF_basics.pdf](2017_MASTER/slides/tensorflow_00_intro.pdf)** - slides on **TensorFlow basics**.
+  ##### CODE
+  - **[lab01 - neural_networks](2017_MASTER/lab_code/lab_01_neural_network.py)**
+  - **[lab02 - convolutional neural networks](2017_MASTER/lab_code/lab_02_convolutional_networks.py)**
+  
+  
   ### LaTeX source
   - Whole LaTeX source is available in repository in [2017_MASTER](2017_MASTER)
 
