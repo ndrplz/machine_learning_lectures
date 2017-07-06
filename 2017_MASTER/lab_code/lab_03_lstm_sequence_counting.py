@@ -1,12 +1,16 @@
+import argparse
 import tensorflow as tf
 from synthetic_dataset import SyntheticSequenceDataset
 import numpy as np
 
-
-EPS = np.finfo('float32').eps
-
-
 if __name__ == '__main__':
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--hidden_size', type=int, default=50, help='Hidden size of LSTM', metavar='')
+    parser.add_argument('--batch_size', type=np.int32, default=128, help='Batch size', metavar='')
+    parser.add_argument('--training_epochs', type=np.int32, default=3, help='Number of training epochs', metavar='')
+    parser.add_argument('--eps', type=np.float32, default=np.finfo('float32').eps,  help='Machine epsilon', metavar='')
+    args = parser.parse_args()
 
     n_classes           = 21  # there are 21 = 0, 1, ..., 20 different classes
     synthetic_dataset   = SyntheticSequenceDataset()
@@ -14,7 +18,7 @@ if __name__ == '__main__':
     data    = tf.placeholder(dtype=tf.float32, shape=[None, 20, 1])
     targets = tf.placeholder(dtype=tf.float32, shape=[None, 21])
 
-    hidden_size = 50
+    hidden_size = args.hidden_size
     cell        = tf.contrib.rnn.LSTMCell(hidden_size, state_is_tuple=True)
 
     val, _  = tf.nn.dynamic_rnn(cell, inputs=data, dtype=tf.float32)
@@ -28,7 +32,7 @@ if __name__ == '__main__':
 
     prediction = tf.nn.softmax(tf.matmul(last_output, W) + b)
 
-    cross_entropy = - tf.reduce_sum(targets * tf.log(prediction + EPS))
+    cross_entropy = - tf.reduce_sum(targets * tf.log(prediction + args.eps))
 
     train_step = tf.train.AdamOptimizer().minimize(cross_entropy)
 
@@ -47,8 +51,8 @@ if __name__ == '__main__':
         train_data, train_targets, test_data, test_targets = synthetic_dataset.data
 
         # Training parameters
-        training_epochs     = 3
-        batch_size          = 256
+        training_epochs     = args.training_epochs
+        batch_size          = args.batch_size
         batches_each_epoch  = int(len(train_data)) // batch_size
 
         print('\n' + 50*'*' + '\nTraining\n' + 50*'*')

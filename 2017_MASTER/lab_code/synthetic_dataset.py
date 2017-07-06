@@ -18,7 +18,7 @@ class SyntheticSequenceDataset:
 
         if not self._data:
             if not self.force_recompute and path.exists(self.dataset_cache):
-                print('Loading dataset form cache...')
+                print('Loading dataset from cache...')
                 with open(self.dataset_cache, 'rb') as dump_file:
                     dataset = pickle.load(dump_file)
             else:
