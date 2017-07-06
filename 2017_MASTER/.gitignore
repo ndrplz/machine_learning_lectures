@@ -9,3 +9,6 @@
 *.bbl
 *.blg
 src/*.aux
+
+# ignore binary stuff
+*.pickle
