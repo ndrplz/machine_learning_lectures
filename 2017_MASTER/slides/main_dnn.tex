@@ -57,8 +57,46 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Deep Neural Networks: overview}
-\cite{yu2015multi}
+\begin{frame}{Here is the Hype}
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.9\textwidth]{img/dnn/deep_learning_media.jpg}
+\end{tabular}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Neural Networks are NOT new}
+Despite the current hype on the deep learning revolution, neural networks algorithms are far from being new. This is the \textbf{third time} that neural networks come to the fore:
+\begin{itemize}
+\item \textbf{1940s-1960s}: theories of biological inspired learning\cite{morris1999hebb,mcculloch1943logical}. The first pioneering models such as the perceptron \cite{rosenblatt1958perceptron}. A single neuron is trained for the first time.
+\item \textbf{1980s-1990s}: neural networks with a couple of hidden layers are trained by means of backpropagation\cite{rumelhart1988learning}.
+\item \textbf{2006-now}: we're here.
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Why Now?}
+Despite underlying ideas of deep learning have been around since a while, only recently performance boosted. This is due to a variety of complementary factors:
+\begin{itemize}
+\item large labeled datasets
+\item computational power
+\item training on GPUs (eventually distributed)
+\item ...
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{The Challenge of Data Representation}
+Performance of machine learning algorithms heavily depends on the way we represent the data. These discrete pieces of information that we use as a proxy to model the complexity of the world are usually called \textbf{features}.\\
+\vspace{0.5cm}
+Generally speaking, for a long time, these features have been \textbf{handcrafted} differently for each task at hand.\\
+\vspace{0.5cm}
+Conversely, deep learning algorithms allow to \textbf{learn the right representation directly from the data}.
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
