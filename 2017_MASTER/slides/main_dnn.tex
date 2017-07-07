@@ -57,6 +57,8 @@
 
 \section{Introduction}
 
+\section*{Where we are now.}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Here is the Hype}
@@ -203,10 +205,38 @@ where the parameters are:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\\
 
 \begin{frame}{Logistic Regression}
-
+If we add a sigmoid nonlinearity to our linear mapping we get a \textbf{logistic regression} classifier.
+\begin{equation*}
+f(x_i,W,b) = \sigma(Wx_i + b)\ \quad where\ \sigma(x) = \frac{1}{1 + e^{(-x)}}
+\end{equation*}\\
+\vspace{0.2cm}
+which can be trained by optimizing the so called \textbf{binary cross-entropy loss}:
+\begin{equation}
+L(W, b) = - \frac{1}{m} \sum_{i=1}^{m} \left(y_i log(f_{x_i}) + (1-y_i)log(1-f_{x_i})\right)
+\end{equation}
+Here $m$ is the number of examples in the training set and $f_{x_i}$ with an abuse of notation denotes $f(x_i, W, b)$.
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Logistic Regression}
+Let's try to understand better \textbf{binary cross-entropy loss}:
+\begin{equation}
+L(W, b) = - \frac{1}{m} \sum_{i=1}^{m} \left(y_i log(f_{x_i}) + (1-y_i)log(1-f_{x_i})\right)
+\end{equation}
+\begin{columns}
+\begin{column}{0.4\textwidth}
+	\includegraphics[width=\textwidth]{img/dnn/log_plot.png}
+\end{column}
+\begin{column}{0.6\textwidth}
+Note that $y_i \in \{0,1\}$ (binary classification task)\\
+\vspace{0.5cm}
+The label $y_i$ act as a selector. For positive examples we penalize predictions close to zero. For negative examples we penalize predictions close to one.
+\end{column}
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Softmax Classifier}
 First let's introduce the \textbf{softmax function}:
