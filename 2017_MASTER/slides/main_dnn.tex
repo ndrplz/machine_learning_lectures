@@ -27,6 +27,8 @@
 \author{Andrea Palazzi}
 \date{June 21th, 2017}
 
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+
 \def\thisframelogos{}
 
 \newcommand{\framelogo}[1]{\def\thisframelogos{#1}}
@@ -66,13 +68,19 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{How did we get there?}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Neural Networks are NOT new}
 Despite the current hype on the deep learning revolution, neural networks algorithms are far from being new. This is the \textbf{third time} that neural networks come to the fore:
 \begin{itemize}
 \item \textbf{1940s-1960s}: theories of biological inspired learning\cite{morris1999hebb,mcculloch1943logical}. The first pioneering models such as the perceptron \cite{rosenblatt1958perceptron}. A single neuron is trained for the first time.
 \item \textbf{1980s-1990s}: neural networks with a couple of hidden layers are trained by means of backpropagation\cite{rumelhart1988learning}.
-\item \textbf{2006-now}: we're here.
+\item \textbf{2006-now}: current wave of research.
 \end{itemize}
 \end{frame}
 
@@ -91,6 +99,41 @@ Despite underlying ideas of deep learning have been around since a while, only r
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}{2003: Large Dataset}
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.7\textwidth]{img/dnn/2003_large_dataset.png}\\
+\end{tabular}
+\vspace{0.5cm}
+\caption{Fergus, Robert, Pietro Perona, and Andrew Zisserman. "Object class recognition by unsupervised scale-invariant learning." Computer Vision and Pattern Recognition, 2003. Proceedings. 2003 IEEE Computer Society Conference on. Vol. 2. IEEE, 2003.}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{2017: Large Dataset}
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.85\textwidth]{img/dnn/2017_large_dataset.png}\\
+\end{tabular}
+\vspace{0.5cm}
+\caption{Real, Esteban, et al. "YouTube-BoundingBoxes: A Large High-Precision Human-Annotated Data Set for Object Detection in Video." arXiv preprint arXiv:1702.00824 (2017).}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Why Size Matters}
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.7\textwidth]{img/dnn/deep_learning_scale.png}
+\end{tabular}
+\caption{Andrew Ng. "What data scientists should know about deep learning".}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}{The Challenge of Data Representation}
 Performance of machine learning algorithms heavily depends on the way we represent the data. These discrete pieces of information that we use as a proxy to model the complexity of the world are usually called \textbf{features}.\\
 \vspace{0.5cm}
@@ -103,7 +146,7 @@ Conversely, deep learning algorithms allow to \textbf{learn the right representa
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Linear classifiers}
+\section{One step back: Linear classifiers}
 
 \begin{frame}{Linear Classifier}
 For the purpose of this lecture, we'll stick to the task of image classification.\\
