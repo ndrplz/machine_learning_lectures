@@ -20,6 +20,9 @@
 \usepackage{animate}
 \usepackage{bm}
 
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+
+
 \DeclareMathOperator*{\argmin}{arg\,min}
 
 \title[Deep Learning and Temporal Data Processing]{Deep Learning and Temporal Data Processing}
@@ -63,6 +66,7 @@
 \begin{tabular}{c}
 \includegraphics[width=0.3\textwidth]{img/sgd/level_sets.png}
 \end{tabular}
+\caption{Gradient descent on a series of level sets}
 \end{figure}
 \end{frame}
 
@@ -114,14 +118,18 @@ The cost function depends on the model's parameters and is a proxy to evaluate m
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Gradient Descent}
-In practice, SGD
+\begin{frame}{Stochastic Gradient Descent}
+In principle, to perform a single update step you should run through all your training examples. This is known as \textbf{batch gradient descent}.\\
+\vspace{0.5cm}
+A different strategy is the one of \textbf{minibatch stochastic gradient descent}. In this case, only a small subset of the training dataset is considered at each update step.\\
+\vspace{0.5cm}
+In the extreme case in which only a random example of the training set is considered to perform the update step, we talk of \textbf{stochastic gradient descent}.
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Gradient Descent}
+\begin{frame}{Learning Rate}
 Choosing the the right \textbf{learning rate} $\bm{\alpha}$ is essential to correctly proceed towards the minimum. A step \textit{too small} could lead to an extremely \textit{slow} convergence. If the step is \textit{too big} the optimizer could \textit{overshoot} the minimum or even \textit{diverge}. 
 \begin{figure}
 \begin{tabular}{ccc}
@@ -137,10 +145,10 @@ Learning Rate too small & & Learning Rate too big
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Advanced Optimizers}
-A number of different optimizer \cite{kingma2014adam,duchi2011adaptive,zeiler2012adadelta} are commonly used , but these are out of the scope of this short introduction.
+In practice, it's quite rare to see the procedure described above (so called \textbf{vanilla SGD}) used for optimization in the real-world.\\
+\vspace{0.5cm}
+Conversely, a number of cutting-edge optimizers  \cite{kingma2014adam,duchi2011adaptive,zeiler2012adadelta} are commonly used. However, these advanced optimization techniques are out of the scope of this short overview.
 \end{frame}
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
