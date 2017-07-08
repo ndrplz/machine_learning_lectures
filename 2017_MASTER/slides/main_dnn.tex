@@ -239,7 +239,9 @@ The label $y_i$ act as a selector. For positive examples we penalize predictions
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Softmax Classifier}
-First let's introduce the \textbf{softmax function}:
+\textbf{Softmax Classifier} generalizes Logistic Regression classifier to multi-class classification.\\
+\vspace{0.2cm}
+We first introduce the \textbf{softmax function}:
 \begin{equation*}
 softmax_j(\textbf{z}) = \frac{e^{z_j}}{\sum_k e^{z_k}}
 \end{equation*}
@@ -254,15 +256,14 @@ It takes a vector of arbitrary real-valued scores $\textbf{z}$ and squashes it t
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\\
 
 \begin{frame}{Softmax Classifier}
-\textbf{Softmax Classifier} generalizes Logistic Regression classifier to multi-class classification.\\
-\vspace{0.2cm}
-In the Softmax classifier the scores of linear function mapping $f(x_i,W) = Wx_i$ are interpreted as unnormalized log probabilities and we use the \textbf{cross-entropy loss}:
+In the softmax classifier the scores of linear function mapping $f(x_i,W) = Wx_i$ are interpreted as unnormalized log probabilities. To train the classifier we optimize the \textbf{cross-entropy loss}:
 \begin{equation*}
-L_i = -log\left(\frac{e^{f_{y_{i}}}}{\sum_j e^{f_{j}}}\right)
+L = - \sum_i y_i^{true}log(y_i^{pred})
 \end{equation*}
-\small{Prove yourself that this loss function makes sense.}
-%Softmax Classifier has the appealing property to produce an easy-to-interpret output, that is the normalized score confidence for each class.
-
+% L_i = -log\left(\frac{e^{f_{y_{i}}}}{\sum_j e^{f_{j}}}\right)
+where $y_i^{true}$ is the ground truth output distribution and $y_i^{pred}$ is the predicted output distribution. In practice, $y_i^{true}$ is a \textit{one-hot} vector selecting the output of the right label.\\
+\vspace{0.2cm}
+\textbf{Notice}: softmax classifier has the appealing property to produce an easy-to-interpret output, that is the normalized score confidence for each class.
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
