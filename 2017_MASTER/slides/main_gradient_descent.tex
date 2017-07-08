@@ -66,12 +66,24 @@
 \end{figure}
 \end{frame}
 
+\begin{frame}{Gradient Descent Update}
+If we consider a function $f(\bm{\theta})$, the \textbf{gradient descent update} can be expressed as:
+\begin{equation}
+\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} f(\bm{\theta})
+\end{equation}
+for each parameter $\theta_j$.\\
+\vspace{0.5cm}
+The size of the step is controlled by \textbf{learning rate} $\alpha$.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Visualizing Gradient Descent}
 \begin{figure}
 \begin{tabular}{c}
-Gradient Descent for 1-d function $f(x)$.\\
+Gradient Descent for 1-d function $f(\theta)$.\\
   \animategraphics[loop,controls,width=0.9\textwidth]{1}{img/sgd/descent/descent-}{0}{7}
 \end{tabular}
 \end{figure}
@@ -80,7 +92,7 @@ Gradient Descent for 1-d function $f(x)$.\\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Gradient Descent}
+\begin{frame}{Convexity}
 Turns out that if the function is \textbf{convex} gradient descent will converge to the \textbf{global minimum}. For \textbf{non-convex} functions, it may converge to \textbf{local minima}.
 \begin{figure}
 \begin{tabular}{cc}
@@ -94,9 +106,9 @@ Convex Function & Non-Convex Function
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Gradient Descent}
-Gradient descent is often used in machine learning to \textbf{minimize a cost function}, often also called \textit{objective} or \textit{loss} function.\\
+Gradient descent is often used in machine learning to \textbf{minimize a cost function}, usually also called \textit{objective} or \textit{loss} function and denoted $L(\cdot)$ or $J(\cdot)$.\\
 \vspace{0.5cm}
-The cost function depends on the model's parameters and is a proxy to evaluate model's performance. Generally speaking, minimizing the cost equals to maximizing the effectiveness of the model.
+The cost function depends on the model's parameters and is a proxy to evaluate model's performance. Generally speaking, in this framework minimizing the cost equals to maximizing the effectiveness of the model.
 
 \end{frame}
 
