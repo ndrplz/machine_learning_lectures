@@ -13,8 +13,10 @@ Crash course on Deep Learning and Temporal Data Processing. Both pdf slides and 
   - **[3_recurrent_neural_networks.pdf](https://github.com/ndrplz/deep_learning_lectures/tree/master/2017_MASTER/slides/main_rnn.pdf)** - slides on **recurrent neural networks**.
 
 ### PRACTICE
+
 ##### SLIDES
   - **[TF_basics.pdf](2017_MASTER/slides/tensorflow_00_intro.pdf)** - slides on **TensorFlow basics**.
+
 ##### CODE
   - **[lab01 - neural_networks](2017_MASTER/lab_code/lab_01_neural_network.py)**
   - **[lab02 - convolutional neural networks](2017_MASTER/lab_code/lab_02_convolutional_networks.py)**
