@@ -10,7 +10,8 @@ Crash course on Deep Learning and Temporal Data Processing. Both pdf slides and 
   - **[0_gradient_descent.pdf](https://github.com/ndrplz/deep_learning_lectures/tree/master/2017_MASTER/slides/main_gradient_descent.pdf)** - slides on **gradient descent optimization**.
   - **[1_deep_neural_networks.pdf](https://github.com/ndrplz/deep_learning_lectures/tree/master/2017_MASTER/slides/main_dnn.pdf)** -  slides on **neural network and deep neural networks**.
   - **[2_conv_neural_networks.pdf](https://github.com/ndrplz/deep_learning_lectures/tree/master/2017_MASTER/slides/main_cnn.pdf)** - slides on **convolutional neural networks**.
-  - **[3_recurrent_neural_networks.pdf](https://github.com/ndrplz/deep_learning_lectures/tree/master/2017_MASTER/slides/main_rnn.pdf)** - slides on **recurrent neural networks**. 
+  - **[3_recurrent_neural_networks.pdf](https://github.com/ndrplz/deep_learning_lectures/tree/master/2017_MASTER/slides/main_rnn.pdf)** - slides on **recurrent neural networks**.
+
 ### PRACTICE
 ##### SLIDES
   - **[TF_basics.pdf](2017_MASTER/slides/tensorflow_00_intro.pdf)** - slides on **TensorFlow basics**.
