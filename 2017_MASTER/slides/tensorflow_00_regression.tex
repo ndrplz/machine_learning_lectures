@@ -1,0 +1,152 @@
+\documentclass[aspectratio=169]{beamer}
+\mode<presentation>
+{
+  \usetheme{metropolis}      % or try Darmstadt, Madrid, Warsaw, ...
+  \usecolortheme{default} % or try albatross, beaver, crane, ...
+  \usefonttheme{structurebold}  % or try serif, structurebold, ...
+  \setbeamercolor{background canvas}{bg=white}
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{bibliography item}{\insertbiblabel}
+  %\setbeamertemplate{caption}[numbered]
+} 
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{listings}             % Include the listings-package
+\hypersetup{
+    colorlinks = true,
+    linkcolor = {black},
+    urlcolor = {blue}
+}
+
+\usepackage{animate}
+\usepackage{listings}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\title[Deep Learning and Temporal Data Processing]{Deep Learning and Temporal Data Processing}
+\subtitle{Linear Regression in TensorFlow}
+\institute{University of Modena and Reggio Emilia}
+\author{Andrea Palazzi}
+%\date{June 21th, 2017}
+
+\def\thisframelogos{}
+
+\newcommand{\framelogo}[1]{\def\thisframelogos{#1}}
+
+\addtobeamertemplate{frametitle}{}{%
+\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north east] at (current page.north east) {%
+    \foreach \img in \thisframelogos {%
+        %\hspace{.5ex}%
+        \includegraphics[height=3.5ex]{\img}%
+    }%
+};
+\end{tikzpicture}}
+
+\begin{document}
+
+\framelogo{img/template/logo_unimore_white.png}
+
+\include{common/titlepage}
+\include{common/outline}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Linear Regression}
+
+\begin{frame}{Goal}
+TensorFlow fully unleashes its power when used for deep learning applications. However, this framework can be used to implement any gradient-based learning pipeline.\\
+\vspace{0.5cm}
+The goal of this first practice session is implementing a simple \textbf{linear regression} model in TensorFlow\cite{tensorflow2015-whitepaper}.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Data}
+For this practice we'll use a small dataset which puts in relation the weight of brain and body for a number of mammal species.\\
+\vspace{0.5cm}
+The whole dataset can be found here:\\
+\url{http://people.sc.fsu.edu/~jburkardt/datasets/regression/x01.txt}\\
+\vspace{0.5cm}
+The goal is to fit a simple linear regression model (\textit{i.e.} a line) to this data.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Starter Pack}
+I already downloaded the data for you. You'll find it in \texttt{data/brain\_body\_weight.txt}.\\
+\vspace{0.5cm}
+Also, a function to load the data into python script is available in \texttt{lab\_utils.py}.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Outline}
+Here's the outline of what you're expected to do:
+\begin{enumerate}
+\item Load data using \texttt{lab\_utils/get\_brain\_body\_data}
+\item Define appropriate placeholders using \texttt{tf.placeholder}
+\item Define weight and bias variables using \texttt{tf.Variable}
+\item Define 1-d linear regression model $y_{pred} = x w + b$
+\item Define an appropriate objective function, e.g. $(y_{pred} - y_{true})^2$
+\item Create an Optimizer (e.g. \texttt{tf.train.AdamOptimizer})
+\item Define a train iteration as one step of loss minimization
+\item Loop train iteration until convergence
+\end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile, allowframebreaks]{Template}
+\begin{verbatim}
+    # Read data
+    body_weight, brain_weight = # todo
+    n_samples = len(body_weight)
+
+    # Define placeholders (1-d)
+    x, y = # todo
+	
+    # Define variables
+    w, b = # todo
+
+    # Linear regression model
+    y_pred = # todo
+
+    # Define objective function
+    loss = # todo
+
+    # Define optimizer
+    optimizer = # todo
+
+    # Define one training iteration
+    train_step = # todo
+    
+    with tf.Session() as sess:
+
+        # Initialize all variables
+        sess.run(tf.global_variables_initializer())
+
+        for i in range(n_epochs):
+            total_loss = 0
+            for bo_w, br_w in zip(body_weight, brain_weight):
+                _, l = sess.run([train_step, loss],
+                                feed_dict={x: bo_w, y: br_w})
+                total_loss += l
+            print('Epoch {0}: {1}'.format(i, total_loss / n_samples))\end{verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{References}
+
+\begin{frame}[t, allowframebreaks]
+\frametitle{References}
+\bibliographystyle{abbrv}
+\bibliography{bibliography}
+\end{frame}
+
+\end{document}
