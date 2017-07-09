@@ -4,8 +4,8 @@ This repository contains a **miscellaneous collection of lectures and lab lectur
 
 ---
 
-## 2017 - Lectures on Deep Learning @ [Master of II Level on Visual Computing, UniMoRe, Italy](http://www.mastermumet.unimore.it/)
-Crash course on Deep Learning and Temporal Data Processing. Both pdf slides and LaTeX source code is available. 
+## 2017 - Lectures on Deep Learning @ [UniMoRe, Italy](http://www.mastermumet.unimore.it/)
+**Crash course on Deep Learning and Temporal Data Processing.**
 ### THEORY
   - **[0_gradient_descent.pdf](https://github.com/ndrplz/deep_learning_lectures/tree/master/2017_MASTER/slides/main_gradient_descent.pdf)** - slides on **gradient descent optimization**.
   - **[1_deep_neural_networks.pdf](https://github.com/ndrplz/deep_learning_lectures/tree/master/2017_MASTER/slides/main_dnn.pdf)** -  slides on **neural network and deep neural networks**.
@@ -15,15 +15,21 @@ Crash course on Deep Learning and Temporal Data Processing. Both pdf slides and 
 ### PRACTICE
 
 ##### SLIDES
-  - **[TF_basics.pdf](2017_MASTER/slides/tensorflow_00_intro.pdf)** - slides on **TensorFlow basics**.
+  - **[tensorflow_basics.pdf](https://github.com/ndrplz/deep_learning_lectures/blob/master/2017_MASTER/slides/tensorflow_00_intro.pdf)** - slides on **TensorFlow basics**.
+  - **[linear_regression.pdf](https://github.com/ndrplz/deep_learning_lectures/blob/master/2017_MASTER/slides/tensorflow_00_regression.pdf)** - Implementing a **linear regression** model in TensorFlow.
+  - **neural_network.pdf** - Implementing a **fully connected network to classify MNIST digits**.
+  - **convnets.pdf** - Implementing a **convolutional network to classify MNIST digits**.
+  - **lstm.pdf** - Implementing a **LSTM to count ones in binary sequences**.
 
 ##### CODE
-  - **[lab01 - neural_networks](2017_MASTER/lab_code/lab_01_neural_network.py)**
-  - **[lab02 - convolutional neural networks](2017_MASTER/lab_code/lab_02_convolutional_networks.py)**
+  - **[lab00 - linear_regression](https://github.com/ndrplz/deep_learning_lectures/blob/master/2017_MASTER/lab_code/lab_00_regression.py)**
+  - **[lab01 - neural_networks](https://github.com/ndrplz/deep_learning_lectures/blob/master/2017_MASTER/lab_code/lab_01_neural_network.py)**
+  - **[lab02 - convolutional_neural_networks](https://github.com/ndrplz/deep_learning_lectures/blob/master/2017_MASTER/lab_code/lab_02_convolutional_networks.py)**
+  - **[lab03 - lstm_sequence_counting](https://github.com/ndrplz/deep_learning_lectures/blob/master/2017_MASTER/lab_code/lab_03_lstm_sequence_counting.py)**
   
   
 ### LaTeX source
-  - Whole LaTeX source is available in repository in [2017_MASTER](2017_MASTER)
+  - Whole LaTeX source is available in repository in [2017_MASTER](https://github.com/ndrplz/deep_learning_lectures/blob/master/2017_MASTER)
 
 ---
 
