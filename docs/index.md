@@ -4,8 +4,8 @@ This repository contains a **miscellaneous collection of lectures and lab lectur
 
 ---
 
-## 2017 - Lectures on Deep Learning @ [Master of II Level on Visual Computing, UniMoRe, Italy](http://www.mastermumet.unimore.it/)
-Crash course on Deep Learning and Temporal Data Processing. Both pdf slides and LaTeX source code is available. 
+## 2017 - Lectures on Deep Learning @ [UniMoRe, Italy](http://www.mastermumet.unimore.it/)
+**Crash course on Deep Learning and Temporal Data Processing.**
 ### THEORY
   - **[0_gradient_descent.pdf](https://github.com/ndrplz/deep_learning_lectures/tree/master/2017_MASTER/slides/main_gradient_descent.pdf)** - slides on **gradient descent optimization**.
   - **[1_deep_neural_networks.pdf](https://github.com/ndrplz/deep_learning_lectures/tree/master/2017_MASTER/slides/main_dnn.pdf)** -  slides on **neural network and deep neural networks**.
