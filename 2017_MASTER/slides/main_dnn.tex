@@ -490,9 +490,9 @@ Then overfitting is prevented through proper \textbf{regularization techniques} 
 
 The \textbf{objective or loss function} \textbf{measures the quality of our mapping} from input to output. This function has a form of this kind:
 \begin{equation*}
-L(\bm{\theta}; \mathbf{x, y})=\frac{1}{N} \sum_i L_i(\bm{\theta}; \mathbf{x_i, y_i}) + \alpha \Omega (\bm{\theta})
+L(\bm{\theta}; \mathbf{x, y})=\frac{1}{N} \sum_i L_i(\bm{\theta}; \mathbf{x_i, y_i}) + \lambda \Omega (\bm{\theta})
 \end{equation*}
-where $N$ is the number of training examples, $\theta$ is the set of network parameters and $\alpha$ weights the regularization's strength.
+where $N$ is the number of training examples, $\bm{\theta}$ is the set of network parameters and $\lambda$ weights the regularization's strength.
 In particular:
 \begin{itemize}
 \item The \emph{data term}, computed as an average over individual examples, measures the goodness of model's predictions \textit{w.r.t.} data labels. 
