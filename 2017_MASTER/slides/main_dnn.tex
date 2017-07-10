@@ -472,7 +472,9 @@ Keep in mind that:
 \begin{column}{0.4\textwidth}
 In practice, usually networks are made as big as computational budget allows.\\
 \vspace{0.5cm}
-Then overfitting is prevented through proper \textbf{regularization techniques} (\emph{e.g.} dropout, weights decay, input noise).
+Then overfitting is prevented through proper \textbf{regularization techniques} (\emph{e.g.} dropout, weights decay, input noise).\\
+\vspace{0.5cm}
+We'll talk about this later.
 \end{column}
 \end{columns}
 \end{frame}
@@ -666,6 +668,22 @@ Indeed, if all weights were initialized to the same value (\emph{e.g.} $0$) then
 Common practice is to initialize all weights to small random numbers centered on zero (eventually scaled by neuron's \emph{fan-in} \cite{glorot2010understanding,he2015delving}) and all biases to zero.
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Regularization}
+
+\begin{frame}{Regularizing Deep Networks}
+Deep networks have a \textbf{very high representational capacity}. This is good because we can learn very complex functions.\\
+\vspace{0.5cm}
+However, for this very reason bigger networks \textbf{can be prone to overfitting} issues if not regularized properly during training.\\
+\vspace{0.5cm}
+Besides traditional regularization techniques (\emph{e.g.} $L_n$ weight regularization), neural networks feature few simple and extremely effective regularization techniques which are commonly used in practice. We'll see them in the following slides.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}{Dropout}
 \vspace{0.5cm}
 \begin{columns}
@@ -676,7 +694,7 @@ Common practice is to initialize all weights to small random numbers centered on
 \end{tabular}
 \end{column}
 \begin{column}{0.7\textwidth}
-Besides traditional regularization techniques (\emph{e.g.} $L_n$ weight regularization), neural networks feature a simple and extremely effective regularization which is  \textbf{dropout}~\cite{srivastava2014dropout}.\\
+The first regularization technique which is really peculiar to neural networks is \textbf{dropout}~\cite{srivastava2014dropout}.\\
 \vspace{0.5cm}
 During the training process, each neuron is set to zero (dropped) with a \emph{drop probability} $p$. This can be seen as sampling at each training step a different sub-network and updating only the corresponding portion of parameters.\\
 \vspace{0.5cm}
@@ -685,6 +703,31 @@ At testing time, no dropout is applied. This can be interpreted as taking the av
 \end{columns}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Data Augmentation}
+
+\textbf{Data augmentation} consists of generating new training examples by applying some transformation to $\bm{x}$ inputs in our training set. Of course, such transformation must preserve the label of the original example.\\
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.6\textwidth]{img/dnn/augmentation.png}
+\end{tabular}
+\caption{The best way to make a machine learning model generalize better would be to simply train it on more data. Unfortunately, these are not always available.}
+\end{figure}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Early Stopping}
+The most common symptom of overfitting is that the loss on the training set steadily decreases over time, whereas it starts increasing on the validation set.\\
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.4\textwidth]{img/dnn/overfitting.png}
+\end{tabular}
+\end{figure}
+\textbf{Early stopping} consists of simply stopping the training process when the loss on the validation ceases to decrease. In practice, before stopping the training we may want to wait $n$ epochs in which the validation loss is stable (or higher). This number of epochs is often called \textbf{patience}. 
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
