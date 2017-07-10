@@ -97,8 +97,9 @@ if __name__ == '__main__':
                 # Pad shorter sequences
                 if len(my_sequence) < 20:
                     my_sequence = (20 - len(my_sequence))*'0' + my_sequence
+
                 # Crop longer sequences
-                    my_sequence = my_sequence[:20]
+                my_sequence = my_sequence[:20]
 
                 # Prepare example
                 test_example = []
