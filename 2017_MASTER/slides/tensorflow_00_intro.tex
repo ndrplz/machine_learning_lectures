@@ -25,7 +25,7 @@
 \subtitle{Introduction to TensorFlow}
 \institute{University of Modena and Reggio Emilia}
 \author{Andrea Palazzi}
-\date{June 21th, 2017}
+%\date{June 21th, 2017}
 
 \def\thisframelogos{}
 
@@ -166,7 +166,8 @@ This allows to abstract over the precise data structure, \textit{e.g.}:
 \item[2-d] matrices
 \item[] $\dots$
 \end{itemize}
-Tensors are represented as the \textbf{edges of the computational graph}.
+Tensors are represented as the \textbf{edges of the computational graph}.\\
+The number of dimensions of a tensor is called \textbf{rank}.
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -215,6 +216,28 @@ When you launch the graph, \textbf{variables have to be explicitly initialized} 
 \begin{figure}
 \begin{tabular}{c}
 \includegraphics[width=0.95\textwidth]{img/tf/variable_initialization.png}
+\end{tabular}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Saving Variables}
+Variables values can be saved with a \textbf{tf.train.Saver} object.
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.8\textwidth]{img/tf/save_variables.png}
+\end{tabular}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Restoring Variables}
+The same \textbf{tf.train.Saver} object can be used to restore variable values.
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.8\textwidth]{img/tf/restore_variables.png}
 \end{tabular}
 \end{figure}
 \end{frame}

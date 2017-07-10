@@ -25,7 +25,9 @@
 \subtitle{1 - Deep Neural Networks}
 \institute{University of Modena and Reggio Emilia}
 \author{Andrea Palazzi}
-\date{June 21th, 2017}
+%\date{June 21th, 2017}
+
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
 
 \def\thisframelogos{}
 
@@ -55,17 +57,98 @@
 
 \section{Introduction}
 
+\section*{Where we are now.}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Deep Neural Networks: overview}
-\cite{yu2015multi}
+\begin{frame}{Here is the Hype}
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.9\textwidth]{img/dnn/deep_learning_media.jpg}
+\end{tabular}
+\end{figure}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Linear classifiers}
+\section*{How did we get there?}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Neural Networks are NOT new}
+Despite the current hype on the deep learning revolution, neural networks algorithms are far from being new. This is the \textbf{third time} that neural networks come to the fore:
+\begin{itemize}
+\item \textbf{1940s-1960s}: theories of biological inspired learning\cite{morris1999hebb,mcculloch1943logical}. The first pioneering models such as the perceptron \cite{rosenblatt1958perceptron}. A single neuron is trained for the first time.
+\item \textbf{1980s-1990s}: neural networks with a couple of hidden layers are trained by means of backpropagation\cite{rumelhart1988learning}.
+\item \textbf{2006-now}: current wave of research.
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Why Now?}
+Despite underlying ideas of deep learning have been around since a while, only recently performance boosted. This is due to a variety of complementary factors:
+\begin{itemize}
+\item large labeled datasets
+\item computational power
+\item training on GPUs (eventually distributed)
+\item ...
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{2003: Large Dataset}
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.7\textwidth]{img/dnn/2003_large_dataset.png}\\
+\end{tabular}
+\vspace{0.5cm}
+\caption{Fergus, Robert, Pietro Perona, and Andrew Zisserman. "Object class recognition by unsupervised scale-invariant learning." Computer Vision and Pattern Recognition, 2003. Proceedings. 2003 IEEE Computer Society Conference on. Vol. 2. IEEE, 2003.}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{2017: Large Dataset}
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.85\textwidth]{img/dnn/2017_large_dataset.png}\\
+\end{tabular}
+\vspace{0.5cm}
+\caption{Real, Esteban, et al. "YouTube-BoundingBoxes: A Large High-Precision Human-Annotated Data Set for Object Detection in Video." arXiv preprint arXiv:1702.00824 (2017).}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Why Size Matters}
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.7\textwidth]{img/dnn/deep_learning_scale.png}
+\end{tabular}
+\caption{Andrew Ng. "What data scientists should know about deep learning".}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{The Challenge of Data Representation}
+Performance of machine learning algorithms heavily depends on the way we represent the data. These discrete pieces of information that we use as a proxy to model the complexity of the world are usually called \textbf{features}.\\
+\vspace{0.5cm}
+Generally speaking, for a long time, these features have been \textbf{handcrafted} differently for each task at hand.\\
+\vspace{0.5cm}
+Conversely, deep learning algorithms allow to \textbf{learn the right representation directly from the data}.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{One step back: Linear classifiers}
 
 \begin{frame}{Linear Classifier}
 For the purpose of this lecture, we'll stick to the task of image classification.\\
@@ -122,13 +205,43 @@ where the parameters are:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\\
 
 \begin{frame}{Logistic Regression}
-
+If we add a sigmoid nonlinearity to our linear mapping we get a \textbf{logistic regression} classifier.
+\begin{equation*}
+f(x_i,W,b) = \sigma(Wx_i + b)\ \quad where\ \sigma(x) = \frac{1}{1 + e^{(-x)}}
+\end{equation*}\\
+\vspace{0.2cm}
+which can be trained by optimizing the so called \textbf{binary cross-entropy loss}:
+\begin{equation}
+L(W, b) = - \frac{1}{m} \sum_{i=1}^{m} \left(y_i log(f_{x_i}) + (1-y_i)log(1-f_{x_i})\right)
+\end{equation}
+Here $m$ is the number of examples in the training set and $f_{x_i}$ with an abuse of notation denotes $f(x_i, W, b)$.
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Logistic Regression}
+Let's try to understand better \textbf{binary cross-entropy loss}:
+\begin{equation}
+L(W, b) = - \frac{1}{m} \sum_{i=1}^{m} \left(y_i log(f_{x_i}) + (1-y_i)log(1-f_{x_i})\right)
+\end{equation}
+\begin{columns}
+\begin{column}{0.4\textwidth}
+	\includegraphics[width=\textwidth]{img/dnn/log_plot.png}
+\end{column}
+\begin{column}{0.6\textwidth}
+Note that $y_i \in \{0,1\}$ (binary classification task)\\
+\vspace{0.5cm}
+The label $y_i$ act as a selector. For positive examples we penalize predictions close to zero. For negative examples we penalize predictions close to one.
+\end{column}
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Softmax Classifier}
-First let's introduce the \textbf{softmax function}:
+\textbf{Softmax Classifier} generalizes Logistic Regression classifier to multi-class classification.\\
+\vspace{0.2cm}
+We first introduce the \textbf{softmax function}:
 \begin{equation*}
 softmax_j(\textbf{z}) = \frac{e^{z_j}}{\sum_k e^{z_k}}
 \end{equation*}
@@ -143,15 +256,14 @@ It takes a vector of arbitrary real-valued scores $\textbf{z}$ and squashes it t
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\\
 
 \begin{frame}{Softmax Classifier}
-\textbf{Softmax Classifier} generalizes Logistic Regression classifier to multi-class classification.\\
-\vspace{0.2cm}
-In the Softmax classifier the scores of linear function mapping $f(x_i,W) = Wx_i$ are interpreted as unnormalized log probabilities and we use the \textbf{cross-entropy loss}:
+In the softmax classifier the scores of linear function mapping $f(x_i,W) = Wx_i$ are interpreted as unnormalized log probabilities. To train the classifier we optimize the \textbf{cross-entropy loss}:
 \begin{equation*}
-L_i = -log\left(\frac{e^{f_{y_{i}}}}{\sum_j e^{f_{j}}}\right)
+L = - \sum_i y_i^{true}log(y_i^{pred})
 \end{equation*}
-\small{Prove yourself that this loss function makes sense.}
-%Softmax Classifier has the appealing property to produce an easy-to-interpret output, that is the normalized score confidence for each class.
-
+% L_i = -log\left(\frac{e^{f_{y_{i}}}}{\sum_j e^{f_{j}}}\right)
+where $y_i^{true}$ is the ground truth output distribution and $y_i^{pred}$ is the predicted output distribution. In practice, $y_i^{true}$ is a \textit{one-hot} vector selecting the output of the right label.\\
+\vspace{0.2cm}
+\textbf{Notice}: softmax classifier has the appealing property to produce an easy-to-interpret output, that is the normalized score confidence for each class.
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -360,7 +472,9 @@ Keep in mind that:
 \begin{column}{0.4\textwidth}
 In practice, usually networks are made as big as computational budget allows.\\
 \vspace{0.5cm}
-Then overfitting is prevented through proper \textbf{regularization techniques} (\emph{e.g.} dropout, weights decay, input noise).
+Then overfitting is prevented through proper \textbf{regularization techniques} (\emph{e.g.} dropout, weights decay, input noise).\\
+\vspace{0.5cm}
+We'll talk about this later.
 \end{column}
 \end{columns}
 \end{frame}
@@ -378,9 +492,9 @@ Then overfitting is prevented through proper \textbf{regularization techniques} 
 
 The \textbf{objective or loss function} \textbf{measures the quality of our mapping} from input to output. This function has a form of this kind:
 \begin{equation*}
-L(\bm{\theta}; \mathbf{x, y})=\frac{1}{N} \sum_i L_i(\bm{\theta}; \mathbf{x_i, y_i}) + \alpha \Omega (\bm{\theta})
+L(\bm{\theta}; \mathbf{x, y})=\frac{1}{N} \sum_i L_i(\bm{\theta}; \mathbf{x_i, y_i}) + \lambda \Omega (\bm{\theta})
 \end{equation*}
-where $N$ is the number of training examples, $\theta$ is the set of network parameters and $\alpha$ weights the regularization's strength.
+where $N$ is the number of training examples, $\bm{\theta}$ is the set of network parameters and $\lambda$ weights the regularization's strength.
 In particular:
 \begin{itemize}
 \item The \emph{data term}, computed as an average over individual examples, measures the goodness of model's predictions \textit{w.r.t.} data labels. 
@@ -423,7 +537,7 @@ During training phase, \textbf{we want to learn the set of network parameters wh
 \vspace{0.5cm}
 More formally:
 \begin{equation*}
-\bm{\theta}^* = argmin_{\theta} \left(\frac{1}{N} \sum_i L_i(\bm{\theta}; \mathbf{x_i, y_i}) + \alpha \Omega (\bm{\theta})\right)
+\bm{\theta}^* = argmin_{\theta} \left(\frac{1}{N} \sum_i L_i(\bm{\theta}; \mathbf{x_i, y_i}) + \lambda \Omega (\bm{\theta})\right)
 \end{equation*}
 \end{frame}
 
@@ -554,6 +668,22 @@ Indeed, if all weights were initialized to the same value (\emph{e.g.} $0$) then
 Common practice is to initialize all weights to small random numbers centered on zero (eventually scaled by neuron's \emph{fan-in} \cite{glorot2010understanding,he2015delving}) and all biases to zero.
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Regularization}
+
+\begin{frame}{Regularizing Deep Networks}
+Deep networks have a \textbf{very high representational capacity}. This is good because we can learn very complex functions.\\
+\vspace{0.5cm}
+However, for this very reason bigger networks \textbf{can be prone to overfitting} issues if not regularized properly during training.\\
+\vspace{0.5cm}
+Besides traditional regularization techniques (\emph{e.g.} $L_n$ weight regularization), neural networks feature few simple and extremely effective regularization techniques which are commonly used in practice. We'll see them in the following slides.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}{Dropout}
 \vspace{0.5cm}
 \begin{columns}
@@ -564,7 +694,7 @@ Common practice is to initialize all weights to small random numbers centered on
 \end{tabular}
 \end{column}
 \begin{column}{0.7\textwidth}
-Besides traditional regularization techniques (\emph{e.g.} $L_n$ weight regularization), neural networks feature a simple and extremely effective regularization which is  \textbf{dropout}~\cite{srivastava2014dropout}.\\
+The first regularization technique which is really peculiar to neural networks is \textbf{dropout}~\cite{srivastava2014dropout}.\\
 \vspace{0.5cm}
 During the training process, each neuron is set to zero (dropped) with a \emph{drop probability} $p$. This can be seen as sampling at each training step a different sub-network and updating only the corresponding portion of parameters.\\
 \vspace{0.5cm}
@@ -573,6 +703,31 @@ At testing time, no dropout is applied. This can be interpreted as taking the av
 \end{columns}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Data Augmentation}
+
+\textbf{Data augmentation} consists of generating new training examples by applying some transformation to $\bm{x}$ inputs in our training set. Of course, such transformation must preserve the label of the original example.\\
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.6\textwidth]{img/dnn/augmentation.png}
+\end{tabular}
+\caption{The best way to make a machine learning model generalize better would be to simply train it on more data. Unfortunately, these are not always available.}
+\end{figure}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Early Stopping}
+The most common symptom of overfitting is that the loss on the training set steadily decreases over time, whereas it starts increasing on the validation set.\\
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.4\textwidth]{img/dnn/overfitting.png}
+\end{tabular}
+\end{figure}
+\textbf{Early stopping} consists of simply stopping the training process when the loss on the validation ceases to decrease. In practice, before stopping the training we may want to wait $n$ epochs in which the validation loss is stable (or higher). This number of epochs is often called \textbf{patience}. 
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
