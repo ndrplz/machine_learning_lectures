@@ -9,6 +9,9 @@
   \setbeamertemplate{bibliography item}{\insertbiblabel}
   %\setbeamertemplate{caption}[numbered]
 } 
+
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
 \usepackage{listings}             % Include the listings-package
@@ -123,6 +126,13 @@ The \textbf{Convolutional Layer} is the core building block of convolutional neu
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section*{Convolutional Layers}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Convolutional Layers}
 Each convolutional layer has three main hyperparameters:
@@ -204,6 +214,11 @@ tot\_learnable = N * K * K * C_1 + N
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section*{Pooling Layers}
 
 \begin{frame}{Pooling Layers: overview}
 Pooling layers spatially subsample the input volume.\\
@@ -349,6 +364,73 @@ If we consider a standard convolutional network like VGG \cite{simonyan2014very}
 \small{Can you justify why?}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Transfer Learning}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Transfer Learning}
+\vspace{-1cm}
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=\textwidth]{img/cnn/busted_0.pdf}
+\end{tabular}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Transfer Learning}
+\vspace{-1cm}
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=\textwidth]{img/cnn/busted_1.pdf}
+\end{tabular}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Transfer Learning}
+In practice, \textbf{for many applications there is no need to retrain an entire CNN from scratch}.\\
+\vspace{0.5cm}
+Conversely, few "famous" CNN architectures (e.g. VGG \cite{simonyan2014very}, ResNet \cite{he2016deep}) pretrained on ImageNet \cite{deng2009imagenet} are often used as initialization or feature extractor for a variety of tasks.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\\
+
+\begin{frame}{Transfer Learning}
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.7\textwidth]{img/cnn/training_possibilities.png}
+\end{tabular}
+\caption{Overview of three different training scenarios.}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Transfer Learning}
+Deciding which portion of the network must be retrained is a very important choice that will heavily influence the final model performance.\\
+\vspace{0.5cm}
+Generally speaking, two main factors influence this decision:
+\begin{itemize}
+\item \textbf{size of the new dataset}: if the new dataset is small, fine-tune big portion of the network is likely to lead to overfitting. The best choice might be to train a linear classifier of CNN features.
+\item \textbf{similarity of the new data w.r.t. the original dataset}: the more similar is the new dataset w.r.t. the old one, the more we can confidently fine-tune the model without risking to overfit (given that we have enough data to do it).
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Transfer Learning}
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.8\textwidth]{img/cnn/finetuning_rules.png}
+\end{tabular}
+\caption{Rule of thumb for deciding how much of the model is to be retrained.}
+\end{figure}
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\begin{frame}{Troubleshooting}
