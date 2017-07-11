@@ -284,6 +284,10 @@ There's a lot of research on getting rid of pooling layers while mantaining the 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Activation Layers}
 
 \begin{frame}{Activation Layers}
 
@@ -306,7 +310,7 @@ Nonetheless, more complex activation functions exist \cite{he2015delving,goodfel
 ReLu was found to greatly accelerate the convergence of SGD compared to sigmoid/tanh functions \cite{krizhevsky2012imagenet}. Furthermore, ReLu can be implemented by a simple threshold, \emph{w.r.t.} other activations which require complex operations.
 
 \textbf{Why using non-linear activations at all?}\\
-Composition of linear functions is a linear function. Without nonlinearities, neural networks would reduce to 1 layer logistic regression.
+Composition of linear functions is a linear function. Without nonlinearities, neural networks would reduce to 1 layer logistic regression.\\
 
 \end{frame}
 
@@ -349,21 +353,70 @@ However, these advanced architectures are out of the scope of these lectures.
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Computational Footprint}
-If we consider a standard convolutional network like VGG \cite{simonyan2014very} we can make a couple of considerations on the computational footprint.
-\begin{figure}
-\begin{tabular}{c}
-\includegraphics[width=0.8\textwidth]{img/cnn/vgg16.jpg}
-\end{tabular}
-\end{figure}
+\section{Case Study: VGG Network}
+
+\begin{frame}{VGG}
+\textbf{VGG} \cite{simonyan2014very} indicates a deep convolutional network for image recognition developed and trained in 2014 by the Oxford Vision Geometry Group.\\
+\vspace{0.25cm}
+This network is well-known for a variety of reasons:
 \begin{itemize}
-\item Most of the memory is taken by the very first layers
-\item Most of parameters (70\%) are condensated in the last fully-connected layers
-\end{itemize}
-\small{Can you justify why?}
+\item \textbf{Performance} of the network is (was) great. In 2014 VGG team secured the first and the second places in the localization and classification challenge on ImageNet;
+\item \textbf{Pre-trained weights were released} in Caffe \cite{jia2014caffe} and converted by the deep learning community in a variety of other frameworks;
+\item \textbf{Architectural choices} by the authors led to a very neat network model, successively taken as guideline for a number of future works.
+\end{itemize} 
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{VGG16 Architecture}
+\vspace{-0.5cm}
+\begin{columns}
+	\begin{column}{0.1\textwidth}
+		\begin{figure}
+			\begin{tabular}{c}
+				\includegraphics[width=0.8\textwidth]{img/cnn/vgg16_architecture.png}
+			\end{tabular}
+		\end{figure}
+	\end{column}
+	\begin{column}{0.9\textwidth}
+		\\ \vspace{0.5cm}
+		\textbf{Input} fixed size 224x224 RGB images. For training, images are pre-processed subtracting the mean RGB value of the training set.\\
+		\vspace{0.25cm}
+		\textbf{Convolutional filters} feature 3x3 receptive field (the smallest size to capture the notion of left/right, up/down, center) and stride is fixed to 1 pixel.\\
+		\vspace{0.25cm}
+		\textbf{Spatial pooling} is carried out by five max pooling layers performed over 2x2 pixel window, with stride 2.\\
+		\vspace{0.25cm}
+		\textbf{ReLu activation} follow all hidden layers.\\
+		\vspace{0.25cm}
+		\textbf{Fully connected} layers feature 4096 neurons each followed by ReLu. The very last fully connected layer is composed of 1000 neurons (as many as ImageNet classes) and is followed by softmax activation.
+	\end{column}
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{VGG16 Computational Footprint}
+\vspace{-0.5cm}
+\begin{columns}
+	\begin{column}{0.1\textwidth}
+		\begin{figure}
+			\begin{tabular}{c}
+				\includegraphics[width=0.8\textwidth]{img/cnn/vgg16_architecture.png}
+			\end{tabular}
+		\end{figure}
+	\end{column}
+	\begin{column}{0.9\textwidth}
+		VGG16 features a total of \textbf{138 M learnable parameters}.\\
+		\vspace{0.5cm}
+		\textbf{Each image takes approx. 93MB of memory for forward pass}. As a rule of thumb, backward pass consumes roughly the double of the resources. Most of memory usage is due to the first layers in the network.\\
+		\vspace{0.5cm}
+		\textbf{Most of learnable parameters (70\%) are condensed in the last fully-connected layers}. In particular, one single layer is responsible of approximately 100M parameters on the total of 138M (can you spot it?). 
+	\end{column}
+\end{columns}
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
