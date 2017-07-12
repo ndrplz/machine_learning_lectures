@@ -12,3 +12,6 @@ src/*.aux
 
 # ignore binary stuff
 *.pickle
+
+lab_code/.idea/
+lab_code/__pycache__/
