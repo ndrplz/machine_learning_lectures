@@ -54,7 +54,7 @@ if __name__ == '__main__':
     targets = tf.placeholder(dtype=tf.float32, shape=[None, 10])
 
     # Define model output
-    y = single_layer_net(x)
+    y = multi_layer_net(x)
 
     # Define loss function
     loss = tf.reduce_mean(-tf.reduce_sum(targets * tf.log(y + EPS), reduction_indices=1))
@@ -74,7 +74,7 @@ if __name__ == '__main__':
         sess.run(init_op)
 
         # Training parameters
-        training_epochs = 5
+        training_epochs = 100
         batch_size      = 128
 
         # Number of batches to process to see whole dataset
