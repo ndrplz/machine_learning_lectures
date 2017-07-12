@@ -467,14 +467,24 @@ Partly as a response to this criticism, \textbf{several methods have been develo
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Maximize Neurons Activation}
-
+\begin{frame}{Partially Occluding the Images}
+To investigate which portion of the input image most contributed to a certain prediction, we can slide an occluding object on the input, and seeing how the class probability changes as a function of the position of the occluder object \cite{zeiler2014visualizing}.
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.5\textwidth]{img/cnn/occlusions.jpg}
+\end{tabular}
+\end{figure}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{t-SNE Embedding}
-
+CNNs can be interpreted as gradually transforming the images into a representation in which the classes are separable by a linear classifier. We can get a rough idea about the topology of this space by embedding images into two dimensions so that their low-dimensional representation has approximately equal distances than their high-dimensional representation. Here, a \textbf{t-SNE embedding} of a set of images.
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.8\textwidth]{img/cnn/tsne.jpg}
+\end{tabular}
+\end{figure}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
