@@ -179,7 +179,7 @@ Looking closer, neurons in a CNN perform the very same operation of the neurons 
 		\includegraphics[width=0.5\textwidth]{img/cnn/local_connectivity.jpg}
     \end{column}
      \begin{column}{0.48\textwidth}
-However, in convolutional layers neurons are only locally connected to the input volume. The small region that each neuron "sees" of the previous layer is usually referred to as the \textit{receptive field} of the neuron.
+However, in convolutional layers neurons are only locally connected to the input volume. The small region that each neuron "sees" of the previous layer is usually referred to as the \textbf{receptive field} of the neuron.
     \end{column}
 \end{columns}
 \end{frame}
@@ -189,7 +189,7 @@ However, in convolutional layers neurons are only locally connected to the input
 \begin{frame}{Convolutional Layers: Parameter Sharing}
 Assumption: if a feature is useful to compute at some spatial location $(x,y)$, then it should be useful to compute also at different locations $(x_i,y_i)$. \textbf{Thus, we constrain the neurons in each depth slice to use the same weights and bias.}
 
-If all neurons in a single depth slice are using the same weight vector, then the forward pass of the convolutional layer can \emph{in each depth slice} be computed as a convolution of the neuron’s weights with the input volume (hence the name). This is why it is common to refer to each set of weights as a filter (or a kernel), that is convolved with the input.
+If all neurons in a single depth slice are using the same weight vector, then the forward pass of the convolutional layer can \emph{in each depth slice} be computed as a convolution of the neuron's weights with the input volume (hence the name). This is why it is common to refer to each set of weights as a filter (or a kernel), that is convolved with the input.
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -265,19 +265,18 @@ Pooling layers are widely used for a number of reasons:
 \item Help preventing overfitting
 \item Increase receptive field of following layers
 \end{itemize}
-Most common configuration: pool size $K=2$x$2$, stride $S=2$.\\
-In this setting 75\% of input volume activations are discarded.
+Most common configuration: pool size $K=2$x$2$, stride $S=2$. In this setting 75\% of input volume activations are discarded.
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Pooling Layers: why not}
-The loss of spatial resolution is not always beneficial.\\
+\textbf{The loss of spatial resolution is not always beneficial}.\\
 \emph{e.g.} semantic segmentation
 \begin{figure}
 \begin{tabular}{cc}
-\includegraphics[width=0.3\textwidth]{img/cnn/semseg_in.jpg}&
-\includegraphics[width=0.3\textwidth]{img/cnn/semseg_out.png}
+\includegraphics[width=0.4\textwidth]{img/cnn/semseg_in.jpg}&
+\includegraphics[width=0.4\textwidth]{img/cnn/semseg_out.png}
 \end{tabular}
 \end{figure}
 There's a lot of research on getting rid of pooling layers while mantaining the benefits (\emph{e.g.} \cite{springenberg2014striving,yu2015multi}). We'll see if future architecture will still feature pooling layers.
@@ -417,6 +416,61 @@ This network is well-known for a variety of reasons:
 	\end{column}
 \end{columns}
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Visualizing what CNNs Learn}
+
+\begin{frame}{The Myth of Interpretability}
+Convolutional neural networks have often been \textbf{criticized for their lack of interpretability}\cite{lipton2016mythos}. The main objection is to deal with big and complex black boxes, that give correct results even if in which we have no cue of what's happening inside.\\
+\vspace{-0.25cm}
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.75\textwidth]{img/cnn/black_box.png}
+\end{tabular}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{The Myth of Interpretability}
+On the other side, \textbf{linear models} and \textbf{decision trees} are often presented as example of "champions" of interpretability. The debate whether a logistic regression would be more or less interpretable than a deep network is complex out the scope of this lecture.\\
+\vspace{0.5cm}
+Partly as a response to this criticism, \textbf{several methods have been developed in literature to visualize what a CNN learned}. Let's see some examples.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Visualizing Activations}
+\textbf{Visualizing activations} of the network during the forward pass is straightforward and can be useful to detect dead filters (i.e. activations that are zero whatever the input).% Usually activations start looking relatively dense and become more sparse and localized as the training progresses.
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.6\textwidth]{img/cnn/visualize_activation.png} 
+\end{tabular}
+\caption{Activations on the 1st \texttt{conv} layer (left), and the 5th \texttt{conv} layer (right) of a trained AlexNet looking at a picture of a cat. Every box shows an activation map corresponding to some filter. Notice that the activations are sparse and mostly local.}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Inspecting Weights}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Maximize Neurons Activation}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{t-SNE Embedding}
+
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
