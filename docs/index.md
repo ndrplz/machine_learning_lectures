@@ -17,7 +17,7 @@ This repository contains a **miscellaneous collection of lectures and lab lectur
 ##### SLIDES
   - **[tensorflow_basics.pdf](https://github.com/ndrplz/deep_learning_lectures/blob/master/2017_MASTER/slides/tensorflow_00_intro.pdf)** - slides on **TensorFlow basics**.
   - **[linear_regression.pdf](https://github.com/ndrplz/deep_learning_lectures/blob/master/2017_MASTER/slides/tensorflow_00_regression.pdf)** - Implementing a **linear regression** model in TensorFlow.
-  - **neural_network.pdf** - Implementing a **fully connected network to classify MNIST digits**.
+  - **[neural_network.pdf](https://github.com/ndrplz/deep_learning_lectures/blob/master/2017_MASTER/slides/tensorflow_01_neural_nets.pdf)** - Implementing a **fully connected network to classify MNIST digits**.
   - **convnets.pdf** - Implementing a **convolutional network to classify MNIST digits**.
   - **lstm.pdf** - Implementing a **LSTM to count ones in binary sequences**.
 
