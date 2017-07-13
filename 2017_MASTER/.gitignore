@@ -8,6 +8,7 @@
 *.aux
 *.bbl
 *.blg
+*.vrb
 src/*.aux
 
 # ignore binary stuff
