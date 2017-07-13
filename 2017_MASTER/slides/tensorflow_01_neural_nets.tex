@@ -1,0 +1,117 @@
+\documentclass[aspectratio=169]{beamer}
+\mode<presentation>
+{
+  \usetheme{metropolis}      % or try Darmstadt, Madrid, Warsaw, ...
+  \usecolortheme{default} % or try albatross, beaver, crane, ...
+  \usefonttheme{structurebold}  % or try serif, structurebold, ...
+  \setbeamercolor{background canvas}{bg=white}
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{bibliography item}{\insertbiblabel}
+  %\setbeamertemplate{caption}[numbered]
+} 
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{listings}             % Include the listings-package
+\hypersetup{
+    colorlinks = true,
+    linkcolor = {black},
+    urlcolor = {blue}
+}
+
+\usepackage{animate}
+\usepackage{listings}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\title[Deep Learning and Temporal Data Processing]{Deep Learning and Temporal Data Processing}
+\subtitle{Neural Networks in TensorFlow}
+\institute{University of Modena and Reggio Emilia}
+\author{Andrea Palazzi}
+%\date{June 21th, 2017}
+
+\def\thisframelogos{}
+
+\newcommand{\framelogo}[1]{\def\thisframelogos{#1}}
+
+\addtobeamertemplate{frametitle}{}{%
+\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north east] at (current page.north east) {%
+    \foreach \img in \thisframelogos {%
+        %\hspace{.5ex}%
+        \includegraphics[height=3.5ex]{\img}%
+    }%
+};
+\end{tikzpicture}}
+
+\begin{document}
+
+\framelogo{img/template/logo_unimore_white.png}
+
+\include{common/titlepage}
+\include{common/outline}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{MNIST}
+
+\begin{frame}{MNIST Dataset}
+\textbf{MNIST\cite{lecun1998mnist} is a database of handwritten digits} consisting of 60K training images and 10K testing images. All digits have been centered in 28x28 grayscale images.
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.9\textwidth]{img/tf/mnist.png}
+\end{tabular}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}[fragile]{MNIST Dataset}
+Due to its simplicity (in 2017!) the MNIST dataset is often considered to be the "Hello World!" in the Machine Learning framework.\\
+\vspace{0.5cm}
+In \texttt{lab\_utils.py} I already implemented a function \texttt{get\_mnist\_data} that handles the download and loading of the dataset.\\
+\begin{verbatim}
+    # Load MNIST data
+    mnist = get_mnist_data('/tmp/mnist', verbose=True)
+\end{verbatim}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Goal}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Goal}
+The \textbf{goal} of this practice is to \textbf{implement a fully-connected neural network to perform 10-class classification} on the MNIST dataset.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Outline}
+Some advices:
+\begin{enumerate}
+\item Take your time to explore the dataset
+\item Start small and make the whole training pipeline working
+\item First implement a single hidden layer neural network
+\item Implement a bigger network: how does this affects performance?
+\end{enumerate}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{References}
+
+\begin{frame}[t, allowframebreaks]
+\frametitle{References}
+\bibliographystyle{abbrv}
+\bibliography{bibliography}
+\end{frame}
+
+\end{document}

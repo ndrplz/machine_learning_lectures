@@ -9,6 +9,9 @@
   \setbeamertemplate{bibliography item}{\insertbiblabel}
   %\setbeamertemplate{caption}[numbered]
 } 
+
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
 \usepackage{listings}             % Include the listings-package
@@ -123,6 +126,13 @@ The \textbf{Convolutional Layer} is the core building block of convolutional neu
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section*{Convolutional Layers}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Convolutional Layers}
 Each convolutional layer has three main hyperparameters:
@@ -169,7 +179,7 @@ Looking closer, neurons in a CNN perform the very same operation of the neurons 
 		\includegraphics[width=0.5\textwidth]{img/cnn/local_connectivity.jpg}
     \end{column}
      \begin{column}{0.48\textwidth}
-However, in convolutional layers neurons are only locally connected to the input volume. The small region that each neuron "sees" of the previous layer is usually referred to as the \textit{receptive field} of the neuron.
+However, in convolutional layers neurons are only locally connected to the input volume. The small region that each neuron "sees" of the previous layer is usually referred to as the \textbf{receptive field} of the neuron.
     \end{column}
 \end{columns}
 \end{frame}
@@ -179,7 +189,7 @@ However, in convolutional layers neurons are only locally connected to the input
 \begin{frame}{Convolutional Layers: Parameter Sharing}
 Assumption: if a feature is useful to compute at some spatial location $(x,y)$, then it should be useful to compute also at different locations $(x_i,y_i)$. \textbf{Thus, we constrain the neurons in each depth slice to use the same weights and bias.}
 
-If all neurons in a single depth slice are using the same weight vector, then the forward pass of the convolutional layer can \emph{in each depth slice} be computed as a convolution of the neuron’s weights with the input volume (hence the name). This is why it is common to refer to each set of weights as a filter (or a kernel), that is convolved with the input.
+If all neurons in a single depth slice are using the same weight vector, then the forward pass of the convolutional layer can \emph{in each depth slice} be computed as a convolution of the neuron's weights with the input volume (hence the name). This is why it is common to refer to each set of weights as a filter (or a kernel), that is convolved with the input.
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -204,6 +214,11 @@ tot\_learnable = N * K * K * C_1 + N
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section*{Pooling Layers}
 
 \begin{frame}{Pooling Layers: overview}
 Pooling layers spatially subsample the input volume.\\
@@ -250,25 +265,28 @@ Pooling layers are widely used for a number of reasons:
 \item Help preventing overfitting
 \item Increase receptive field of following layers
 \end{itemize}
-Most common configuration: pool size $K=2$x$2$, stride $S=2$.\\
-In this setting 75\% of input volume activations are discarded.
+Most common configuration: pool size $K=2$x$2$, stride $S=2$. In this setting 75\% of input volume activations are discarded.
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Pooling Layers: why not}
-The loss of spatial resolution is not always beneficial.\\
+\textbf{The loss of spatial resolution is not always beneficial}.\\
 \emph{e.g.} semantic segmentation
 \begin{figure}
 \begin{tabular}{cc}
-\includegraphics[width=0.3\textwidth]{img/cnn/semseg_in.jpg}&
-\includegraphics[width=0.3\textwidth]{img/cnn/semseg_out.png}
+\includegraphics[width=0.4\textwidth]{img/cnn/semseg_in.jpg}&
+\includegraphics[width=0.4\textwidth]{img/cnn/semseg_out.png}
 \end{tabular}
 \end{figure}
 There's a lot of research on getting rid of pooling layers while mantaining the benefits (\emph{e.g.} \cite{springenberg2014striving,yu2015multi}). We'll see if future architecture will still feature pooling layers.
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Activation Layers}
 
 \begin{frame}{Activation Layers}
 
@@ -291,7 +309,7 @@ Nonetheless, more complex activation functions exist \cite{he2015delving,goodfel
 ReLu was found to greatly accelerate the convergence of SGD compared to sigmoid/tanh functions \cite{krizhevsky2012imagenet}. Furthermore, ReLu can be implemented by a simple threshold, \emph{w.r.t.} other activations which require complex operations.
 
 \textbf{Why using non-linear activations at all?}\\
-Composition of linear functions is a linear function. Without nonlinearities, neural networks would reduce to 1 layer logistic regression.
+Composition of linear functions is a linear function. Without nonlinearities, neural networks would reduce to 1 layer logistic regression.\\
 
 \end{frame}
 
@@ -334,21 +352,208 @@ However, these advanced architectures are out of the scope of these lectures.
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Computational Footprint}
-If we consider a standard convolutional network like VGG \cite{simonyan2014very} we can make a couple of considerations on the computational footprint.
-\begin{figure}
-\begin{tabular}{c}
-\includegraphics[width=0.8\textwidth]{img/cnn/vgg16.jpg}
-\end{tabular}
-\end{figure}
+\section{Case Study: VGG Network}
+
+\begin{frame}{VGG}
+\textbf{VGG} \cite{simonyan2014very} indicates a deep convolutional network for image recognition developed and trained in 2014 by the Oxford Vision Geometry Group.\\
+\vspace{0.25cm}
+This network is well-known for a variety of reasons:
 \begin{itemize}
-\item Most of the memory is taken by the very first layers
-\item Most of parameters (70\%) are condensated in the last fully-connected layers
-\end{itemize}
-\small{Can you justify why?}
+\item \textbf{Performance} of the network is (was) great. In 2014 VGG team secured the first and the second places in the localization and classification challenge on ImageNet;
+\item \textbf{Pre-trained weights were released} in Caffe \cite{jia2014caffe} and converted by the deep learning community in a variety of other frameworks;
+\item \textbf{Architectural choices} by the authors led to a very neat network model, successively taken as guideline for a number of future works.
+\end{itemize} 
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{VGG16 Architecture}
+\vspace{-0.5cm}
+\begin{columns}
+	\begin{column}{0.1\textwidth}
+		\begin{figure}
+			\begin{tabular}{c}
+				\includegraphics[width=0.8\textwidth]{img/cnn/vgg16_architecture.png}
+			\end{tabular}
+		\end{figure}
+	\end{column}
+	\begin{column}{0.9\textwidth}
+		\\ \vspace{0.5cm}
+		\textbf{Input} fixed size 224x224 RGB images. For training, images are pre-processed subtracting the mean RGB value of the training set.\\
+		\vspace{0.25cm}
+		\textbf{Convolutional filters} feature 3x3 receptive field (the smallest size to capture the notion of left/right, up/down, center) and stride is fixed to 1 pixel.\\
+		\vspace{0.25cm}
+		\textbf{Spatial pooling} is carried out by five max pooling layers performed over 2x2 pixel window, with stride 2.\\
+		\vspace{0.25cm}
+		\textbf{ReLu activation} follow all hidden layers.\\
+		\vspace{0.25cm}
+		\textbf{Fully connected} layers feature 4096 neurons each followed by ReLu. The very last fully connected layer is composed of 1000 neurons (as many as ImageNet classes) and is followed by softmax activation.
+	\end{column}
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{VGG16 Computational Footprint}
+\vspace{-0.5cm}
+\begin{columns}
+	\begin{column}{0.1\textwidth}
+		\begin{figure}
+			\begin{tabular}{c}
+				\includegraphics[width=0.8\textwidth]{img/cnn/vgg16_architecture.png}
+			\end{tabular}
+		\end{figure}
+	\end{column}
+	\begin{column}{0.9\textwidth}
+		VGG16 features a total of \textbf{138 M learnable parameters}.\\
+		\vspace{0.5cm}
+		\textbf{Each image takes approx. 93MB of memory for forward pass}. As a rule of thumb, backward pass consumes roughly the double of the resources. Most of memory usage is due to the first layers in the network.\\
+		\vspace{0.5cm}
+		\textbf{Most of learnable parameters (70\%) are condensed in the last fully-connected layers}. In particular, one single layer is responsible of approximately 100M parameters on the total of 138M (can you spot it?). 
+	\end{column}
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Visualizing what CNNs Learn}
+
+\begin{frame}{The Myth of Interpretability}
+Convolutional neural networks have often been \textbf{criticized for their lack of interpretability}\cite{lipton2016mythos}. The main objection is to deal with big and complex black boxes, that give correct results even if in which we have no cue of what's happening inside.\\
+\vspace{-0.25cm}
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.75\textwidth]{img/cnn/black_box.png}
+\end{tabular}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{The Myth of Interpretability}
+On the other side, \textbf{linear models} and \textbf{decision trees} are often presented as example of "champions" of interpretability. The debate whether a logistic regression would be more or less interpretable than a deep network is complex out the scope of this lecture.\\
+\vspace{0.5cm}
+Partly as a response to this criticism, \textbf{several methods have been developed in literature to visualize what a CNN learned}. Let's see some examples.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Visualizing Activations}
+\textbf{Visualizing activations} of the network during the forward pass is straightforward and can be useful to detect dead filters (i.e. activations that are zero whatever the input).% Usually activations start looking relatively dense and become more sparse and localized as the training progresses.
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.6\textwidth]{img/cnn/visualize_activation.png} 
+\end{tabular}
+\caption{Activations on the 1st \texttt{conv} layer (left), and the 5th \texttt{conv} layer (right) of a trained AlexNet looking at a picture of a cat. Every box shows an activation map corresponding to some filter. Notice that the activations are sparse and mostly local.}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Inspecting Weights}
+\textbf{Visualizing the learned weights} is another common strategy to get an insight of what the network looks for in the images. The most interpretable weights are the ones learned by first convolutional layer, which operates directly on the image pixels.
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=\textwidth]{img/cnn/weights_inspection.png}
+\end{tabular}
+\end{figure}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Partially Occluding the Images}
+To investigate which portion of the input image most contributed to a certain prediction, we can slide an occluding object on the input, and seeing how the class probability changes as a function of the position of the occluder object \cite{zeiler2014visualizing}.
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.5\textwidth]{img/cnn/occlusions.jpg}
+\end{tabular}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{t-SNE Embedding}
+CNNs can be interpreted as gradually transforming the images into a representation in which the classes are separable by a linear classifier. We can get a rough idea about the topology of this space by embedding images into two dimensions so that their low-dimensional representation has approximately equal distances than their high-dimensional representation. Here, a \textbf{t-SNE embedding} of a set of images.
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.8\textwidth]{img/cnn/tsne.jpg}
+\end{tabular}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Transfer Learning}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Transfer Learning}
+\vspace{-1cm}
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=\textwidth]{img/cnn/busted_0.pdf}
+\end{tabular}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Transfer Learning}
+\vspace{-1cm}
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=\textwidth]{img/cnn/busted_1.pdf}
+\end{tabular}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Transfer Learning}
+In practice, \textbf{for many applications there is no need to retrain an entire CNN from scratch}.\\
+\vspace{0.5cm}
+Conversely, few "famous" CNN architectures (e.g. VGG \cite{simonyan2014very}, ResNet \cite{he2016deep}) pretrained on ImageNet \cite{deng2009imagenet} are often used as initialization or feature extractor for a variety of tasks.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\\
+
+\begin{frame}{Transfer Learning}
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.7\textwidth]{img/cnn/training_possibilities.png}
+\end{tabular}
+\caption{Overview of three different training scenarios.}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Transfer Learning}
+Deciding which portion of the network must be retrained is a very important choice that will heavily influence the final model performance.\\
+\vspace{0.5cm}
+Generally speaking, two main factors influence this decision:
+\begin{itemize}
+\item \textbf{size of the new dataset}: if the new dataset is small, fine-tune big portion of the network is likely to lead to overfitting. The best choice might be to train a linear classifier of CNN features.
+\item \textbf{similarity of the new data w.r.t. the original dataset}: the more similar is the new dataset w.r.t. the old one, the more we can confidently fine-tune the model without risking to overfit (given that we have enough data to do it).
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Transfer Learning}
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.8\textwidth]{img/cnn/finetuning_rules.png}
+\end{tabular}
+\caption{Rule of thumb for deciding how much of the model is to be retrained.}
+\end{figure}
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\begin{frame}{Troubleshooting}
