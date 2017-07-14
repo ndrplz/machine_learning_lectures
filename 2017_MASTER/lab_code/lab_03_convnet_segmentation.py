@@ -1,6 +1,6 @@
 import tensorflow as tf
 import numpy as np
-from lab_utils import load_tiles_dataset_from_cache, EPS
+from lab_utils import load_tiles_dataset_from_cache
 from lab_utils import TilesDataset
 
 
