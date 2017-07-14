@@ -11,18 +11,18 @@ def tiny_convnet(x, keep_prob):
     with tf.variable_scope('tiny_cnn'):
 
         conv1_filters = 32
-        conv1 = tf.layers.conv2d(x_image, conv1_filters, kernel_size=(3, 3), padding='same')
+        conv1 = tf.layers.conv2d(x_image, conv1_filters, kernel_size=(3, 3), padding='same', activation=tf.nn.relu)
         pool1 = tf.layers.max_pooling2d(conv1, pool_size=(2, 2), strides=(2, 2), padding='same')
 
         conv2_filters = 64
-        conv2 = tf.layers.conv2d(pool1, conv2_filters, kernel_size=(3, 3), padding='same')
+        conv2 = tf.layers.conv2d(pool1, conv2_filters, kernel_size=(3, 3), padding='same', activation=tf.nn.relu)
         pool2 = tf.layers.max_pooling2d(conv2, pool_size=(2, 2), strides=(2, 2), padding='same')
 
         pool2_flat = tf.reshape(pool2, shape=(-1, 7*7*conv2_filters))
 
         pool2_drop = tf.nn.dropout(pool2_flat, keep_prob=keep_prob)
 
-        hidden_units = 100
+        hidden_units = 10
         hidden = tf.layers.dense(pool2_drop, units=hidden_units, activation=tf.nn.relu)
 
         logits = tf.layers.dense(hidden, units=n_classes, activation=None)
@@ -88,10 +88,15 @@ if __name__ == '__main__':
                          feed_dict={x: x_batch, targets: target_batch, p: 0.5})
 
         # Eventually evaluate on whole test set when training ends
-        test_accuracy = sess.run(fetches=accuracy,
-                                 feed_dict={x: mnist.test.images, targets: mnist.test.labels, p: 1.})
+        average_test_accuracy = 0.0
+        num_test_batches = mnist.test.num_examples // batch_size
+        for _ in range(num_test_batches):
+            x_batch, target_batch = mnist.train.next_batch(batch_size)
+            average_test_accuracy += sess.run(fetches=accuracy,
+                                    feed_dict={x: x_batch, targets: target_batch, p: 1.})
+        average_test_accuracy /= num_test_batches
         print('*' * 50)
-        print('Training ended. TEST accuracy: {:.03f}'.format(test_accuracy))
+        print('Training ended. TEST accuracy: {:.03f}'.format(average_test_accuracy))
 
 
 
