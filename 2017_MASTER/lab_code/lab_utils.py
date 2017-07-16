@@ -138,9 +138,9 @@ class TilesDataset:
             self.test_x.append(x_image.astype(np.float32))
             self.test_y.append(np.expand_dims(y_image.astype(np.float32), 2))
 
-    def dump_to_file(self, file_path):
+    def dump_to_file(self, file_path, protocol=pickle.HIGHEST_PROTOCOL):
         with open(file_path, 'wb') as f:
-            pickle.dump(self, f)
+            pickle.dump(self, f, protocol=protocol)
 
 
 def load_tiles_dataset_from_cache(file_path):
