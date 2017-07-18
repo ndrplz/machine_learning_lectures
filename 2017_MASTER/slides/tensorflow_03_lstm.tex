@@ -1,0 +1,118 @@
+\documentclass[aspectratio=169]{beamer}
+\mode<presentation>
+{
+  \usetheme{metropolis}      % or try Darmstadt, Madrid, Warsaw, ...
+  \usecolortheme{default} % or try albatross, beaver, crane, ...
+  \usefonttheme{structurebold}  % or try serif, structurebold, ...
+  \setbeamercolor{background canvas}{bg=white}
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{bibliography item}{\insertbiblabel}
+  %\setbeamertemplate{caption}[numbered]
+} 
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{listings}             % Include the listings-package
+\hypersetup{
+    colorlinks = true,
+    linkcolor = {black},
+    urlcolor = {blue}
+}
+
+\usepackage{animate}
+\usepackage{listings}
+\usepackage{bm}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\title[Deep Learning and Temporal Data Processing]{Deep Learning and Temporal Data Processing}
+\subtitle{LSTM in TensorFlow}
+\institute{University of Modena and Reggio Emilia}
+\author{Andrea Palazzi}
+\date{July 17th, 2017}
+
+\def\thisframelogos{}
+
+\newcommand{\framelogo}[1]{\def\thisframelogos{#1}}
+
+\addtobeamertemplate{frametitle}{}{%
+\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north east] at (current page.north east) {%
+    \foreach \img in \thisframelogos {%
+        %\hspace{.5ex}%
+        \includegraphics[height=3.5ex]{\img}%
+    }%
+};
+\end{tikzpicture}}
+
+\begin{document}
+
+\framelogo{img/template/logo_unimore_white.png}
+
+\include{common/titlepage}
+\include{common/outline}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Synthetic Sequence Dataset}
+
+\begin{frame}[fragile]{Synthetic Sequence Dataset}
+For this practice I prepared a \textbf{synthetic dataset} consisting in $\bm{2^{20}}$ \textbf{binary sequences}.\\
+\vspace{0.5cm}
+You can find it in \texttt{synthetic\_dataset.py}.\\
+\vspace{0.5cm}
+Loading the data is as simple as:
+\begin{verbatim}
+from synthetic_dataset import SyntheticSequenceDataset
+synthetic_dataset   = SyntheticSequenceDataset()
+\end{verbatim}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Learning to Count}
+
+\begin{frame}[fragile]{Goal}
+Our task is to \textbf{count the number of ones in the binary sequences}.\\
+\vspace{0.5cm}
+The goal of this practice is to implement and train a \textbf{LSTM} \cite{hochreiter1997long} network to do so.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Useful Functions}
+To this purpose, you may find useful the following functions:
+\begin{itemize}
+\item \texttt{tf.contrib.rnn.LSTMCell}
+\item \texttt{tf.nn.dynamic\_rnn}
+\item \texttt{tf.transpose}
+\item \texttt{tf.gather}
+\item \texttt{tf.layers.dense}
+\end{itemize}
+Please refer to the docs to know the exact API.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{\ }
+\centering{
+\Large{Good Luck!}
+}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{References}
+
+\begin{frame}[t, allowframebreaks]
+\frametitle{References}
+\bibliographystyle{abbrv}
+\bibliography{bibliography}
+\end{frame}
+
+\end{document}
