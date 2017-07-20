@@ -15,37 +15,40 @@ if __name__ == '__main__':
     n_classes           = 21  # there are 21 = 0, 1, ..., 20 different classes
     synthetic_dataset   = SyntheticSequenceDataset()
 
+    # Define placeholders
     data    = tf.placeholder(dtype=tf.float32, shape=[None, 20, 1])
     targets = tf.placeholder(dtype=tf.float32, shape=[None, 21])
 
+    # Create LSTM cell
     hidden_size = args.hidden_size
     cell        = tf.contrib.rnn.LSTMCell(hidden_size, state_is_tuple=True)
 
+    # Define the recurrent network
     val, _  = tf.nn.dynamic_rnn(cell, inputs=data, dtype=tf.float32)
 
+    # Take the last output in the sequence
     val = tf.transpose(val, perm=[1, 0, 2])
-
     last_output = tf.gather(val, val.get_shape()[0]-1)
 
+    # Final dense layer to get to the prediction
     W = tf.get_variable(name='weights', shape=[hidden_size, n_classes], dtype=tf.float32)
     b = tf.get_variable(name='biases', shape=[n_classes], dtype=tf.float32)
-
     prediction = tf.nn.softmax(tf.matmul(last_output, W) + b)
 
+    # Loss function is the usual categorical cross-entropy
     cross_entropy = - tf.reduce_sum(targets * tf.log(prediction + args.eps))
 
+    # Define training step
     train_step = tf.train.AdamOptimizer().minimize(cross_entropy)
 
     # Accuracy metrics
     correct_predictions = tf.equal(tf.round(prediction), targets)
     accuracy = tf.reduce_mean(tf.cast(correct_predictions, dtype=tf.float32))
 
-    init_op = tf.global_variables_initializer()
-
     with tf.Session() as sess:
 
         # Initialize variables
-        sess.run(init_op)
+        sess.run(tf.global_variables_initializer())
 
         # Load dataset
         train_data, train_targets, test_data, test_targets = synthetic_dataset.data
