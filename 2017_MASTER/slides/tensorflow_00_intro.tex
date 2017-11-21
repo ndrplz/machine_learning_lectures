@@ -258,7 +258,7 @@ The same \textbf{tf.train.Saver} object can be used to restore variable values.
 \begin{frame}{TensorBoard}
 From a very high-level perspective, the lifecycle is the following:
 \begin{itemize}
-\item \textbf{tf.summary operations} can be attached to the nodes you'd like to collect summary data from.
+\item \textbf{tf.summary} operations can be attached to the nodes you'd like to collect summary data from.
 \item \textbf{tf.summary.FileWriter} object is in charge of writing generated logs to a certain directory \texttt{logdir}
 \item \textbf{TensorBoard} can be launched from command line as\\
 \texttt{tensorboard --logdir=<logdir>}. TensorBoard is now available through your web browser at \texttt{localhost:6006}.
