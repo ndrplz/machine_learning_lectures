@@ -101,14 +101,3 @@ if __name__ == '__main__':
                                  feed_dict={x: mnist.test.images, targets: mnist.test.labels})
         print('*' * 50)
         print('Training ended. TEST accuracy: {:.03f}'.format(test_accuracy))
-
-
-
-
-
-
-
-
-
-
-
