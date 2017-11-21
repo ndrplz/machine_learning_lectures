@@ -57,7 +57,7 @@ if __name__ == '__main__':
     y = multi_layer_net(x)
 
     # Define loss function
-    loss = tf.reduce_mean(-tf.reduce_sum(targets * tf.log(y + EPS), reduction_indices=1))
+    loss = tf.reduce_mean(-tf.reduce_sum(targets * tf.log(y + EPS), axis=1))
 
     # Define train step
     train_step = tf.train.AdamOptimizer(learning_rate=0.001).minimize(loss)
