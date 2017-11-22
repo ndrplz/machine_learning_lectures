@@ -179,6 +179,40 @@ if __name__ == '__main__':
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}{TensorBoard Reminder}
+\textbf{TensorBoard} is a suite of visualization tools integrated with TensorFlow. You can use TensorBoard to visualize your TensorFlow graph, plot quantitative metrics about the execution of your graph, and show additional data like images that pass through it.
+\begin{figure}
+\begin{tabular}{c}
+\includegraphics[width=0.7\textwidth]{img/tf/tensorboard.jpg}
+\end{tabular}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{TensorBoard Reminder}
+From a very high-level perspective, the lifecycle is the following:
+\begin{itemize}
+\item \textbf{tf.summary} operations can be attached to the nodes you'd like to collect summary data from.
+\item \textbf{tf.summary.FileWriter} object is in charge of writing generated logs to a certain directory \texttt{logdir}
+\item \textbf{TensorBoard} can be launched from command line as\\
+\texttt{tensorboard --logdir=<logdir>}. TensorBoard is now available through your web browser at \texttt{localhost:6006}.
+\end{itemize}
+Official tutorial here: \url{https://www.tensorflow.org/get_started/summaries_and_tensorboard}
+\end{frame}
+
+\begin{frame}{TensorBoard Reminder}
+This is an example of what you may see while training:
+\begin{figure}
+\centering
+\begin{tabular}{c}
+\includegraphics[width=0.8\textwidth]{img/tf/tensorboard_tiles.png}
+\end{tabular}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}{Tiles Dataset}
 \centering{
 \Large{Good Luck!}
