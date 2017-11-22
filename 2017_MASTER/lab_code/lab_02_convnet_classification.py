@@ -2,34 +2,40 @@ import tensorflow as tf
 from lab_utils import get_mnist_data, EPS
 
 
+# MNIST classes
+n_classes = 10
+
+
+# This will keep model architecture definition more readable
+conv2d  = tf.layers.conv2d
+pool2d  = tf.layers.max_pooling2d
+relu    = tf.nn.relu
+dense   = tf.layers.dense
+dropout = tf.nn.dropout
+softmax = tf.nn.softmax
+
+
 def tiny_convnet(x, keep_prob):
-
-    n_classes = 10
-
-    x_image = tf.reshape(x, shape=[-1, 28, 28, 1])
 
     with tf.variable_scope('tiny_cnn'):
 
+        # Restore original shape for `x` (it is loaded flat)
+        x = tf.reshape(x, shape=[-1, 28, 28, 1])
+
         conv1_filters = 32
-        conv1 = tf.layers.conv2d(x_image, conv1_filters, kernel_size=(3, 3), padding='same', activation=tf.nn.relu)
-        pool1 = tf.layers.max_pooling2d(conv1, pool_size=(2, 2), strides=(2, 2), padding='same')
+        h = relu(conv2d(x, filters=conv1_filters, kernel_size=[3, 3], padding='same'))
+        h = pool2d(h, pool_size=[2, 2], strides=[2, 2])
 
         conv2_filters = 64
-        conv2 = tf.layers.conv2d(pool1, conv2_filters, kernel_size=(3, 3), padding='same', activation=tf.nn.relu)
-        pool2 = tf.layers.max_pooling2d(conv2, pool_size=(2, 2), strides=(2, 2), padding='same')
+        h = relu(conv2d(h, filters=conv2_filters, kernel_size=[3, 3], padding='same'))
+        h = pool2d(h, pool_size=[2, 2], strides=[2, 2])
 
-        pool2_flat = tf.reshape(pool2, shape=(-1, 7*7*conv2_filters))
+        h_flat = tf.reshape(h, shape=[-1, 7*7*conv2_filters])
+        h_flat = dropout(h_flat, keep_prob=keep_prob)
 
-        pool2_drop = tf.nn.dropout(pool2_flat, keep_prob=keep_prob)
+        probabilities = dense(h_flat, units=n_classes, activation=softmax)
 
-        hidden_units = 10
-        hidden = tf.layers.dense(pool2_drop, units=hidden_units, activation=tf.nn.relu)
-
-        logits = tf.layers.dense(hidden, units=n_classes, activation=None)
-
-        y = tf.nn.softmax(logits)
-
-        return y
+        return probabilities
 
 
 if __name__ == '__main__':
@@ -48,7 +54,7 @@ if __name__ == '__main__':
     y = tiny_convnet(x, keep_prob=p)
 
     # Define loss function
-    loss = tf.reduce_mean(-tf.reduce_sum(targets * tf.log(y + EPS), reduction_indices=1))
+    loss = tf.reduce_mean(-tf.reduce_sum(targets * tf.log(y + EPS), axis=1))
 
     # Define train step
     train_step = tf.train.AdamOptimizer(learning_rate=0.001).minimize(loss)
@@ -93,19 +99,7 @@ if __name__ == '__main__':
         for _ in range(num_test_batches):
             x_batch, target_batch = mnist.train.next_batch(batch_size)
             average_test_accuracy += sess.run(fetches=accuracy,
-                                    feed_dict={x: x_batch, targets: target_batch, p: 1.})
+                                              feed_dict={x: x_batch, targets: target_batch, p: 1.})
         average_test_accuracy /= num_test_batches
         print('*' * 50)
         print('Training ended. TEST accuracy: {:.03f}'.format(average_test_accuracy))
-
-
-
-
-
-
-
-
-
-
-
-
