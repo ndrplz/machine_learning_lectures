@@ -1,14 +1,38 @@
 import tensorflow as tf
 import numpy as np
 from lab_utils import load_tiles_dataset_from_cache
+from time import time
 from lab_utils import TilesDataset
+
+
+# This will keep model architecture definition more readable
+conv2d  = tf.layers.conv2d
+pool2d  = tf.layers.max_pooling2d
+relu    = tf.nn.relu
+dense   = tf.layers.dense
+dropout = tf.nn.dropout
+softmax = tf.nn.softmax
+
+
+def convert_target_to_one_hot(target_batch):
+    """
+    Convert a batch of targets from 64x64x1 to 64x64x2 one-hot encoding.
+    """
+    b, h, w, c = target_batch.shape
+    out_tensor = np.zeros(shape=(b, h, w, 2))
+    for k, cur_example in enumerate(target_batch):
+        foreground_mask = np.squeeze(cur_example > 0)
+        background_mask = np.squeeze(cur_example == 0)
+        out_tensor[k, background_mask, 0] = 1.0
+        out_tensor[k, foreground_mask, 1] = 1.0
+    return out_tensor
 
 
 class TileSegmenter:
 
     def __init__(self, x, targets):
 
-        self.x      = x
+        self.x       = x
         self.targets = targets
 
         self._inference     = None
@@ -25,20 +49,20 @@ class TileSegmenter:
     def inference(self):
         if self._inference is None:
             with tf.variable_scope('inference'):
-                conv1 = tf.layers.conv2d(self.x, filters=32, kernel_size=(3, 3), padding='same', activation=tf.nn.relu)
-                pool1 = tf.layers.max_pooling2d(conv1, pool_size=(2, 2), strides=(2, 2), padding='same')
+                conv1 = conv2d(self.x, filters=32, kernel_size=[3, 3], padding='same', activation=relu)
+                pool1 = pool2d(conv1, pool_size=[2, 2], strides=[2, 2], padding='same')
 
-                conv2 = tf.layers.conv2d(pool1, filters=64, kernel_size=(3, 3), padding='same', activation=tf.nn.relu)
-                pool2 = tf.layers.max_pooling2d(conv2, pool_size=(2, 2), strides=(2, 2), padding='same')
+                conv2 = conv2d(pool1, filters=64, kernel_size=[3, 3], padding='same', activation=relu)
+                pool2 = pool2d(conv2, pool_size=[2, 2], strides=[2, 2], padding='same')
 
-                conv3_a = tf.layers.conv2d(pool2,   filters=64, kernel_size=(3, 3), padding='same', activation=tf.nn.relu)
-                conv3_b = tf.layers.conv2d(conv3_a, filters=64, kernel_size=(3, 3), padding='same', activation=tf.nn.relu)
-                pool3 = tf.layers.max_pooling2d(conv3_b, pool_size=(2, 2), strides=(2, 2), padding='same')
+                conv3_a = conv2d(pool2,   filters=64, kernel_size=[3, 3], padding='same', activation=relu)
+                conv3_b = conv2d(conv3_a, filters=64, kernel_size=[3, 3], padding='same', activation=relu)
+                pool3   = pool2d(conv3_b, pool_size=[2, 2], strides=[2, 2], padding='same')
 
-                conv4_a = tf.layers.conv2d(pool3,   filters=128, kernel_size=(3, 3), padding='same', activation=tf.nn.relu)
-                conv4_b = tf.layers.conv2d(conv4_a, filters=128, kernel_size=(3, 3), padding='same', activation=tf.nn.relu)
+                conv4_a = conv2d(pool3,   filters=128, kernel_size=[3, 3], padding='same', activation=relu)
+                conv4_b = conv2d(conv4_a, filters=128, kernel_size=[3, 3], padding='same', activation=relu)
 
-                conv_final = tf.layers.conv2d(conv4_b, 2, kernel_size=(1, 1), padding='same')
+                conv_final = conv2d(conv4_b, 2, kernel_size=(1, 1), padding='same')
 
                 self._inference = tf.image.resize_bilinear(conv_final, size=(64, 64))
 
@@ -65,43 +89,42 @@ class TileSegmenter:
     @property
     def summaries(self):
         if self._summaries is None:
-            with tf.variable_scope('summaries'):
-                # Add TensorBoard Summaries
-                how_many_images = 6
+            # Add TensorBoard Summaries
+            how_many_images = 6
 
-                # --- scalar summaries
-                tf.summary.scalar('loss', self.loss)
-                tf.summary.image('input', self.x, max_outputs=6)
+            # --- scalar summaries
+            tf.summary.scalar('loss', self.loss)
+            tf.summary.image('input', self.x, max_outputs=6)
 
-                # --- background image summaries
-                bg_target_image         = tf.expand_dims(tf.gather(tf.transpose(self.targets, [3, 0, 1, 2]), 0), axis=3)
-                bg_pred_image           = tf.expand_dims(tf.gather(tf.transpose(self.inference, [3, 0, 1, 2]), 0), axis=3)
-                bg_pred_image_rounded   = tf.round(tf.nn.softmax(self.inference, dim=3))
-                bg_pred_image_rounded   = tf.expand_dims(tf.gather(tf.transpose(bg_pred_image_rounded, [3, 0, 1, 2]), 0), axis=3)
+            # --- background image summaries
+            bg_target_image         = tf.expand_dims(tf.gather(tf.transpose(self.targets, [3, 0, 1, 2]), 0), axis=3)
+            bg_pred_image           = tf.expand_dims(tf.gather(tf.transpose(self.inference, [3, 0, 1, 2]), 0), axis=3)
+            bg_pred_image_rounded   = tf.round(tf.nn.softmax(self.inference, dim=3))
+            bg_pred_image_rounded   = tf.expand_dims(tf.gather(tf.transpose(bg_pred_image_rounded, [3, 0, 1, 2]), 0), axis=3)
 
-                tf.summary.image('BACKGROUND (targets)',            bg_target_image,        max_outputs=how_many_images)
-                tf.summary.image('BACKGROUND (prediction)',         bg_pred_image,          max_outputs=how_many_images)
-                tf.summary.image('BACKGROUND ROUNDED (prediction)', bg_pred_image_rounded,  max_outputs=how_many_images)
+            tf.summary.image('BACKGROUND (targets)',            bg_target_image,        max_outputs=how_many_images)
+            tf.summary.image('BACKGROUND (prediction)',         bg_pred_image,          max_outputs=how_many_images)
+            tf.summary.image('BACKGROUND ROUNDED (prediction)', bg_pred_image_rounded,  max_outputs=how_many_images)
 
-                # --- foreground image summaries
-                fg_target_image         = tf.expand_dims(tf.gather(tf.transpose(self.targets, [3, 0, 1, 2]), 1), axis=3)
-                fg_pred_image           = tf.expand_dims(tf.gather(tf.transpose(self.inference, [3, 0, 1, 2]), 1), axis=3)
-                fg_pred_image_rounded   = tf.round(tf.nn.softmax(self.inference, dim=3))
-                fg_pred_image_rounded   = tf.expand_dims(tf.gather(tf.transpose(fg_pred_image_rounded, [3, 0, 1, 2]), 1), axis=3)
+            # --- foreground image summaries
+            fg_target_image         = tf.expand_dims(tf.gather(tf.transpose(self.targets, [3, 0, 1, 2]), 1), axis=3)
+            fg_pred_image           = tf.expand_dims(tf.gather(tf.transpose(self.inference, [3, 0, 1, 2]), 1), axis=3)
+            fg_pred_image_rounded   = tf.round(tf.nn.softmax(self.inference, dim=3))
+            fg_pred_image_rounded   = tf.expand_dims(tf.gather(tf.transpose(fg_pred_image_rounded, [3, 0, 1, 2]), 1), axis=3)
 
-                tf.summary.image('FOREGROUND (targets)',            fg_target_image,        max_outputs=how_many_images)
-                tf.summary.image('FOREGROUND (prediction)',         fg_pred_image,          max_outputs=how_many_images)
-                tf.summary.image('FOREGROUND ROUNDED (prediction)', fg_pred_image_rounded,  max_outputs=how_many_images)
+            tf.summary.image('FOREGROUND (targets)',            fg_target_image,        max_outputs=how_many_images)
+            tf.summary.image('FOREGROUND (prediction)',         fg_pred_image,          max_outputs=how_many_images)
+            tf.summary.image('FOREGROUND ROUNDED (prediction)', fg_pred_image_rounded,  max_outputs=how_many_images)
 
-                # --- merge all summaries and initialize the summary writer
-                self._summaries = tf.summary.merge_all()
+            # --- merge all summaries and initialize the summary writer
+            self._summaries = tf.summary.merge_all()
         return self._summaries
 
 
 if __name__ == '__main__':
 
     # Load TILES data
-    tiles_dataset = load_tiles_dataset_from_cache('data/tiles_dataset.pickle')
+    tiles_dataset = load_tiles_dataset_from_cache('data/tiles_protocol_02.pickle')
 
     # Placeholders
     x       = tf.placeholder(dtype=tf.float32, shape=[None, 64, 64, 3])         # input
@@ -113,7 +136,7 @@ if __name__ == '__main__':
         model = TileSegmenter(x, targets)
 
         # FileWriter to save Tensorboard summary
-        train_writer = tf.summary.FileWriter('checkpoints', graph=sess.graph)
+        train_writer = tf.summary.FileWriter('checkpoints/{}'.format(time()), graph=sess.graph)
 
         # Training parameters
         training_epochs = 1000
@@ -138,26 +161,15 @@ if __name__ == '__main__':
                 x_batch         = np.array(tiles_dataset.train_x[idx_start:idx_end])
                 target_batch    = np.array(tiles_dataset.train_y[idx_start:idx_end])
 
-                # Each example in the target batch is a tensor of shape 64x64x1
-                # This must be converted into one-hot tensor of shape 64x64x2
-                def convert_target_to_one_hot(target_batch):
-                    b, h, w, c = target_batch.shape
-                    out_tensor = np.zeros(shape=(b, h, w, 2))
-                    for k, cur_example in enumerate(target_batch):
-                        foreground_mask = np.squeeze(cur_example > 0)
-                        background_mask = np.squeeze(cur_example == 0)
-                        out_tensor[k, background_mask, 0] = 1.0
-                        out_tensor[k, foreground_mask, 1] = 1.0
-                    return out_tensor
-
-                # Convert the target batch into one-hot encoding
+                # Convert the target batch into one-hot encoding (from 64x64x1 to 64x64x2)
                 target_batch = convert_target_to_one_hot(target_batch)
 
                 # Preprocess train batch
                 x_batch -= 128.0
 
                 # Actually run one training step here
-                _, cur_loss = sess.run(fetches=[model.train_step, model.loss], feed_dict={x: x_batch, targets: target_batch})
+                _, cur_loss = sess.run(fetches=[model.train_step, model.loss],
+                                       feed_dict={x: x_batch, targets: target_batch})
 
                 idx_start = idx_end
 

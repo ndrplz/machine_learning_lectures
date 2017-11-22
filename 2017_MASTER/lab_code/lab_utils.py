@@ -79,10 +79,7 @@ def get_brain_body_data(csv_file):
 
 class TilesDataset:
 
-    def __init__(self):
-        pass
-
-    def initialize_dataset(self, dataset_root):
+    def __init__(self, dataset_root):
 
         # Store dataset root
         if not path.exists(dataset_root):
@@ -90,26 +87,27 @@ class TilesDataset:
         self.dataset_root = dataset_root
 
         # Store locations of train, val and test directories
-        self.train_x_dir        = path.join(dataset_root, 'X_train')
-        self.train_y_dir        = path.join(dataset_root, 'Y_train')
-        self.validation_x_dir   = path.join(dataset_root, 'X_validation')
-        self.validation_y_dir   = path.join(dataset_root, 'Y_validation')
-        self.test_x_dir         = path.join(dataset_root, 'X_test')
-        self.test_y_dir         = path.join(dataset_root, 'Y_test')
+        self.train_x_dir      = path.join(dataset_root, 'X_train')
+        self.train_y_dir      = path.join(dataset_root, 'Y_train')
+        self.validation_x_dir = path.join(dataset_root, 'X_validation')
+        self.validation_y_dir = path.join(dataset_root, 'Y_validation')
+        self.test_x_dir       = path.join(dataset_root, 'X_test')
+        self.test_y_dir       = path.join(dataset_root, 'Y_test')
 
         # Number of dataset examples
-        self.train_num_examples         = 10000
-        self.validation_num_examples    = 1000
-        self.test_num_examples          = 1000
+        self.train_num_examples      = 10000
+        self.validation_num_examples = 1000
+        self.test_num_examples       = 1000
 
         # Initialize empty structures to contain data
-        self.train_x        = []
-        self.train_y        = []
-        self.validation_x   = []
-        self.validation_y   = []
-        self.test_x         = []
-        self.test_y         = []
+        self.train_x      = []
+        self.train_y      = []
+        self.validation_x = []
+        self.validation_y = []
+        self.test_x       = []
+        self.test_y       = []
 
+    def initialize_dataset(self):
         self._fill_data_arrays()
 
     def _fill_data_arrays(self):
