@@ -1,7 +1,67 @@
 import argparse
+import numpy as np
 import tensorflow as tf
 from synthetic_dataset import SyntheticSequenceDataset
-import numpy as np
+
+
+class DeepCounter:
+
+    def __init__(self, x, targets, args):
+
+        self.x = x
+        self.targets = targets
+
+        self.hidden_size = args.hidden_size
+        self.epsilon     = args.eps
+
+        self._inference  = None
+        self._loss       = None
+        self._train_step = None
+        self._accuracy    = None
+
+        self.inference
+        self.loss
+        self.train_step
+        self.accuracy
+
+    @property
+    def inference(self):
+        if self._inference is None:
+
+            # Create LSTM cell
+            cell = tf.contrib.rnn.LSTMCell(self.hidden_size, state_is_tuple=True)
+
+            # Define the recurrent network
+            val, _ = tf.nn.dynamic_rnn(cell, inputs=data, dtype=tf.float32)
+
+            # Take the last output in the sequence
+            val = tf.transpose(val, perm=[1, 0, 2])
+            last_output = tf.gather(val, val.get_shape()[0] - 1)
+
+            # Final dense layer to get to the prediction
+            self._inference = tf.layers.dense(last_output, units=n_classes, activation=tf.nn.softmax)
+
+        return self._inference
+
+    @property
+    def loss(self):
+        if self._loss is None:
+            self._loss = - tf.reduce_sum(targets * tf.log(self.inference + self.epsilon))
+        return self._loss
+
+    @property
+    def train_step(self):
+        if self._train_step is None:
+            self._train_step = tf.train.AdamOptimizer().minimize(self.loss)
+        return self._train_step
+
+    @property
+    def accuracy(self):
+        if self._accuracy is None:
+            correct_predictions = tf.equal(tf.round(self.inference), targets)
+            self._accuracy = tf.reduce_mean(tf.cast(correct_predictions, dtype=tf.float32))
+        return self._accuracy
+
 
 if __name__ == '__main__':
 
@@ -19,31 +79,7 @@ if __name__ == '__main__':
     data    = tf.placeholder(dtype=tf.float32, shape=[None, 20, 1])
     targets = tf.placeholder(dtype=tf.float32, shape=[None, 21])
 
-    # Create LSTM cell
-    hidden_size = args.hidden_size
-    cell        = tf.contrib.rnn.LSTMCell(hidden_size, state_is_tuple=True)
-
-    # Define the recurrent network
-    val, _  = tf.nn.dynamic_rnn(cell, inputs=data, dtype=tf.float32)
-
-    # Take the last output in the sequence
-    val = tf.transpose(val, perm=[1, 0, 2])
-    last_output = tf.gather(val, val.get_shape()[0]-1)
-
-    # Final dense layer to get to the prediction
-    W = tf.get_variable(name='weights', shape=[hidden_size, n_classes], dtype=tf.float32)
-    b = tf.get_variable(name='biases', shape=[n_classes], dtype=tf.float32)
-    prediction = tf.nn.softmax(tf.matmul(last_output, W) + b)
-
-    # Loss function is the usual categorical cross-entropy
-    cross_entropy = - tf.reduce_sum(targets * tf.log(prediction + args.eps))
-
-    # Define training step
-    train_step = tf.train.AdamOptimizer().minimize(cross_entropy)
-
-    # Accuracy metrics
-    correct_predictions = tf.equal(tf.round(prediction), targets)
-    accuracy = tf.reduce_mean(tf.cast(correct_predictions, dtype=tf.float32))
+    deep_counter = DeepCounter(x=data, targets=targets, args=args)
 
     with tf.Session() as sess:
 
@@ -62,19 +98,24 @@ if __name__ == '__main__':
 
         # Train batch by batch
         for epoch in range(0, training_epochs):
-            print('Epoch {:02d}'.format(epoch))
+
             start_idx = 0
+            loss_current_epoch = []
             for _ in range(0, batches_each_epoch):
 
                 # Load batch
-                end_idx     = start_idx + batch_size
+                end_idx = start_idx + batch_size
                 data_batch, target_batch = train_data[start_idx:end_idx], train_targets[start_idx:end_idx]
 
                 # Run one optimization step on current step
-                sess.run(train_step, {data: data_batch, targets: target_batch})
+                cur_loss, _ = sess.run(fetches=[deep_counter.loss, deep_counter.train_step],
+                                       feed_dict={data: data_batch, targets: target_batch})
+                loss_current_epoch.append(cur_loss)
 
                 # Update data pointer
                 start_idx += batch_size
+
+            print('Epoch {:02d} - Loss on train set: {:.02f}'.format(epoch, sum(loss_current_epoch)/batches_each_epoch))
 
         print('\n' + 50 * '*' + '\nTesting\n' + 50 * '*')
 
@@ -86,7 +127,7 @@ if __name__ == '__main__':
         for _ in range(0, num_test_batches):
             end_idx = start_idx + batch_size
             data_batch, target_batch = test_data[start_idx:end_idx], test_targets[start_idx:end_idx]
-            accuracy_score += sess.run(accuracy, {data: data_batch, targets: target_batch})
+            accuracy_score += sess.run(deep_counter.accuracy, {data: data_batch, targets: target_batch})
             start_idx += batch_size
 
         print('Average accuracy on test set: {:.03f}'.format(accuracy_score / num_test_batches))
@@ -109,7 +150,7 @@ if __name__ == '__main__':
                 for binary_char in my_sequence:
                     test_example.append([float(binary_char)])
 
-                pred = sess.run(prediction, feed_dict={data: np.expand_dims(test_example, 0)})
+                pred = sess.run(deep_counter.inference, feed_dict={data: np.expand_dims(test_example, 0)})
                 print('Predicted number of ones: {} - Real: {}\n'.format(int(np.argmax(pred)), int(np.sum(test_example))))
             else:
                 break

@@ -68,4 +68,3 @@ class SyntheticSequenceDataset:
         test_targets    = data_y_one_hot[num_train_examples:]
 
         return train_data, train_targets, test_data, test_targets
-
