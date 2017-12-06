@@ -4,7 +4,6 @@
 
 ---
 
-**Crash course on Deep Learning and Temporal Data Processing.**
 ## THEORY
   - **[0_gradient_descent.pdf](https://github.com/ndrplz/deep_learning_lectures/tree/master/slides/main_gradient_descent.pdf)** - slides on **gradient descent optimization**.
   - **[1_deep_neural_networks.pdf](https://github.com/ndrplz/deep_learning_lectures/tree/master/slides/main_dnn.pdf)** -  slides on **neural network and deep neural networks**.
