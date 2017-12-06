@@ -26,7 +26,7 @@
   - **[lab02 - convnets for classification on MNIST](https://github.com/ndrplz/deep_learning_lectures/blob/master/lab_code/lab_02_convnet_classification.py)**
   - **[lab03 - convnets for segmentation on TilesDataset](https://github.com/ndrplz/deep_learning_lectures/blob/master/lab_code/lab_03_convnet_segmentation.py)**
   - **[lab03 - lstm_sequence_counting](https://github.com/ndrplz/deep_learning_lectures/blob/master/lab_code/lab_04_lstm_sequence_counting.py)**
-  
+
 ## LaTeX source
-  - Whole LaTeX source for all slides is available [here](https://github.com/ndrplz/deep_learning_lectures/blob/master/slides).
+Whole LaTeX source for all slides is available [here](https://github.com/ndrplz/deep_learning_lectures/blob/master/slides).
  
