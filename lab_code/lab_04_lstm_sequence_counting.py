@@ -32,11 +32,10 @@ class DeepCounter:
             cell = tf.contrib.rnn.LSTMCell(self.hidden_size, state_is_tuple=True)
 
             # Define the recurrent network
-            val, _ = tf.nn.dynamic_rnn(cell, inputs=data, dtype=tf.float32)
+            outputs, _ = tf.nn.dynamic_rnn(cell, inputs=data, dtype=tf.float32)
 
             # Take the last output in the sequence
-            val = tf.transpose(val, perm=[1, 0, 2])
-            last_output = tf.gather(val, val.get_shape()[0] - 1)
+            last_output = outputs[:, -1, :]
 
             # Final dense layer to get to the prediction
             self._inference = tf.layers.dense(last_output, units=n_classes, activation=tf.nn.softmax)
