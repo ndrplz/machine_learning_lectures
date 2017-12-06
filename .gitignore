@@ -1,0 +1,22 @@
+# Binary files
+*.pickle
+checkpoints/
+
+# Python stuff
+__pycache__/
+
+# Pycharm stuff
+.idea/
+
+# Texmaker stuff
+*.log
+*.nav
+*.out
+*.snm
+*.synctex.gz
+*.toc
+*.aux
+*.bbl
+*.blg
+*.vrb
+src/*.aux
