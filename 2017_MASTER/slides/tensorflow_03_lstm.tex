@@ -60,15 +60,30 @@
 \begin{frame}[fragile]{Synthetic Sequence Dataset}
 For this practice I prepared a \textbf{synthetic dataset} consisting in $\bm{2^{20}}$ \textbf{binary sequences}.\\
 \vspace{0.5cm}
-You can find it in \texttt{synthetic\_dataset.py}.\\
+For each input sequence, the target is the number of ones in the sequence.\\
+\vspace{0.5cm}
+From an implementation standpoint, the target is encoded as one-hot vector. Thus, examples $(x, y)$ from the dataset looks like the following:
+\begin{figure}
+\centering
+\begin{tabular}{cc}
+input & target\\
+00110011111000111101 & 000000000000100000000\\
+01000010100001010000 & 000001000000000000000\\
+11101110010111011110 & 000000000000001000000
+\end{tabular}
+\end{figure}
+\end{frame}
+
+\begin{frame}[fragile]{Synthetic Sequence Dataset}
+The dataset can be found in \texttt{synthetic\_dataset.py}.\\
 \vspace{0.5cm}
 Loading the data is as simple as:
 \begin{verbatim}
 from synthetic_dataset import SyntheticSequenceDataset
 synthetic_dataset   = SyntheticSequenceDataset()
 \end{verbatim}
+Synthetic data are automatically either generated or loaded from cache (if existent) the first time that dataset property \texttt{data} is accessed.
 \end{frame}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
