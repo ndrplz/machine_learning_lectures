@@ -29,12 +29,4 @@ This repository contains a **miscellaneous collection of lectures and lab lectur
   - **[lab03 - lstm_sequence_counting](https://github.com/ndrplz/deep_learning_lectures/blob/master/2017_MASTER/lab_code/lab_04_lstm_sequence_counting.py)**
   
 ### LaTeX source
-  - Whole LaTeX source is available in repository in [2017_MASTER](https://github.com/ndrplz/deep_learning_lectures/blob/master/2017_MASTER)
-
----
-
-## 2016 - Lab lectures, @ [Machine Learning and Pattern Recognition course, UniMoRe, Italy](http://personale.unimore.it/AddressBook/classesContentAD/calderara/2016/43594/N0/N0/9999)
-  - In repo [2016_MLPR](2016_MLPR) are contained lab lectures convering DNN, CNN, LSTM in Keras + Theano framework.
-    
-    Detailed syllabus can be found [here](2016_MLPR/README.md).
-    
+  - Whole LaTeX source is available in repository in [2017_MASTER](https://github.com/ndrplz/deep_learning_lectures/blob/master/2017_MASTER)    
