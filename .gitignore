@@ -3,6 +3,7 @@
 checkpoints/
 
 # Python stuff
+*.pyc
 __pycache__/
 
 # Pycharm stuff
