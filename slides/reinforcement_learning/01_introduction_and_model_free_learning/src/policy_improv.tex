@@ -1,0 +1,19 @@
+\bgroup
+\begin{frame}{How to improve a policy}
+\begin{itemize}
+\item Given a policy $\pi$
+\item Evaluate the policy $\pi$
+\begin{align*}
+v_{\pi}(s) &= \mathbb{E}[R_{t+1} + \gamma R_{t+2} + \ldots|S_t = s]\\
+q_{\pi}(s, a) &= \mathbb{E}[R_{t+1} + \gamma R_{t+2} + \ldots|S_t = s, A_t = a]\\
+\end{align*}
+\item Improve the policy by acting greedily with respect to $v_{\pi}$
+\begin{align*}
+\pi^{\prime} &=\text{greedy}(v_{\pi})\\
+\pi^{\prime} &=\text{greedy}(q_{\pi})
+\end{align*}
+\item In general, need more iterations of improvement / evaluation
+\item In model-free contexts, action-value function $Q(s, a)$ is our only option
+\end{itemize}
+\end{frame}
+\egroup

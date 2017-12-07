@@ -1,0 +1,14 @@
+\bgroup
+\begin{frame}{Bias/variance trade-off}
+\begin{itemize}
+\item Return $G_t=R_{t+1}+R_{t+2}+\ldots+\gamma^{T-1}R_T$ is \emph{unbiased} estimate of $v_{\pi}(S_t)$
+\item True TD target $R_{t+1}+v_{\pi}(S_{t+1})$ is unbiased estimate of $v_{\pi}(S_t)$
+\item TD target $R_{t+1}+v(S_{t+1})$ is biased estimate of $v_{\pi}(S_t)$
+\item TD target is much lower variance than the return:
+\begin{itemize}
+\item Return depends on many random actions, transitions, rewards
+\item TD target depends on one random action, transition, reward
+\end{itemize}
+\end{itemize}
+\end{frame}
+\egroup

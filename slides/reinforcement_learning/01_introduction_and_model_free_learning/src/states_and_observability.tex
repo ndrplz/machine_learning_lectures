@@ -1,0 +1,18 @@
+\bgroup
+{\renewcommand{\arraystretch}{2} 
+\begin{frame}{Agent and environment states}
+\centering
+\begin{tabular}{l|l}
+\multicolumn{1}{c|}{Agent state $S_t^a$}&
+\multicolumn{1}{c}{Environment state $S_t^e$}\\
+\multicolumn{1}{p{6cm}|}{whatever information the agent uses to pick the next action}&
+\multicolumn{1}{p{6cm}}{whatever data the environment uses to pick the next observation/reward}\\
+\multicolumn{1}{p{6cm}|}{it is the information used by RL algorithms}&
+\multicolumn{1}{p{6cm}}{usually not visible by the agent}
+\end{tabular}
+\begin{itemize}
+\item \textcolor{mImagelabRed}{Full observability}: agent directly observes environment state
+\item \textcolor{mImagelabRed}{Partial observability}: agent indirectly observes environment state
+\end{itemize}
+\end{frame}
+\egroup

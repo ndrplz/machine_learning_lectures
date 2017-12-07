@@ -1,0 +1,113 @@
+\documentclass[aspectratio=169]{beamer}
+%
+% Choose how your presentation looks.
+%
+% For more themes, color themes and font themes, see:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+%
+\mode<presentation>
+{
+  \usetheme{metropolis}      % or try Darmstadt, Madrid, Warsaw, ...
+  \usecolortheme{metropolis-imagelab} % or try albatross, beaver, crane, ...
+  \usefonttheme{structurebold}  % or try serif, structurebold, ...
+  \setbeamercolor{background canvas}{bg=white}
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{bibliography item}{\insertbiblabel}
+  %\setbeamertemplate{caption}[numbered]
+} 
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{hyperref}
+\usepackage{algorithm,algorithmic}
+\usepackage{listings}             % Include the listings-package
+\usepackage{pgfplots}
+\usepackage{caption}
+\usepackage{xcolor}
+\usepackage{amsmath}
+
+\usepackage{tikz}
+\usepackage{animate}
+\usepackage{bm}
+
+
+\hypersetup{
+    colorlinks = true,
+    linkcolor = {black},
+    urlcolor = {mImagelabRed}
+}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\title[Reinforcement Learning]{Reinforcement Learning}
+\subtitle{Introduction and Model-Free Learning}
+\institute{University of Modena and Reggio Emilia}
+\author{Davide Abati}
+\date{\today}
+
+\def\thisframelogos{}
+
+\newcommand{\framelogo}[1]{\def\thisframelogos{#1}}
+%\algnewcommand{\myRepeat}[1]{\State \algorithmicrepeat \unskip #1}
+
+\begin{document}
+
+\framelogo{logo_unimore_white.png}
+
+\include{src/titlepage}
+\include{src/acknowledge}
+
+\section{What is reinforcement learning?}
+\include{src/ml_taxonomy}
+\include{src/characteristics}
+\include{src/rewards}
+\include{src/rewards_examples}
+
+\section{Inside a RL agent}
+\include{src/sequential_decision_making}
+\include{src/agent_and_environment}
+\include{src/state}
+\include{src/states_and_observability}
+\include{src/agent_components}
+\include{src/policy}
+\include{src/value_function}
+\include{src/model}
+\include{src/maze_environment}
+\include{src/maze_policy}
+\include{src/maze_value_function}
+\include{src/maze_model}
+\include{src/rl_taxonomy}
+
+\section{Model-free prediction}
+\include{src/model_free_prediction}
+\include{src/mc_intro}
+\include{src/mc_policy_evaluation}
+\include{src/mc_algo}
+\include{src/mc_algo_incremental}
+\include{src/mc_blackjack_example}
+\include{src/mc_blackjack_value}
+\include{src/td_vs_mc}
+\include{src/go_home_example}
+\include{src/td_vs_mc_2}
+\include{src/td_vs_mc_3}
+
+\section{Model-free control}
+\include{src/model_free_control}
+\include{src/policy_improv}
+\include{src/doors_example}
+\include{src/epsilon_greedy}
+\include{src/on_off_policy}
+\include{src/mc_policy_iteration}
+\include{src/mc_control}
+\include{src/blackjack_reprise}
+\include{src/blackjack_mc_control}
+\include{src/mc_vs_td_control}
+\include{src/sarsa}
+\include{src/sarsa_control}
+\include{src/sarsa_algorithm}
+\include{src/windy_gridworld}
+\include{src/sarsa_windy_gridworld}
+% pro and cons
+% lecture 5
+
+\end{document}

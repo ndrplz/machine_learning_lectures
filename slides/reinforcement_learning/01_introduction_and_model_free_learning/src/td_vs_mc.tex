@@ -1,0 +1,24 @@
+\bgroup
+\begin{frame}{MC and TD}
+\begin{itemize}
+\item Goal: learn $v_{\pi}$ online from experience under policy $\pi$
+\item Incremental every-visit Monte-Carlo
+\begin{itemize}
+\item Update value $V(S_t)$ toward actual return \textcolor{mImagelabRed}{$G_t$}
+\begin{equation*}
+V(S_t) \leftarrow V(S_t) +\alpha (\textcolor{mImagelabRed}{G_t} − V(S_t))
+\end{equation*}
+\end{itemize}
+%
+\item Simplest temporal-difference learning algorithm: TD(0)
+\begin{itemize}
+\item Update value $V(S_t)$ toward estimated return \textcolor{mImagelabRed}{$R_{t+1} + \gamma V(S_{t+1})$}
+\begin{equation*}
+V(S_t) \leftarrow V(S_t) + \alpha (\textcolor{mImagelabRed}{R_{t+1} + \gamma V(S_{t+1})} − V(S_t))
+\end{equation*}
+\item $R_{t+1} + \gamma V(S_{t+1})$ is called the TD target
+\item $\delta_t = R_{t+1} + \gamma V(S_{t+1}) − V(S_t)$ is called the TD error
+\end{itemize}
+\end{itemize}
+\end{frame}
+\egroup

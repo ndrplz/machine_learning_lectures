@@ -1,0 +1,17 @@
+\bgroup
+\begin{frame}{Incremental Monte-Carlo Updates}
+\begin{itemize}
+\item Update $V(s)$ incrementally after episode $S_1, A_1, R_2, ..., S_T$
+\item Compute return $G_t$
+\item For each state $S_t$ with return $G_t$
+\begin{align*}
+&N(S_t) \leftarrow N(S_t) + 1 \\
+&V(S_t) \leftarrow V(S_t) + \frac{1}{N(S_t)}(G_t − V(S_t))
+\end{align*}
+\item Usually a running mean is employed, i.e. forget old episodes
+\begin{equation*}
+V(S_t) \leftarrow V(S_t) + \alpha(G_t − V(S_t))
+\end{equation*}
+\end{itemize}
+\end{frame}
+\egroup

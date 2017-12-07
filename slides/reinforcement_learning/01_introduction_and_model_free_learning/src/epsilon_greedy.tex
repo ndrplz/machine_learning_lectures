@@ -1,0 +1,16 @@
+\bgroup
+\begin{frame}{$\epsilon$-greedy exploration}
+\begin{itemize}
+\item Simplest idea for ensuring continual exploration
+\item All $m$ actions are tried with non-zero probability
+\item With probability 1 − $\epsilon$ choose the greedy action 
+\item With probability $\epsilon$ choose an action at random
+\end{itemize}
+\begin{equation*}
+\pi(a|s) = \begin{cases}
+    \epsilon / m + 1 - \epsilon,& \text{if } a^{\ast} = \argmax_{a \in \mathcal{A}} Q(s,a)\\
+    \epsilon / m,              & \text{otherwise}
+\end{cases}
+\end{equation*}
+\end{frame}
+\egroup

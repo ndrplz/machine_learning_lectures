@@ -1,0 +1,18 @@
+\bgroup
+\begin{frame}{MC vs TD control}
+\begin{itemize}
+\item Temporal-difference (TD) learning has several advantages over Monte-Carlo (MC)
+\begin{itemize}
+\item Lower variance
+\item Online
+\item Incomplete sequences
+\end{itemize}
+\item Natural idea: use TD instead of MC in our control loop
+\begin{itemize}
+\item Apply TD to $Q(S, A)$
+\item Use $\epsilon$-greedy policy improvement
+\item Update every time-step
+\end{itemize}
+\end{itemize}
+\end{frame}
+\egroup

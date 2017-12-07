@@ -1,0 +1,27 @@
+\bgroup
+\begin{frame}{Agent and environment}
+\begin{minipage}{0.45\textwidth}
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{img/agent_and_environment.pdf}
+\end{figure}
+\end{minipage}
+\begin{minipage}{0.45\textwidth}
+\begin{itemize}
+\item At each step $t$ the agent:
+\begin{itemize}
+\item Receives observation $O_t$
+\item Receives scalar reward $R_t$
+\item Executes action $A_t$
+\end{itemize}
+\item The environment:
+\begin{itemize}
+\item Receives action $A_t$
+\item Emits observation $O_{t+1}$
+\item Emits scalar reward $R_{t+1}$
+\end{itemize}
+\item $t$ increments at env. step
+\end{itemize}
+\end{minipage}
+\end{frame}
+\egroup

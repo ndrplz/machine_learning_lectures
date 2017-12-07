@@ -1,0 +1,12 @@
+\bgroup
+\begin{frame}{Every-Visit Monte-Carlo Policy Evaluation}
+\begin{itemize}
+\item To evaluate state $s$
+\item Every time-step $t$ that state $s$ is visited in an episode,
+\item Increment counter $N(s) \leftarrow N(s) + 1$
+\item Increment total return $S(s) \leftarrow S(s) + Gt$
+\item Value is estimated by mean return $V(s) = S(s)/N(s)$
+\item By law of large numbers, $V(s) \rightarrow v_{\pi}(s)$ as $N(s) \rightarrow \infty$
+\end{itemize}
+\end{frame}
+\egroup
