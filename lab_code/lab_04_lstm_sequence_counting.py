@@ -9,7 +9,8 @@ class DeepCounter:
     def __init__(self, x, targets, args):
 
         self.x = x
-        self.targets = targets
+        self.targets   = targets
+        self.n_classes = targets.get_shape()[-1]
 
         self.hidden_size = args.hidden_size
         self.epsilon     = args.eps
@@ -17,7 +18,7 @@ class DeepCounter:
         self._inference  = None
         self._loss       = None
         self._train_step = None
-        self._accuracy    = None
+        self._accuracy   = None
 
         self.inference
         self.loss
@@ -32,13 +33,13 @@ class DeepCounter:
             cell = tf.contrib.rnn.LSTMCell(self.hidden_size, state_is_tuple=True)
 
             # Define the recurrent network
-            outputs, _ = tf.nn.dynamic_rnn(cell, inputs=data, dtype=tf.float32)
+            outputs, _ = tf.nn.dynamic_rnn(cell, inputs=self.x, dtype=tf.float32)
 
             # Take the last output in the sequence
             last_output = outputs[:, -1, :]
 
             # Final dense layer to get to the prediction
-            self._inference = tf.layers.dense(last_output, units=n_classes, activation=tf.nn.softmax)
+            self._inference = tf.layers.dense(last_output, units=self.n_classes, activation=tf.nn.softmax)
 
         return self._inference
 
@@ -71,7 +72,6 @@ if __name__ == '__main__':
     parser.add_argument('--eps', type=np.float32, default=np.finfo('float32').eps,  help='Machine epsilon', metavar='')
     args = parser.parse_args()
 
-    n_classes           = 21  # there are 21 = 0, 1, ..., 20 different classes
     synthetic_dataset   = SyntheticSequenceDataset()
 
     # Define placeholders
@@ -89,9 +89,9 @@ if __name__ == '__main__':
         train_data, train_targets, test_data, test_targets = synthetic_dataset.data
 
         # Training parameters
-        training_epochs     = args.training_epochs
-        batch_size          = args.batch_size
-        batches_each_epoch  = int(len(train_data)) // batch_size
+        training_epochs    = args.training_epochs
+        batch_size         = args.batch_size
+        batches_each_epoch = int(len(train_data)) // batch_size
 
         print('\n' + 50*'*' + '\nTraining\n' + 50*'*')
 
