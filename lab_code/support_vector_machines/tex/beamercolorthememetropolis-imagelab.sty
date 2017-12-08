@@ -1,0 +1,53 @@
+%%
+%% This is file `beamercolorthememetropolis-imagelab.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% beamercolorthememetropolis-imagelab.dtx  (with options: `package')
+%% ---------------------------------------------------------------------------
+%% Copyright 2015 Matthias Vogelgesang and the LaTeX community. A full list of
+%% contributors can be found at
+%% 
+%%     https://github.com/matze/mtheme/graphs/contributors
+%% 
+%% and the original template was based on the HSRM theme by Benjamin Weiss.
+%% 
+%% This work is licensed under a Creative Commons Attribution-ShareAlike 4.0
+%% International License (https://creativecommons.org/licenses/by-sa/4.0/).
+%% ---------------------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamercolorthememetropolis-imagelab}[2017/06/20 Metropolis color theme]
+\usecolortheme{metropolis}
+
+\definecolor{mImagelabRed}{HTML}{C0504D}
+\definecolor{mImagelabWhite}{HTML}{FFFFFF}
+
+\setbeamercolor{header text}{%
+  fg=mImagelabWhite,
+  bg=mImagelabRed
+}
+
+\setbeamercolor{palette primary}{%
+  use=normal text,
+  fg=normal text.bg,
+  bg=normal text.fg
+}
+\setbeamercolor{palette frametitle}{%
+  use=header text,
+  fg=header text.fg,
+  bg=header text.bg
+}
+\setbeamercolor{frametitle}{%
+  use=palette frametitle,
+  parent=palette frametitle
+}
+
+\setbeamercolor{alerted text}{%
+  fg=mImagelabRed
+}
+
+\mode<all>
+\endinput
+%%
+%% End of file `beamercolorthememetropolis-imagelab.sty'.

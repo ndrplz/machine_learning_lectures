@@ -1,0 +1,19 @@
+\begin{frame}{SVM for people detection (2)}
+Pipeline for people vs non people classification with \textbf{HOG features}:
+\begin{itemize}
+\item load training examples (images, HOG features, labels)
+\item load test examples (images, HOG features, labels)
+\item choose a kernel (linear or rbf) and a value for C and initialize a SVM model 
+\begin{itemize}
+\item use \href{http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html}{sklearn.svm.SVC}
+\end{itemize}
+\item fit a SVM model on training examples
+\begin{itemize}
+\item use \href{http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html\#sklearn.svm.SVC.fit}{SVC.fit()}
+\end{itemize}
+\item use model for computing predictions on test examples
+\begin{itemize}
+\item use \href{http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html\#sklearn.svm.SVC.predict}{SVC.predict()}
+\end{itemize}
+\end{itemize}
+\end{frame}

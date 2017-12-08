@@ -1,0 +1,21 @@
+\newlength{\overwritelength}
+\newlength{\minimumoverwritelength}
+\setlength{\minimumoverwritelength}{1cm}
+\newcommand{\overwrite}[3][mImagelabRed]{%
+  \settowidth{\overwritelength}{$#3$}%
+  \ifdim\overwritelength<\minimumoverwritelength%
+    \setlength{\overwritelength}{\minimumoverwritelength}\fi%
+  \stackrel
+    {%
+      \begin{minipage}{\overwritelength}%
+        \color{#1}\centering\small #3\\%
+        \rule{1pt}{9pt}%
+      \end{minipage}}
+    {\colorbox{#1!50}{\color{black}$\displaystyle#2$}}}
+
+\begin{frame}{SVM: kernels}
+Math guys find out that if you employ Lagrangian multipliers to solve the optimization the problem, you need to find the extrema of the following function ($\{\alpha\}_{i=1}^N$ are the lagrangian multipliers of each training example):
+\begin{equation}
+L = \sum_i \alpha_i - \frac{1}{2} \sum_i \sum_j \alpha_i \alpha_j y_i y_j \overwrite{\vec{x_i} \cdot \vec{x_j}}{!!!!!!}
+\end{equation}
+\end{frame}

@@ -1,0 +1,61 @@
+\documentclass[aspectratio=169]{beamer}
+%
+% Choose how your presentation looks.
+%
+% For more themes, color themes and font themes, see:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+%
+\mode<presentation>
+{
+  \usetheme{metropolis}      % or try Darmstadt, Madrid, Warsaw, ...
+  \usecolortheme{metropolis-imagelab} % or try albatross, beaver, crane, ...
+  \usefonttheme{structurebold}  % or try serif, structurebold, ...
+  \setbeamercolor{background canvas}{bg=white}
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{bibliography item}{\insertbiblabel}
+  %\setbeamertemplate{caption}[numbered]
+} 
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{listings}             % Include the listings-package
+\hypersetup{
+    colorlinks = true,
+    linkcolor = {black},
+    urlcolor = {mImagelabRed}
+}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\title[Support Vector Machines]{Support Vector Machines}
+\subtitle{Pattern Recognition and Machine Learning - MuMeT 2017}
+\institute{University of Modena and Reggio Emilia}
+\author{Davide Abati}
+\date{June 23th, 2017}
+
+\def\thisframelogos{}
+
+\newcommand{\framelogo}[1]{\def\thisframelogos{#1}}
+
+\begin{document}
+
+\framelogo{logo_unimore_white.png}
+
+\include{src/titlepage}
+
+\include{src/svm_intro}
+\include{src/svm_setting}
+\include{src/svm_hard_margin}
+\include{src/svm_non_linear}
+\include{src/svm_soft_margin}
+\include{src/svm_kernels}
+\include{src/svm_kernels2}
+\include{src/svm_example_linear_1}
+\include{src/svm_example_kernel_1}
+\include{src/svm_example_linear_2}
+\include{src/svm_example_kernel_2}
+
+\section{Application: people vs non people classification}
+\include{src/people_classification_setting}
+\include{src/people_classification_pipeline}
+
+\end{document}

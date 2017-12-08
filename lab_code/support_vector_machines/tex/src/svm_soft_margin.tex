@@ -1,0 +1,18 @@
+\begin{frame}{SVM: soft margin optimization}
+Introduce a slack variable $\xi_i$ for every training example
+\begin{equation*}
+\begin{aligned}
+& \min_{\vec{w},b} & & \frac{1}{2}||w||^2 + C\sum_{i=1}^N\xi_i\\
+&\text{s.t.} & & y_i(\vec{w}^T\cdot\vec{x_i} + b)>1-\xi_i & \forall i=1,\ldots,N\\
+& & & \xi_i > 0 & \forall i=1,\ldots,N
+\end{aligned}
+\end{equation*}
+where $C$ is a tradeoff between the margin maximization and the slack variable minimization.
+
+The decision rule for an unknown example $\vec{u}$ does not change:
+\begin{equation*}
+f(\vec{u}) = \text{sign}(\vec{w}^T\cdot\vec{u} + b)
+\end{equation*}
+
+
+\end{frame}

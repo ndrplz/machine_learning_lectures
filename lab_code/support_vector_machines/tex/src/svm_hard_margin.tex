@@ -1,0 +1,15 @@
+\begin{frame}{SVM: hard margin optimization}
+It can be shown that solving this constrained optimization problem maximizes the margin:
+\begin{equation*}
+\begin{aligned}
+& \min_{\vec{w},b} & & \frac{1}{2}||w||^2\\
+& \text{s.t.} & &  y_i(\vec{w}^T\cdot\vec{x_i} + b)>1 & \forall i=1,\ldots,N
+\end{aligned}
+\end{equation*}
+After estimating $\vec{w}$ and $b$, the decision rule for an unknown example $\vec{u}$ is simply:
+\begin{equation*}
+f(\vec{u}) = \text{sign}(\vec{w}^T\cdot\vec{u} + b)
+\end{equation*}
+
+
+\end{frame}
