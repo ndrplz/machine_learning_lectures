@@ -1,0 +1,64 @@
+\documentclass[aspectratio=169]{beamer}
+%
+% Choose how your presentation looks.
+%
+% For more themes, color themes and font themes, see:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+%
+\mode<presentation>
+{
+  \usetheme{metropolis}      % or try Darmstadt, Madrid, Warsaw, ...
+  \usecolortheme{metropolis-imagelab} % or try albatross, beaver, crane, ...
+  \usefonttheme{structurebold}  % or try serif, structurebold, ...
+  \setbeamercolor{background canvas}{bg=white}
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{bibliography item}{\insertbiblabel}
+  %\setbeamertemplate{caption}[numbered]
+} 
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{algorithm,algorithmic}
+\usepackage{listings}             % Include the listings-package
+\usepackage{pgfplots}
+
+\usepackage{tikz}
+\usepackage{animate}
+\usepackage{bm}
+
+
+\hypersetup{
+    colorlinks = true,
+    linkcolor = {black},
+    urlcolor = {blue}
+}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\title[Logistic Regression and Gradient Descent]{Logistic Regression and Gradient Descent}
+\subtitle{Pattern Recognition and Machine Learning}
+\institute{University of Modena and Reggio Emilia}
+\author{Davide Abati}
+\date{October 19th, 2017}
+
+\def\thisframelogos{}
+
+\newcommand{\framelogo}[1]{\def\thisframelogos{#1}}
+
+\begin{document}
+
+\framelogo{logo_unimore_white.png}
+
+\include{src/titlepage}
+\include{src/math_setting}
+\include{src/logistic_regression_rationale}
+\include{src/logistic_regression_prediction}
+\include{src/binary_crossentropy}
+\include{src/gradient_descent_plz}
+\include{src/simplify_loss_function}
+\include{src/derive_loss_function}
+\include{src/gradient}
+\include{src/algorithm}
+\include{src/game_of_thrones}
+
+\end{document}

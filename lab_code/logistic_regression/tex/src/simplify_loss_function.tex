@@ -1,0 +1,11 @@
+\bgroup
+\begin{frame}{Simplify our loss}
+Back to our problem. We need to take the derivative of this function w.r.t. $w$:
+\begin{align*}
+\mathcal{L}(w) &= -\frac{1}{N} \sum_{i=1}^N [Y_i \log(F(X_i, w)) + (1 - Y_i)\log(1-F(X_i, w))]\\
+&=- \frac{1}{N} \sum_{i=1}^N \bigg[Y_i \log\bigg(\frac{e^{w^T\cdot X_i}}{1+e^{w^T\cdot X_i}}\bigg) + (1 - Y_i)\log\bigg(\frac{1}{1+e^{w^T\cdot X_i}}\bigg)\bigg]\\
+&=- \frac{1}{N} \sum_{i=1}^N \bigg[Y_i(w^T\cdot X_i) - Y_i\log\bigg(1+e^{w^T\cdot X_i}\bigg) + (Y_i - 1)\log\bigg(1+e^{w^T\cdot X_i}\bigg)\bigg]\\
+&=- \frac{1}{N} \sum_{i=1}^N \bigg[Y_i(w^T\cdot X_i) - \log\bigg(1+e^{w^T\cdot X_i}\bigg)\bigg]\\
+\end{align*}
+\end{frame}
+\egroup

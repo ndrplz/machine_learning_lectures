@@ -1,0 +1,23 @@
+\bgroup
+\begin{frame}{Final gradient and update}
+Back to our problem. We need to take the derivative of this function w.r.t. $w$:
+\begin{align*}
+\frac{\delta \mathcal{L}(w)}{\delta w} = \begin{bmatrix}
+\frac{\delta \mathcal{L}(w)}{\delta w_1}\\[1em]
+\frac{\delta \mathcal{L}(w)}{\delta w_2}\\[1em]
+\vdots\\[1em]
+\frac{\delta \mathcal{L}(w)}{\delta w_m}
+\end{bmatrix} = 
+\begin{bmatrix}
+-\frac{1}{N} \sum_{i=1}^N (Y_i - F(X_i, w))x_i^{(1)}\\[1em]
+-\frac{1}{N} \sum_{i=1}^N (Y_i - F(X_i, w))x_i^{(2)}\\[1em]
+\vdots\\[1em]
+-\frac{1}{N} \sum_{i=1}^N (Y_i - F(X_i, w))x_i^{(m)}
+\end{bmatrix} = -\frac{X^T \cdot (Y-F(X,w))}{N}
+\end{align*}
+We will update the vector $w$ accordingly:
+\begin{equation*}
+w \leftarrow w - \alpha\frac{\delta \mathcal{L}(w)}{\delta w}
+\end{equation*}
+\end{frame}
+\egroup

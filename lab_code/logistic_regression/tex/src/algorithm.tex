@@ -1,0 +1,19 @@
+\bgroup  
+\begin{frame}{Wrap up: algorithm}
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+\STATE $X, Y \leftarrow load\_training\_data()$
+\STATE set learning rate $\alpha$
+\STATE initialize $w$ randomly
+\FOR{$e=1$ to $number\_of\_training\_steps$}
+\STATE compute the prediction according to the current weights $F(X, w)$
+\STATE compute the loss function $\mathcal{L}(w)$
+\STATE compute the derivative of the loss function w.r.t. weights $\frac{\delta \mathcal{L}(w)}{\delta w}$
+\STATE update the weight vector $w \leftarrow w - \alpha\frac{\delta \mathcal{L}(w)}{\delta w}$
+\ENDFOR
+\end{algorithmic}
+\caption{pseudocode for training}
+\label{alg:train}
+\end{algorithm}
+\end{frame}
+\egroup
