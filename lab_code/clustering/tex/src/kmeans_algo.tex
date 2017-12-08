@@ -1,0 +1,12 @@
+\begin{frame}{K-means: algorithm}
+The problem is NP-hard. A simple heuristic algorithm can be employed to converge to a \emph{local} minimum:
+\begin{itemize}
+\item Initialize $k$ centers randomly
+\item Repeat until convergence:
+\begin{itemize}
+\item assign each example to the closest center (i.e. lower euclidean distance)
+\item re-estimate centers as the mean of their clusters
+\end{itemize}
+\end{itemize}
+Try to implement it from scratch!
+\end{frame}

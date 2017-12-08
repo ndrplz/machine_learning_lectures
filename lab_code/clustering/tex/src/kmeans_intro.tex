@@ -1,0 +1,20 @@
+\begin{frame}{K-means}
+\begin{itemize}
+\item Is a partitional clustering model
+\begin{itemize}
+\item splits data $\{x_i\}_1^n$ into $k$ disjoint sets
+\item the number of sets $k$ has to be provided as input
+\end{itemize}
+\item solves the following optimization problem:
+\begin{align*}
+\argmin_{\{c_1, \ldots, c_k\}} = \sum_{j=1}^k\sum_{i=1}^n \mathbf{I}(i,j)||x_i - c_j ||^2 
+\end{align*}
+\begin{align*}
+\mathbf{I}(i,j)=
+\begin{cases}
+    1, & \text{$x_i$ belongs to cluster $j$}\\
+    0,              & \text{otherwise}
+\end{cases}
+\end{align*}
+\end{itemize}
+\end{frame}

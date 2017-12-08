@@ -1,0 +1,60 @@
+\documentclass[aspectratio=169]{beamer}
+%
+% Choose how your presentation looks.
+%
+% For more themes, color themes and font themes, see:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+%
+\mode<presentation>
+{
+  \usetheme{metropolis}      % or try Darmstadt, Madrid, Warsaw, ...
+  \usecolortheme{metropolis-imagelab} % or try albatross, beaver, crane, ...
+  \usefonttheme{structurebold}  % or try serif, structurebold, ...
+  \setbeamercolor{background canvas}{bg=white}
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{bibliography item}{\insertbiblabel}
+  %\setbeamertemplate{caption}[numbered]
+} 
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{listings}             % Include the listings-package
+\hypersetup{
+    colorlinks = true,
+    linkcolor = {black},
+    urlcolor = {blue}
+}
+\usepackage{animate}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\title[Unsupervised learning: Clustering]{Unsupervised learning: Clustering}
+\subtitle{Pattern Recognition and Machine Learning - 2017}
+\institute{University of Modena and Reggio Emilia}
+\author{Davide Abati}
+\date{September 28th, 2017}
+
+\def\thisframelogos{}
+
+\newcommand{\framelogo}[1]{\def\thisframelogos{#1}}
+
+\begin{document}
+
+\framelogo{logo_unimore_white.png}
+
+\include{src/titlepage}
+\include{src/outline}
+
+\section{K-means}
+\include{src/kmeans_intro}
+\include{src/kmeans_algo}
+\include{src/kmeans_representation}
+\include{src/kmeans_segmentation}
+\include{src/kmeans_drawbacks}
+
+\section{Spectral clustering}
+\include{src/spectral_algo_1}
+\include{src/spectral_algo_2}
+\include{src/spectral_result}
+\include{src/spectral_sigma}
+\include{src/useful_functions}
+\end{document}

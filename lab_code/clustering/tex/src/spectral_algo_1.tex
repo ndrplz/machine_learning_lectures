@@ -1,0 +1,14 @@
+\begin{frame}{Spectral clustering: algorithm (1)}
+Clustering model based on the spectral graph theory.
+\begin{itemize}
+\item build a graph over examples, representing it with the adjacency matrix $A$
+\begin{equation*}
+A_{i,j} = e^{-\frac{\sum_{k=1}^d||x_i^k-x_j^k||^2}{\sigma^2}}
+\end{equation*}
+\item build the degree matrix $D$ of the graph. It is a diagonal matrix holding for each element the sum of the incoming adges.
+\item compute the normalized laplacian $L$
+\begin{equation}
+L=I-D^{-0.5}AD^{-0.5}
+\end{equation}
+\end{itemize}
+\end{frame}
