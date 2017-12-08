@@ -1,0 +1,11 @@
+\begin{frame}{Adaboost: a closer look (3)}
+To update $w_i$:
+\begin{equation*}
+w_i^{(j+1)}=\frac{w_i^{(j)}}{Z^{(j)}}
+  \begin{cases}
+    \exp^{-\alpha_j} & \text{if $M_j(x_i)=y_i$} \\
+    \exp^{\alpha_j} & \text{if $M_j(x_i)\neq y_i$}
+  \end{cases}
+\end{equation*}
+$Z^{(j)}$ is a normalization factor that ensures $\sum_i w_i = 1$
+\end{frame}

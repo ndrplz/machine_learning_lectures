@@ -1,0 +1,9 @@
+\begin{frame}{Adaboost: a closer look (1)}
+To build a weak classifier for $D_j$, repeat until $\epsilon_j<0.5$
+\begin{itemize}
+\item randomly choose a data dimension
+\item randomly choose a threshold
+\item set all points above the threshold (along the chosen axis) to $1$ and all points below to $-1$ (or viceversa)
+\item compute $\epsilon_j$ over $D_j$
+\end{itemize}
+\end{frame}

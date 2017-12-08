@@ -1,0 +1,16 @@
+\begin{frame}{Adaboost: training algorithm}
+\begin{itemize}
+\item initialize a weight $w_i$ for each training example
+\item repeat for $j=1,\ldots,K$:
+\begin{itemize}
+\item from $D$, sample $N$ examples \underline{with replacement} and build a temporary dataset $D_j$. Each example has a probability of being sampled equal to $w_i$
+\item build a weak classifier $M_j$ on $D_j$
+\item compute the error rate $\epsilon_j$ of $M_j$, and the relative \emph{efficiency} $\alpha_j$
+\item update weights for all samples in $D_j$
+\begin{itemize}
+\item if correctly classified: decrease the weight
+\item if incorrectly classified: increase the weight
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\end{frame}

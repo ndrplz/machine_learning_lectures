@@ -1,0 +1,58 @@
+\documentclass[aspectratio=169]{beamer}
+%
+% Choose how your presentation looks.
+%
+% For more themes, color themes and font themes, see:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+%
+\mode<presentation>
+{
+  \usetheme{metropolis}      % or try Darmstadt, Madrid, Warsaw, ...
+  \usecolortheme{metropolis-imagelab} % or try albatross, beaver, crane, ...
+  \usefonttheme{structurebold}  % or try serif, structurebold, ...
+  \setbeamercolor{background canvas}{bg=white}
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{bibliography item}{\insertbiblabel}
+  %\setbeamertemplate{caption}[numbered]
+} 
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{listings}             % Include the listings-package
+\hypersetup{
+    colorlinks = true,
+    linkcolor = {black},
+    urlcolor = {blue}
+}
+\usepackage{animate}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\title[Ensemble methods: boosting]{Ensemble methods: boosting}
+\subtitle{Pattern Recognition and Machine Learning - MuMeT 2017}
+\institute{University of Modena and Reggio Emilia}
+\author{Davide Abati}
+\date{June 28th, 2017}
+
+\def\thisframelogos{}
+
+\newcommand{\framelogo}[1]{\def\thisframelogos{#1}}
+
+\begin{document}
+
+\framelogo{logo_unimore_white.png}
+
+\include{src/titlepage}
+\include{src/rationale}
+\include{src/boosting}
+\include{src/setting}
+\include{src/algorithm}
+\include{src/closer1}
+\include{src/closer2}
+\include{src/closer3}
+\include{src/learning}
+\include{src/decision_rule}
+\include{src/boundary1}
+\include{src/boundary2}
+\include{src/boundary3}
+
+\end{document}
