@@ -1,0 +1,15 @@
+\begin{frame}{Eigenfaces: a magic trick to compute eigenvectors}
+Each Olivetti image is $112\times 92$. Once flattened, is a vector of $10304$ pixels:
+\begin{itemize}
+\item The convariance matrix is $10304\times 10304$
+\item Computing eigenvectors and eigenvalues \underline{is a pain}
+\item Instead, compute the covariance matrix of transposed $X$:
+\begin{equation*}
+\Sigma = (X-\mu)(X-\mu)^T
+\end{equation*}
+\item Once selected the principal components $\tilde{E}$ of this weirdo space, you can compute the original eigenvectors just like:
+\begin{equation*}
+E = X^T\cdot \tilde{E}
+\end{equation*}
+\end{itemize}
+\end{frame}

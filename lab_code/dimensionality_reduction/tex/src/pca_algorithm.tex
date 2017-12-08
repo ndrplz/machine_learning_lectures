@@ -1,0 +1,14 @@
+\begin{frame}{PCA: algorithm}
+\begin{itemize}
+\item Arrange your data in a $n\times d$ matrix $X$, where $n$ is the number of samples and $d$ is data dimensionality
+\item Compute the mean $\mu$ ($d$-dimensional vector) of all samples
+\item Compute convariance matrix
+\begin{equation*}
+\Sigma = (X-\mu)^T(X-\mu)
+\end{equation*}
+\item Pick the first $m$ eigenvectors of $\Sigma$ (ordered by decreasing eigenvalues), where $m$ is the dimensionality you want your data to be projected to
+\item Arrange such eigenvectors in a $d\times m$ matrix $E$
+\item Compute the projected samples as $P=X\cdot E$
+\item You can compute the reconstruction as $\tilde{X} = P\cdot E^T$
+\end{itemize}
+\end{frame}

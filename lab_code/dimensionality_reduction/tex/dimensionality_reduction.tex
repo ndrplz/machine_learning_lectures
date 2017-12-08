@@ -1,0 +1,62 @@
+\documentclass[aspectratio=169]{beamer}
+%
+% Choose how your presentation looks.
+%
+% For more themes, color themes and font themes, see:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+%
+\mode<presentation>
+{
+  \usetheme{metropolis}      % or try Darmstadt, Madrid, Warsaw, ...
+  \usecolortheme{metropolis-imagelab} % or try albatross, beaver, crane, ...
+  \usefonttheme{structurebold}  % or try serif, structurebold, ...
+  \setbeamercolor{background canvas}{bg=white}
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{bibliography item}{\insertbiblabel}
+  %\setbeamertemplate{caption}[numbered]
+} 
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{listings}             % Include the listings-package
+\hypersetup{
+    colorlinks = true,
+    linkcolor = {black},
+    urlcolor = {blue}
+}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\title[Dimensionality reduction]{Dimensionality reduction}
+\subtitle{Pattern Recognition and Machine Learning - MuMeT 2017}
+\institute{University of Modena and Reggio Emilia}
+\author{Davide Abati}
+\date{June 22th, 2017}
+
+\def\thisframelogos{}
+
+\newcommand{\framelogo}[1]{\def\thisframelogos{#1}}
+
+\begin{document}
+
+\framelogo{logo_unimore_white.png}
+
+\include{src/titlepage}
+\include{src/outline}
+
+\section{Principal Component Analysis}
+\include{src/pca_intro}
+\include{src/pca_algorithm}
+\include{src/pca_figure}
+\include{src/pca_projections_2d}
+\include{src/pca_projections_1d}
+
+\section{Eigenfaces}
+\include{src/eigenfaces_train}
+\include{src/eigenfaces_predict}
+\include{src/eigenfaces_trick}
+\include{src/eigenfaces_plots}
+\include{src/face_space}
+\include{src/accuracy}
+
+
+\end{document}
