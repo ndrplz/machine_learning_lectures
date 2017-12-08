@@ -1,0 +1,17 @@
+\bgroup  
+\begin{frame}{Likelyhood $P(X/Y)$}
+During testing, the likelyhood of an image under a class is built by taking the class model (the one built before, during training) and:
+\begin{itemize}
+\item for each active pixel, account for the probability of being active given class;
+\item for each zero pixel, account for one minus the probability of being active given class;
+\end{itemize}
+\begin{minipage}{0.25\textwidth}
+\centering
+\includegraphics[width=\textwidth]{img/test_image.pdf}
+\end{minipage}
+\begin{minipage}{0.65\textwidth}
+\centering
+\includegraphics[width=\textwidth]{img/likelyhood.pdf}
+\end{minipage}
+\end{frame}
+\egroup

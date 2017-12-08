@@ -1,0 +1,32 @@
+\bgroup  
+\begin{frame}{Wrap up: algorithms}
+\begin{minipage}{0.45\textwidth}
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+\FOR{$j=1$ to $d$}
+\STATE compute the class prior $P(Y_j)$
+\STATE compute a model for $P(X/Y_j)$
+\ENDFOR
+\end{algorithmic}
+\caption{pseudocode for training}
+\label{alg:train}
+\end{algorithm}
+\end{minipage}
+\begin{minipage}{0.45\textwidth}
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+\FOR{$i=1$ to $n$}
+\FOR{$j=1$ to $d$}
+\STATE compute $\log{P(X_i, Y_j)}$
+\STATE compute $\log{P(Y_j/X_i)} = \log{P(X_i, Y_j)} + \log{P(Y_j)}$
+\ENDFOR
+\STATE $Y_i=\argmax_{Y_j}\log{P(Y_j/X_i)}$
+\ENDFOR
+\end{algorithmic}
+\caption{pseudocode for inference}
+\label{alg:test}
+\end{algorithm}
+\end{minipage}
+
+\end{frame}
+\egroup

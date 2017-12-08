@@ -1,0 +1,14 @@
+\bgroup  
+\begin{frame}{Classification using bayes rule}
+We will use the Bayes rule to build a classifier. The classification rule will be the following:
+\begin{equation*}
+\argmax_Y \only<1,3,4,5>{P(Y/X)} \only<2>{\boxed{P(Y/X)}} = \frac{\only<1,2,3,5>{P(X/Y)}\only<4>{\boxed{P(X/Y)}} \only<1,2,4,5>{P(Y)}\only<3>{\boxed{P(Y)}}}{\only<1,2,3,4>{P(X)}\only<5>{\boxed{P(X)}}}
+\end{equation*}
+\begin{itemize}
+\item<2-> $P(Y/X)$ is the probability of the image $X$ of being labeled as $Y$;
+\item<3-> $P(Y)$ is the prior probability of the class $Y$;
+\item<4-> $P(X/Y)$ is the likelyhood of the image $X$ under the model $Y$;
+\item<5-> $P(X)$ is the probability of the image $X$ under the whole dataset. Does not influence the argmax so we can drop it.
+\end{itemize}
+\end{frame}
+\egroup
