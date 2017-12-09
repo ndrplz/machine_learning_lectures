@@ -1,0 +1,14 @@
+\bgroup
+\begin{frame}{Q-learning}
+\begin{itemize}
+\item We now consider off-policy learning of action-values $Q(s, a)$
+\item Next action is chosen using behaviour policy $A_{t+1} \sim \mu(\cdot | S_t)$
+\item But we consider alternative successor action $A^{\prime} \sim \pi(\cdot|S_t)$
+\item And update $Q(S_t, A_t)$ towards value of alternative action
+\end{itemize}
+\begin{equation*}
+Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha(\textcolor{mImagelabRed}{R_{t+1} +
+Q(S_{t+1}, A^{\prime})} - Q(S_t, A_t))
+\end{equation*}
+\end{frame}
+\egroup

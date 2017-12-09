@@ -1,0 +1,16 @@
+\bgroup
+\begin{frame}{Off-policy learning}
+\begin{itemize}
+\item Evaluate target policy $\pi(a,s)$ to compute $v_{\pi}(s)$ or $q_{\pi}(s, a)$
+\item While following behaviour policy $\mu(a|s)$
+\begin{equation*}
+\{S_1, A_1, R_2, \ldots, S_T\} \sim \mu
+\end{equation*}
+\item Why is this important?
+\item Learn from observing humans or other agents
+\item Re-use experience generated from old policies $\pi_1, \pi_2, \ldots, \pi_{t-1}$
+\item Learn about \emph{optimal} policy while following \emph{exploratory} policy
+\item Learn about \emph{multiple} policies while following \emph{one} policy
+\end{itemize}
+\end{frame}
+\egroup
