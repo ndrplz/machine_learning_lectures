@@ -4,9 +4,19 @@
 \item Value function is a prediction of future reward
 \item Used to evaluate goodness/badness of states
 \item And therefore to select between actions
+\begin{block}{Definition}
+The \emph{state-value function} $v_{\pi}(s)$ is the expected return starting from state $s$, and then following policy $\pi$
 \begin{equation*}
-v_{\pi}(s) = \mathbb{E}_{\pi}[R_{t+1}+\gamma R_{t+2} + \gamma^2 R_{t+3} + \ldots | S_t = s]
+v_{\pi}(s) = \mathbb{E}_{\pi}[G_t | S_t = s]
 \end{equation*}
+\end{block}
+%
+\begin{block}{Definition}
+The \emph{action-value function} $q_{\pi}(s, a)$ is the expected return starting from state $s$, taking action $a$, and then following policy $\pi$
+\begin{equation*}
+q_{\pi}(s, a) = \mathbb{E}_{\pi}[G_t | S_t = s, A_t = a]
+\end{equation*}
+\end{block}
 \end{itemize}
 \end{frame}
 \egroup

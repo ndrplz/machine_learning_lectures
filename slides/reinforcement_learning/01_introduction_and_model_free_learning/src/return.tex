@@ -1,0 +1,17 @@
+\bgroup
+\begin{frame}{Return}
+\begin{block}{Definition}
+The return $G_t$ is the total discounted reward from time-step $t$.
+\begin{equation*}
+G_t = R_{t+1} + R_{t+2} + \ldots = \sum_{k=0}^{\infty} \gamma^{k}R_{t+k+1}
+\end{equation*}
+\end{block}
+\begin{itemize}
+\item The discount $\gamma \in [0, 1]$ is the present value of future rewards
+\item The value of receiving reward $R$ after $k + 1$ time-steps is $\gamma^{k} R$.
+\item This values immediate reward above delayed reward.
+\item $\gamma$ close to 0 leads to \emph{myopic} evaluation
+\item $\gamma$ close to 1 leads to \emph{far-sighted} evaluation
+\end{itemize}
+\end{frame}
+\egroup
