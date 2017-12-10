@@ -1,0 +1,21 @@
+\bgroup
+\begin{frame}{Incremental prediction algorithms}
+\begin{itemize}
+\item Have assumed true value function $v_{\pi}(s)$ given by supervisor
+\item But in RL there is no supervisor, only rewards
+\item In practice, we substitute a \emph{target} for $v_{\pi}(s)$
+\begin{itemize}
+\item For MC, the target is the return $G_t$
+\begin{equation*}
+\Delta \textbf{w} = \alpha(\highlight{G_t} - \hat{v}(S_t, \textbf{w}))\nabla_{\textbf{w}}\hat{v}(S_t, \textbf{w})
+\end{equation*}
+\item For TD(0), the target is the TD target $R_{t+1} + \gamma \hat{v}(S_{t+1}, \textbf{w})$
+\begin{equation*}
+\Delta \textbf{w} = \alpha(\highlight{R_{t+1} + \gamma \hat{v}(S_{t+1}, \textbf{w})} - \hat{v}(S_t, \textbf{w}))\nabla_{\textbf{w}}\hat{v}(S_t, \textbf{w})
+\end{equation*}
+
+
+\end{itemize}
+\end{itemize}
+\end{frame}
+\egroup

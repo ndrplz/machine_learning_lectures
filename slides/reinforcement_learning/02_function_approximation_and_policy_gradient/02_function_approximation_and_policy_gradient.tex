@@ -1,0 +1,83 @@
+\documentclass[aspectratio=169]{beamer}
+%
+% Choose how your presentation looks.
+%
+% For more themes, color themes and font themes, see:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+%
+\mode<presentation>
+{
+  \usetheme{metropolis}      % or try Darmstadt, Madrid, Warsaw, ...
+  \usecolortheme{metropolis-imagelab} % or try albatross, beaver, crane, ...
+  \usefonttheme{structurebold}  % or try serif, structurebold, ...
+  \setbeamercolor{background canvas}{bg=white}
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{bibliography item}{\insertbiblabel}
+  %\setbeamertemplate{caption}[numbered]
+} 
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{hyperref}
+\usepackage{algorithm,algorithmic}
+\usepackage{listings}             % Include the listings-package
+\usepackage{pgfplots}
+\usepackage{caption}
+\usepackage{xcolor}
+\usepackage{amsmath}
+
+\usepackage{tikz}
+\usepackage{animate}
+\usepackage{bm}
+
+
+\hypersetup{
+    colorlinks = true,
+    linkcolor = {black},
+    urlcolor = {mImagelabRed}
+}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\newcommand{\highlight}[1]{\textcolor{mImagelabRed}{#1}}
+
+\title[Reinforcement Learning]{Reinforcement Learning}
+\subtitle{Function approximation and policy gradient methods}
+\institute{University of Modena and Reggio Emilia}
+\author{Davide Abati}
+\date{\today}
+
+\def\thisframelogos{}
+
+\newcommand{\framelogo}[1]{\def\thisframelogos{#1}}
+%\algnewcommand{\myRepeat}[1]{\State \algorithmicrepeat \unskip #1}
+
+\begin{document}
+
+\framelogo{logo_unimore_white.png}
+
+\include{src/titlepage}
+\include{src/acknowledge}
+
+\section*{Introduction}
+\include{src/large_scale_RL}
+\include{src/value_function_approximation}
+\include{src/vfa_types}
+\include{src/which_function}
+\include{src/which_function_2}
+
+\section*{Incremental methods}
+\include{src/gradient_descent}
+\include{src/vfa_by_sgd}
+\include{src/feature_vectors}
+\include{src/linear_vfa}
+\include{src/table_lookup}
+\include{src/incremental_prediction}
+\include{src/mc_vfa}
+\include{src/td_vfa}
+\include{src/vfa_control}
+\include{src/q_approximation}
+\include{src/linear_q_approximation}
+\include{src/incremental_control}
+
+
+\end{document}

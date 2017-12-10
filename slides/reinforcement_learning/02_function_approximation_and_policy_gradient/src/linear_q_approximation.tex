@@ -1,0 +1,25 @@
+\bgroup
+\begin{frame}{Linear action-value function approximation}
+\begin{itemize}
+\item Represent state \emph{and} action by a \emph{feature} vector
+\begin{equation*}
+\textbf{x}(S,A)=\left(\begin{array}{c}
+\textbf{x}_1(S,A)\\
+\vdots\\
+\textbf{x}_n(S,A)
+\end{array}\right)
+\end{equation*}
+%
+\item Represent action-value function by linear combination of features
+\begin{equation*}
+\hat{q}(S, A, \textbf{w}) = \textbf{x}(S,A)^T\textbf{w}=\sum_{j=1}^n\textbf{x}_j(S,A)\textbf{w}_j
+\end{equation*}
+%
+\item Stochastic gradient descent update
+\begin{align*}
+\nabla_w\hat{q}(S,A,\textbf{w})&=\textbf{x}(S,A)\\	
+\Delta \textbf{w} &= \alpha(q_{\pi}(S,A)-\hat{q}(S,A,\textbf{w}))\textbf{x}(S,A)
+\end{align*}
+\end{itemize}
+\end{frame}
+\egroup

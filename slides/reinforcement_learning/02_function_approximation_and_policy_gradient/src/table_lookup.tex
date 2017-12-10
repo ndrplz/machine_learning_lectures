@@ -1,0 +1,30 @@
+\bgroup
+\begin{frame}{Table Lookup Features}
+\begin{itemize}
+\item Table lookup is a special case of linear value function approximation
+\item Using table lookup features
+\begin{equation*}
+\textbf{x}^{table}(S)=\left(\begin{array}{c}
+\textbf{1}(S=s_1)\\
+\vdots\\
+\textbf{1}(S=s_n)
+\end{array}
+\right)
+\end{equation*}
+\item Parameter vector $\textbf{w}$ gives value of each individual state
+\begin{equation*}
+\hat{v}(S, \textbf{w})=\left(\begin{array}{c}
+\textbf{1}(S=s_1)\\
+\vdots\\
+\textbf{1}(S=s_n)
+\end{array}\right)
+\cdot
+\left(\begin{array}{c}
+\textbf{w}_1\\
+\vdots\\
+\textbf{w}_n
+\end{array}\right)
+\end{equation*}
+\end{itemize}
+\end{frame}
+\egroup

@@ -1,0 +1,21 @@
+\bgroup
+\begin{frame}{Linear value function approximation}
+\begin{itemize}
+\item Represent value function by a linear combination of features
+\begin{equation*}
+\hat{v}(S,\textbf{w}) = \textbf{x}(S)^T\textbf{w} = \sum_{j=1}^n\textbf{x}_j(S)\textbf{w}_j
+\end{equation*}
+\item Objective function is quadratic in parameters $\textbf{w}$
+\begin{equation*}
+J(\textbf{w}) = \mathbb{E}_{\pi}[(v_{\pi}(S) - \textbf{x}(S)^T\textbf{w})^2]
+\end{equation*}
+\item Stochastic gradient descent converges on global optimum
+\item Update rule is particularly simple
+\begin{align*}
+\nabla_{\textbf{w}}\hat{v}(S,\textbf{w}) &= \textbf{x}(S)\\
+\Delta w &= \alpha(v_{\pi}(S) - \hat{v}(S,\textbf{w}))\textbf{x}(S)
+\end{align*}
+Update = $stepsize \times prediction error \times feature value$
+\end{itemize}
+\end{frame}
+\egroup

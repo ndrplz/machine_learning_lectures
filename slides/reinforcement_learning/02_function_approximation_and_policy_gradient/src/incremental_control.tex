@@ -1,0 +1,18 @@
+\bgroup
+\begin{frame}{Incremental control algorithms}
+\begin{itemize}
+\item Like prediction, we must substitute a target for $q_{\pi}(S,A)$
+\begin{itemize}
+\item For MC, the target is the return $G_t$
+\begin{equation*}
+\Delta \textbf{w} = \alpha(\highlight{G_t} - \hat{q}(S_t, A_t, \textbf{w}))\nabla_{\textbf{w}}\hat{q}(S_t,A_t, \textbf{w})
+\end{equation*}
+%
+\item For TD(0), the target is the TD target $R_{t+1} + \gamma Q(S_{t+1}, A_{t+1})$
+\begin{equation*}
+\Delta \textbf{w} = \alpha(\highlight{R_{t+1} + \gamma \hat{q}(S_{t+1}, A_{t+1}, \textbf{w})} - \hat{q}(S_t, A_t, \textbf{w}))\nabla_{\textbf{w}}\hat{q}(S_t,A_t, \textbf{w})
+\end{equation*}
+\end{itemize}
+\end{itemize}
+\end{frame}
+\egroup

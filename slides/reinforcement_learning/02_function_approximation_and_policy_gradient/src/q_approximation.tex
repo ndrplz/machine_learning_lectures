@@ -1,0 +1,23 @@
+\bgroup
+\begin{frame}{Action-value function approximation}
+\begin{itemize}
+\item Approximate the action-value function
+\begin{equation*}
+\hat{q}(S,A,\textbf{w})\approx q_{\pi}(S,A)
+\end{equation*}
+%
+\item Minimise mean-squared error between approximate
+action-value function $\hat{q}(S,A,\textbf{w})$ and true action-value function $q_{\pi}(S, A)$
+\begin{equation*}
+J(\textbf{w})=\mathbb{E}_{\pi}[(q_{\pi}(S, A)-\hat{q}(S,A,\textbf{w}))^2]
+\end{equation*}
+%
+\item Use stochastic gradient descent to nd a local minimum
+\begin{align*}
+-\frac{1}{2}\nabla_{\textbf{w}}J(\textbf{w})&=(q_{\pi}(S, A)-\hat{q}(S,A,\textbf{w}))\nabla_{\textbf{w}}\hat{q}(S,A,\textbf{w})\\
+\Delta \textbf{w} &= \alpha(q_{\pi}(S, A)-\hat{q}(S,A,\textbf{w}))\nabla_{\textbf{w}}\hat{q}(S,A,\textbf{w})
+\end{align*}
+%
+\end{itemize}
+\end{frame}
+\egroup

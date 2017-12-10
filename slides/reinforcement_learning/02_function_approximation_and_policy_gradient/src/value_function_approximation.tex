@@ -1,0 +1,28 @@
+\bgroup
+\begin{frame}{Value function approximation}
+\begin{itemize}
+\item So far we have represented value function by a lookup table
+\begin{itemize}
+\item Every state $s$ has an entry $V(s)$
+\item Or every state-action pair $s, a$ has an entry $Q(s, a)$
+\end{itemize}
+%
+\item Problem with large state spaces:
+\begin{itemize}
+\item There are too many states and/or actions to store in memory
+\item It is too slow to learn the value of each state individually
+\end{itemize}
+%
+\item Solution for large state spaces:
+\begin{itemize}
+\item Estimate value function with function approximation
+\begin{align*}
+\hat{v}(s,\textbf{w}) &\approx v_{\pi}(s)\\
+\hat{q}(s, a, \textbf{w}) &\approx q_{\pi}(s, a)
+\end{align*}
+\item Generalise from seen states to unseen states
+\item Update parameter $w$ using MC or TD learning
+\end{itemize}
+\end{itemize}
+\end{frame}
+\egroup

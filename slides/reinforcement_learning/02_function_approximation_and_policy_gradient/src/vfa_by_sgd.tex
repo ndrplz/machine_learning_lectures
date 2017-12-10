@@ -1,0 +1,20 @@
+\bgroup
+\begin{frame}{Value function approximation by SGD}
+\begin{itemize}
+\item Goal: find parameter vector $\textbf{w}$ minimising mean-squared error between approximate value function $\hat{v}(s,\textbf{w})$ and true value function $v_{\pi}(s)$
+\begin{equation*}
+J(\textbf{w}) = \mathbb{E}_{\pi}[(v_{\pi}(S)-\hat{v}(S, \textbf{w}))^2]
+\end{equation*}
+\item Gradient descent finds a local minimum
+\begin{align*}
+\Delta\textbf{w} &= -\frac{1}{2}\alpha \nabla_{\textbf{w}}J(\textbf{w})\\
+&= \alpha E_{\pi} [(v_{\pi}(S) - \hat{v}(S,\textbf{w}))\nabla_{\textbf{w}}\hat{v}(S,\textbf{w})]
+\end{align*}
+\item Stochastic gradient descent samples the gradient
+\begin{equation*}
+\Delta\textbf{w} = \alpha(v_{\pi}(S) - \hat{v}(S,\textbf{w}))\nabla_{\textbf{w}}\hat{v}(S,\textbf{w})
+\end{equation*}
+\item Expected update is equal to full gradient update
+\end{itemize}
+\end{frame}
+\egroup

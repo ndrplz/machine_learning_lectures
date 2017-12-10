@@ -1,0 +1,18 @@
+\bgroup
+\begin{frame}{Monte-Carlo with value function approximation}
+\begin{itemize}
+\item Return $G_t$ is an unbiased, noisy sample of true value $v_{\pi}(S_t)$
+\item Can therefore apply supervised learning to ``training data'':
+\begin{equation*}
+\left<S_1, G_1\right>,\left<S_2, G_2\right>,\ldots,\left<S_T, G_T\right>
+\end{equation*}
+\item For example, using \emph{linear Monte-Carlo policy evaluation}
+\begin{align*}
+\Delta \textbf{w} &= \alpha(\highlight{G_t}-\hat{v}(S_t, \textbf{w}))\nabla_{\textbf{w}}\hat{v}(S_t, \textbf{w})\\
+&=\alpha(G_t-\hat{v}(S_t, \textbf{w}))\textbf{x}(S_t)
+\end{align*}
+\item Monte-Carlo evaluation converges to a local optimum
+\item Even when using non-linear value function approximation
+\end{itemize}
+\end{frame}
+\egroup

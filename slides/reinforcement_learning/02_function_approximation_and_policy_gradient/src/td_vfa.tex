@@ -1,0 +1,22 @@
+\bgroup
+\begin{frame}{TD learning with value function approximation}
+\begin{itemize}
+\item The TD-target $R_{t+1} + \gamma \hat{v}(S_{t+1}, \textbf{w})$ is a \emph{biased} sample of true value $v_{\pi}(S_t)$
+\item Can still apply supervised learning to ``training data'':
+\begin{equation*}
+\left<S_1, R_{2} + \gamma \hat{v}(S_{2}, \textbf{w})\right>,
+\left<S_2, R_{3} + \gamma \hat{v}(S_{3}, \textbf{w})\right>,
+\ldots,
+\left<S_{T-1}, R_{T}\right>
+\end{equation*}
+%
+\item Linear TD(0) update is
+\begin{align*}
+\Delta \textbf{w} &= \alpha(\highlight{R+\gamma \hat{v}(S^{\prime}, \textbf{w})} - \hat{v}(S, \textbf{w}))\nabla_{\textbf{w}}\hat{v}(S, \textbf{w})\\
+&= \alpha \delta \textbf{x}(S)
+\end{align*}
+%
+\item Linear TD(0) converges (close) to global optimum
+\end{itemize}
+\end{frame}
+\egroup
