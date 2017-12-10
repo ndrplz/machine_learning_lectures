@@ -1,12 +1,12 @@
 \bgroup
 \begin{frame}{Off-policy control with Q-learning}
 \begin{itemize}
-\item We now allow both behaviour and target policies to \textcolor{mImagelabRed}{improve}
-\item The target policy $\pi$ is \textcolor{mImagelabRed}{greedy} w.r.t. $Q(s, a)$
+\item We now allow both behaviour and target policies to \highlight{improve}
+\item The target policy $\pi$ is \highlight{greedy} w.r.t. $Q(s, a)$
 \begin{equation*}
 \pi(S_{t+1}) = \argmax_{a^{\prime}}Q(S_{t+1}, a^{\prime})
 \end{equation*}
-\item The behaviour policy $\mu$ is \textcolor{mImagelabRed}{$\epsilon$-greedy} w.r.t. $Q(s, a)$
+\item The behaviour policy $\mu$ is \highlight{$\epsilon$-greedy} w.r.t. $Q(s, a)$
 \item The Q-learning target then simplifies:
 \begin{align*}
 & R_{t+1} + \gamma Q(S_{t+1}, A^{\prime})\\
