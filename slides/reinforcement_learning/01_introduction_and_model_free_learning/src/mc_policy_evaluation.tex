@@ -7,11 +7,11 @@ S_1, A_1, R_2, \ldots, S_k \sim \pi
 \end{equation*}
 \item Recall that the \emph{return} is the total discounted reward:
 \begin{equation*}
-G_t = R_{t+1} + \lambda R_{t+2}+\ldots+\lambda^{T-1}R_T
+G_t = R_{t+1} + \gamma R_{t+2}+\ldots+\gamma^{T-1}R_T
 \end{equation*}
 \item Recall that the value function is the expected return:
 \begin{equation*}
-v_{\pi} = \mathbb{E}_{\pi}[G_t | S_t = s]
+v_{\pi}(s) = \mathbb{E}_{\pi}[G_t | S_t = s]
 \end{equation*}
 \item Monte-Carlo policy evaluation uses \emph{empirical mean} return instead of \emph{expected} return
 \end{itemize}

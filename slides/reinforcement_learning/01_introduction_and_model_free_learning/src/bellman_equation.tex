@@ -8,7 +8,7 @@ The value function can be decomposed into two parts:
 \begin{align*}
 v_{\pi}(s) &= \mathbb{E}_{\pi}[G_t | S_t = s]\\
 &= \mathbb{E}_{\pi} [R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \ldots | S_t = s]\\
-&= \mathbb{E}_{\pi}[R_{t+1} + \gamma(R_{t+2} + \gamma R_{t+3} + \ldots | S_t = s]\\
+&= \mathbb{E}_{\pi}[R_{t+1} + \gamma(R_{t+2} + \gamma R_{t+3} + \ldots )| S_t = s]\\
 &= \mathbb{E}_{\pi}[R_{t+1} + \gamma G_{t+1} | S_t = s]\\
 &= \mathbb{E}_{\pi}[R_{t+1} + \gamma v_{\pi}(S_{t+1}) | S_t = s]
 \end{align*}
