@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import random
 import numpy as np
-from agent import Agent
 from action import Action
 
 
@@ -13,7 +12,7 @@ M = MUSHROOM = 1
 
 class Environment:
 
-    def __init__(self, n_rows, n_cols, n_walls=30):
+    def __init__(self, n_rows, n_cols, n_walls):
 
         self.n_rows = n_rows
         self.n_cols = n_cols
@@ -25,22 +24,22 @@ class Environment:
         self.matrix = np.zeros((self.n_rows, self.n_cols))
         self.init_matrix()
 
-        self.mushroom_coordinates = self.entrance_coordinates
+        self.agent_coordinates = self.entrance_coordinates
 
     def __repr__(self):
-        strDescription = ""
+        str_description = ''
         for i in range(0, self.n_rows):
             for j in range(0, self.n_cols):
-                if self.mushroom_coordinates == (i, j):
-                    strDescription += "🐐 "
+                if self.agent_coordinates == (i, j):
+                    str_description += '🐐 '
                 elif self.matrix[i, j] == EMPTY:
-                    strDescription += ". "
+                    str_description += '. '
                 elif self.matrix[i, j] == WALL:
-                    strDescription += "◼︎"[0:3] + " "
+                    str_description += 'x '
                 elif self.matrix[i, j] == TERMINAL:
-                    strDescription += "✔︎ "
-            strDescription += "\n"
-        return strDescription
+                    str_description += '✔ '
+            str_description += '\n'
+        return str_description
 
     def init_matrix(self):
 
@@ -65,19 +64,18 @@ class Environment:
                 self.matrix[i, j] = EMPTY
 
     def policy_str(self, agent):
-
-        strDescription = ""
-        for i in range(0, 10):
-            for j in range(0, 10):
+        str_description = ''
+        for i in range(0, self.n_rows):
+            for j in range(0, self.n_cols):
                 if self.matrix[i, j] == WALL:
-                    strDescription += "◼︎"[0:3] + " "
+                    str_description += 'x '
                 elif self.matrix[i, j] == TERMINAL:
-                    strDescription += "✔︎ "
+                    str_description += '✔ '
                 else:
-                    self.mushroom_coordinates = (i, j)
-                    strDescription += str(agent.greedyActionForState(self.current_state)) + " "
-            strDescription += "\n"
-        return strDescription
+                    action = agent.get_action_greedy(r=i, c=j)
+                    str_description += Action.to_arrow(action) + ' '
+            str_description += '\n'
+        return str_description
 
     def exists_cell_at(self, r, c):
         """
@@ -87,7 +85,7 @@ class Environment:
 
     def perform_action(self, action):
 
-        (r, c) = self.mushroom_coordinates
+        (r, c) = self.agent_coordinates
         if action == Action.UP:
             r -= 1
         elif action == Action.DOWN:
@@ -99,16 +97,17 @@ class Environment:
 
         # Check walls and borders
         if self.exists_cell_at(r, c) and self.matrix[r, c] != WALL:
-            self.mushroom_coordinates = (r, c)
+            self.agent_coordinates = (r, c)
 
         return self.current_state, self.reward, self.is_over
 
     def start_new_episode(self):
-        self.mushroom_coordinates = self.entrance_coordinates
+        self.agent_coordinates = self.entrance_coordinates
+        return self.agent_coordinates
 
     @property
     def is_over(self):
-        return self.mushroom_coordinates == self.exit_coordinates
+        return self.agent_coordinates == self.exit_coordinates
 
     @property
     def reward(self):
@@ -116,7 +115,7 @@ class Environment:
 
     @property
     def current_state(self):
-        return self.mushroom_coordinates
+        return self.agent_coordinates
 
 
 if __name__ == '__main__':
