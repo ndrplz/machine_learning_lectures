@@ -1,0 +1,15 @@
+\bgroup
+\begin{frame}{Experience replay in deep Q-networks (DQN)}
+\begin{itemize}
+\item Take action $a_t$ according to $\epsilon$-greedy policy
+\item Store transition $(s_t, a_t, r_{t+1}, s_{t+1})$ in replay memory $\mathcal{D}$
+\item Sample random mini-batch of transitions $(s, a, r, s^{\prime})$ from $\mathcal{D}$
+\item Compute Q-learning targets w.r.t. old, fixed parameters $w^{-}$
+\item Optimise MSE between Q-network and Q-learning targets
+\begin{equation*}
+\mathcal{L}_i(w_i)=\mathbb{E}_{s,a,r,s^{\prime}\sim\mathcal{D}_i}\left[\left(r + \gamma \max_{a^{\prime}}Q(s^{\prime}, a^{\prime};w_i^{-}) - Q(s, a, w_i)\right)^2\right]
+\end{equation*}
+\item Using variant of stochastic gradient descent
+\end{itemize}
+\end{frame}
+\egroup

@@ -1,0 +1,21 @@
+\bgroup
+\begin{frame}{Least squares prediction}
+\begin{itemize}
+\item Given value function approximation $\hat{v}(s,\textbf{w})\approx v_{\pi}(s)$
+\item And \emph{experience} $\mathcal{D}$ of $\left<state,value\right>$ pairs
+\begin{equation*}
+\mathcal{D}=\{\left<s_1,v_1^{\pi}\right>,
+\left<s_2,v_2^{\pi}\right>,
+\ldots,
+\left<s_T,v_T^{\pi}\right>\}
+\end{equation*}
+%
+\item Which parameters $\textbf{w}$ give the best fitting value function $\hat{v}(s, \textbf{w})$?
+\item \highlight{Least squares} algorithms find parameter vector $\textbf{w}$ minimising sum-squared error between $\hat{v}(s_t,\textbf{w})$ and target values $v_t^{\pi}$,
+\begin{align*}
+LS(\textbf{w})&=\sum_{t=1}^T(v_t^{\pi} - \hat{v}(s_t,\textbf{w}))^2\\
+&=\mathbb{E}_{\mathcal{D}}[(v^{\pi} - \hat{v}(s,\textbf{w}))^2]
+\end{align*}
+\end{itemize}
+\end{frame}
+\egroup

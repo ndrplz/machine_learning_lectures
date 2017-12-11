@@ -19,6 +19,11 @@
 \usepackage[utf8x]{inputenc}
 \usepackage{hyperref}
 \usepackage{algorithm,algorithmic}
+\usepackage{multirow}
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
 \usepackage{listings}             % Include the listings-package
 \usepackage{pgfplots}
 \usepackage{caption}
@@ -65,7 +70,7 @@
 \include{src/which_function}
 \include{src/which_function_2}
 
-\section*{Incremental methods}
+\section{Incremental methods}
 \include{src/gradient_descent}
 \include{src/vfa_by_sgd}
 \include{src/feature_vectors}
@@ -78,6 +83,17 @@
 \include{src/q_approximation}
 \include{src/linear_q_approximation}
 \include{src/incremental_control}
+\include{src/mountain_car}
+\include{src/convergence_prediction}
+\include{src/convergence_control}
+
+\section{Batch methods}
+\include{src/batch_rl}
+\include{src/least_squares_prediction}
+\include{src/experience_replay}
+\include{src/dqn}
+\include{src/dqn_atari}
+\include{src/dqn_results}
 
 
 \end{document}
