@@ -8,7 +8,7 @@
 \FOR {each step of episode}
 \STATE Take action $A$, observe $R$, $S^{\prime}$
 \STATE Choose $A^{\prime}$ from $S^{\prime}$ using policy derived from $Q$ (e.g., $\epsilon$-greedy)
-\STATE $Q(S,A) \leftarrow Q(S,A) + \alpha (R + \gamma (Q(S^{\prime}, A^{\prime}) - Q(S,A))$
+\STATE $Q(S,A) \leftarrow Q(S,A) + \alpha (R + \gamma Q(S^{\prime}, A^{\prime}) - Q(S,A))$
 \STATE $S \leftarrow S^{\prime}; A \leftarrow A^{\prime}$
 \ENDFOR
 \ENDFOR
