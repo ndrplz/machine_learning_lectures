@@ -1,0 +1,16 @@
+\bgroup
+\begin{frame}{Q-learning algorithm for off-policy control}
+\begin{algorithmic}
+\STATE Initialize $Q(s,a), \forall s \in S, a \in \mathcal{A}(s)$, arbitrarily, and $Q(terminal-state, \dot)=0$
+\FOR{each episode}
+\STATE Intialise $S$
+\FOR {each step of episode}
+\STATE Choose $A$ from $S$ using policy derived from $Q$ (e.g., $\epsilon$-greedy)
+\STATE Take action $A$, observe $R$, $S^{\prime}$
+\STATE $Q(S,A) \leftarrow Q(S,A) + \alpha (R + \gamma \max_{a^{\prime}}Q(S^{\prime}, a^{\prime}) - Q(S,A))$
+\STATE $S \leftarrow S^{\prime}$
+\ENDFOR
+\ENDFOR
+\end{algorithmic}
+\end{frame}
+\egroup

@@ -1,0 +1,17 @@
+\bgroup
+\begin{frame}{SARSA algorithm for on-policy control}
+\begin{algorithmic}
+\STATE Initialize $Q(s,a), \forall s \in S, a \in \mathcal{A}(s)$, arbitrarily, and $Q(terminal-state, \dot)=0$
+\FOR{each episode}
+\STATE Intialise $S$
+\STATE Choose $A$ from $S$ using policy derived from $Q$ (e.g., $\epsilon$-greedy)
+\FOR {each step of episode}
+\STATE Take action $A$, observe $R$, $S^{\prime}$
+\STATE Choose $A^{\prime}$ from $S^{\prime}$ using policy derived from $Q$ (e.g., $\epsilon$-greedy)
+\STATE $Q(S,A) \leftarrow Q(S,A) + \alpha (R + \gamma Q(S^{\prime}, A^{\prime}) - Q(S,A))$
+\STATE $S \leftarrow S^{\prime}; A \leftarrow A^{\prime}$
+\ENDFOR
+\ENDFOR
+\end{algorithmic}
+\end{frame}
+\egroup
