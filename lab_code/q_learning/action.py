@@ -1,5 +1,7 @@
 class Action:
-
+    """
+    Class to encapsulate allowable actions
+    """
     UP = 0
     DOWN = 1
     LEFT = 2
@@ -7,6 +9,19 @@ class Action:
 
     @staticmethod
     def to_arrow(action):
+        """
+        Represent the action as string.
+        
+        Parameters
+        ----------
+        action: Action
+            An instance of `Action` class
+            
+        Returns
+        -------
+        str_arrow: str
+            String description of action `action`
+        """
         str_arrow = ''
         if action == Action.UP:
             str_arrow = '^'
