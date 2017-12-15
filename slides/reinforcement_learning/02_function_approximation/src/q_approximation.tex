@@ -12,7 +12,7 @@ action-value function $\hat{q}(S,A,\textbf{w})$ and true action-value function $
 J(\textbf{w})=\mathbb{E}_{\pi}[(q_{\pi}(S, A)-\hat{q}(S,A,\textbf{w}))^2]
 \end{equation*}
 %
-\item Use stochastic gradient descent to nd a local minimum
+\item Use stochastic gradient descent to find a local minimum
 \begin{align*}
 -\frac{1}{2}\nabla_{\textbf{w}}J(\textbf{w})&=(q_{\pi}(S, A)-\hat{q}(S,A,\textbf{w}))\nabla_{\textbf{w}}\hat{q}(S,A,\textbf{w})\\
 \Delta \textbf{w} &= \alpha(q_{\pi}(S, A)-\hat{q}(S,A,\textbf{w}))\nabla_{\textbf{w}}\hat{q}(S,A,\textbf{w})
