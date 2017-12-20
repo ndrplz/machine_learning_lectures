@@ -1,15 +1,22 @@
-import matplotlib.pyplot as plt
 import numpy as np
 import tensorflow as tf
-from lab_utils import get_brain_body_data
+import matplotlib.pyplot as plt
+from utils import get_brain_body_data
+from google_drive_downloader import GoogleDriveDownloader
 
 
 if __name__ == '__main__':
 
     plt.ion()   # interactive mode
 
+    # Download tiles data
+    GoogleDriveDownloader.download_file_from_google_drive(file_id='1EOYhZJxdOBi81qICtmYpqKYzDlbb_Pmm',
+                                                          dest_path='./brain_body_weight.zip',
+                                                          overwrite=True,
+                                                          unzip=True)
+
     # Read data
-    body_weight, brain_weight = get_brain_body_data('data/brain_body_weight.txt')
+    body_weight, brain_weight = get_brain_body_data('./brain_body_weight.txt')
     n_samples = len(body_weight)
 
     # Define placeholders (1-d)
