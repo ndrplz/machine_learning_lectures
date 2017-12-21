@@ -13,22 +13,18 @@
 ### Reinforcement Learning
 - **[Introduction and Model Free Learning](https://github.com/ndrplz/machine_learning_lectures/blob/master/slides/reinforcement_learning/01_introduction_and_model_free_learning/01_introduction_and_model_free_learning.pdf)** - Introduction to reinforcement learning and model free learning.
 - **[Function Approximation](https://github.com/ndrplz/machine_learning_lectures/blob/master/slides/reinforcement_learning/02_function_approximation/02_function_approximation.pdf)** - Overview of function approximation methods
+
 ## PRACTICE
-
-#### SLIDES
-  - **[tensorflow_basics.pdf](https://github.com/ndrplz/deep_learning_lectures/blob/master/slides/tensorflow_00_intro.pdf)** - slides on **TensorFlow basics**.
-  - **[linear_regression.pdf](https://github.com/ndrplz/deep_learning_lectures/blob/master/slides/tensorflow_00_regression.pdf)** - Implementing a **linear regression** model in TensorFlow.
-  - **[neural_network.pdf](https://github.com/ndrplz/deep_learning_lectures/blob/master/slides/tensorflow_01_neural_nets.pdf)** - Implementing a **fully connected network to classify MNIST digits**.
-  - **[convnets.pdf](https://github.com/ndrplz/deep_learning_lectures/blob/master/slides/tensorflow_02_convnets.pdf)** - Implementing a **convolutional network for classification on MNIST and segmentation on TilesDataset**.
-  - [**lstm.pdf**](https://github.com/ndrplz/deep_learning_lectures/blob/master/slides/tensorflow_03_lstm.pdf) - Implementing a **LSTM to count ones in binary sequences**.
-
-#### CODE
-  - **[lab00 - linear_regression](https://github.com/ndrplz/deep_learning_lectures/blob/master/lab_code/lab_00_regression.py)**
-  - **[lab01 - neural_networks](https://github.com/ndrplz/deep_learning_lectures/blob/master/lab_code/lab_01_neural_network.py)**
-  - **[lab02 - convnets for classification on MNIST](https://github.com/ndrplz/deep_learning_lectures/blob/master/lab_code/lab_02_convnet_classification.py)**
-  - **[lab03 - convnets for segmentation on TilesDataset](https://github.com/ndrplz/deep_learning_lectures/blob/master/lab_code/lab_03_convnet_segmentation.py)**
-  - **[lab03 - lstm_sequence_counting](https://github.com/ndrplz/deep_learning_lectures/blob/master/lab_code/lab_04_lstm_sequence_counting.py)**
-
-## LaTeX source
-Whole LaTeX source for all slides is available [here](https://github.com/ndrplz/deep_learning_lectures/blob/master/slides).
+- **[Boosting](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/boosting)**
+- **[Clustering](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/clustering)**
+- **[Dimensionality Reduction](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/dimensionality_reduction)**
+- **[Logistic Regression](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/logistic_regression)**
+- **[Naive Bayes](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/naive_bayes)**
+- **[Q Learning](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/q_learning)**
+- **[Support Vector Machine](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/support_vector_machines)**
+- **[Introduction to TensorFlow](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/tensorflow_introduction/)**
+- **[Linear Regression (TensorFlow)](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/tensorflow_linear_regression)**
+- **[Neural Networks (TensorFlow)](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/tensorflow_neural_network)**
+- **[Convolutional Networks (TensorFlow)](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/tensorflow_convolutional_nets)**
+- **[Recurrent Networks (TensorFlow)](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/tensorflow_recurrent_nets)**
  
