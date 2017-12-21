@@ -1,6 +1,8 @@
 import pickle
-import os.path as path
 import numpy as np
+from os import makedirs
+from os.path import exists
+from os.path import dirname
 from random import shuffle
 
 
@@ -17,13 +19,15 @@ class SyntheticSequenceDataset:
     def data(self):
 
         if not self._data:
-            if not self.force_recompute and path.exists(self.dataset_cache):
+            if not self.force_recompute and exists(self.dataset_cache):
                 print('Loading dataset from cache...')
                 with open(self.dataset_cache, 'rb') as dump_file:
                     dataset = pickle.load(dump_file)
             else:
                 print('Recomputing dataset...')
                 dataset = self._compute_dataset()
+                if not exists(dirname(self.dataset_cache)):
+                    makedirs(dirname(self.dataset_cache))
                 with open(self.dataset_cache, 'wb') as dump_file:
                     pickle.dump(dataset, dump_file)
 
