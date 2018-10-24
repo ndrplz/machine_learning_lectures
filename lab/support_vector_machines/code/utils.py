@@ -22,7 +22,7 @@ def plot_margin(X, Y, model, title=''):
     fig, ax = plt.subplots(1, 2)
     ax[0].scatter(X[:, 0], X[:, 1], c=Y, zorder=10, cmap='jet')
 
-    if model.kernel == 'linear':
+    if False and model.kernel == 'linear':
         # get the separating hyperplane
         w = model.coef_[0]
         a = -w[0] / w[1]
@@ -40,9 +40,9 @@ def plot_margin(X, Y, model, title=''):
         ax[1].plot(xx, yy_down, 'k--')
         ax[1].plot(xx, yy_up, 'k--')
 
-    ax[1].scatter(model.support_vectors_[:, 0], model.support_vectors_[:, 1], s=80,
-                facecolors='none', zorder=10)
-    ax[1].scatter(X[:, 0], X[:, 1], c=Y, zorder=10, cmap='jet')
+    # ax[1].scatter(model.support_vectors_[:, 0], model.support_vectors_[:, 1], s=80,
+    #             facecolors='none', zorder=10)
+    # ax[1].scatter(X[:, 0], X[:, 1], c=Y, zorder=10, cmap='jet')
 
     plt.axis('tight')
     x_min = np.min(X[:, 0])
@@ -51,7 +51,7 @@ def plot_margin(X, Y, model, title=''):
     y_max = np.max(X[:, 1])
 
     XX, YY = np.mgrid[x_min:x_max:500j, y_min:y_max:500j]
-    Z = model.predict(np.c_[XX.ravel(), YY.ravel()])
+    Z = model.predict(np.concatenate((np.c_[XX.ravel(), YY.ravel()], np.ones((250000, 1))), axis=-1))
 
     # Put the result into a color plot
     Z = Z.reshape(XX.shape)

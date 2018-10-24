@@ -5,11 +5,6 @@ from os.path import join
 from sklearn.datasets import make_moons
 from google_drive_downloader import GoogleDriveDownloader
 
-GoogleDriveDownloader.download_file_from_google_drive(file_id='1hM_kk3ys2YnaZbIBwwdXAMhJm4j9KaKI',
-                                                      dest_path='./data/svm.zip',
-                                                      unzip=True)
-
-
 def gaussians_dataset(n_gaussian, n_points, mus, stds):
     """
     Provides a dataset made by several gaussians.
@@ -37,7 +32,7 @@ def gaussians_dataset(n_gaussian, n_points, mus, stds):
 
     X = []
     Y = []
-    for i in xrange(0, n_gaussian):
+    for i in range(0, n_gaussian):
 
         mu = mus[i]
         std = stds[i]
@@ -103,7 +98,7 @@ def two_moon_dataset(n_samples=100, shuffle=True, noise=None, random_state=None)
     return X_train, Y_train, X_test, Y_test
 
 
-def people_dataset(data_path, train_split=60):
+def people_dataset(data_path, train_split=60, overwrite=False):
     """
     Function that loads data for people vs non people classification.
     
@@ -120,6 +115,11 @@ def people_dataset(data_path, train_split=60):
         A tuple like (X_img_train, X_feat_train, Y_train, X_img_test, X_feat_test, Y_test)
 
     """
+
+    GoogleDriveDownloader.download_file_from_google_drive(file_id='1hM_kk3ys2YnaZbIBwwdXAMhJm4j9KaKI',
+                                                          dest_path='./data/svm.zip',
+                                                          unzip=True, overwrite=overwrite)
+
     X_img = []
     Y = []
     X_feat = []
