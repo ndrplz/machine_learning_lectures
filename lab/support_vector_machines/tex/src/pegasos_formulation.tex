@@ -1,0 +1,17 @@
+\begin{frame}{PEGASOS}
+Pegasos is a training algorithm for SVMs allowing to solve the optimization problem in its \textbf{primal form} \underline{by gradient descent}.\\
+It starts from the soft margin formulation:
+\begin{equation*}
+\begin{aligned}
+& \min_{\vec{w},b} & & \frac{1}{2}||\vec{w}||^2 + C\sum_{i=1}^N\xi_i\\
+&\text{s.t.} & & y_i(\langle \vec{x_i},\vec{x_j}\rangle + b)>1-\xi_i & \forall i=1,\ldots,N\\
+& & & \xi_i > 0 & \forall i=1,\ldots,N
+\end{aligned}
+\end{equation*}
+And rewrites it as:
+\begin{equation*}
+\min_{\vec{w}} L(\vec{w}) = \underbrace{\frac{\lambda}{2}||w||^2}_{\text{regularization}} + \underbrace{\frac{1}{N} \sum_{i=1}^N \max(0, 1-y_i\langle\vec{w}, \vec{x_i}\rangle)}_{\text{hinge loss}}
+\end{equation*}
+
+
+\end{frame}

@@ -23,14 +23,19 @@
     linkcolor = {black},
     urlcolor = {mImagelabRed}
 }
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage{algorithm,algorithmic}
+
 
 \DeclareMathOperator*{\argmin}{arg\,min}
 
 \title[Support Vector Machines]{Support Vector Machines}
-\subtitle{Pattern Recognition and Machine Learning - MuMeT 2017}
+\subtitle{Machine Learning and Deep Learning 2018}
 \institute{University of Modena and Reggio Emilia}
-\author{Davide Abati}
-\date{June 23th, 2017}
+\author{Davide Abati, Angelo Porrello}
+\date{October 25th, 2018}
 
 \def\thisframelogos{}
 
@@ -41,7 +46,8 @@
 \framelogo{logo_unimore_white.png}
 
 \include{src/titlepage}
-
+\include{src/agenda}
+\section{SVM basics}
 \include{src/svm_intro}
 \include{src/svm_setting}
 \include{src/svm_hard_margin}
@@ -53,7 +59,11 @@
 \include{src/svm_example_kernel_1}
 \include{src/svm_example_linear_2}
 \include{src/svm_example_kernel_2}
-
+\section{PEGASOS}
+\include{src/pegasos_formulation}
+\include{src/subgradient}
+\include{src/pegasos_gradient}
+\include{src/pegasos_algorithm}
 \section{Application: people vs non people classification}
 \include{src/people_classification_setting}
 \include{src/people_classification_pipeline}
