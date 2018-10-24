@@ -1,8 +1,9 @@
 import tensorflow as tf
 import numpy as np
-from lab_utils import load_tiles_dataset_from_cache
 from time import time
-from lab_utils import TilesDataset
+from google_drive_downloader import GoogleDriveDownloader
+from utils import TilesDataset
+from utils import convert_target_to_one_hot
 
 
 # This will keep model architecture definition more readable
@@ -12,20 +13,6 @@ relu    = tf.nn.relu
 dense   = tf.layers.dense
 dropout = tf.nn.dropout
 softmax = tf.nn.softmax
-
-
-def convert_target_to_one_hot(target_batch):
-    """
-    Convert a batch of targets from 64x64x1 to 64x64x2 one-hot encoding.
-    """
-    b, h, w, c = target_batch.shape
-    out_tensor = np.zeros(shape=(b, h, w, 2))
-    for k, cur_example in enumerate(target_batch):
-        foreground_mask = np.squeeze(cur_example > 0)
-        background_mask = np.squeeze(cur_example == 0)
-        out_tensor[k, background_mask, 0] = 1.0
-        out_tensor[k, foreground_mask, 1] = 1.0
-    return out_tensor
 
 
 class TileSegmenter:
@@ -123,8 +110,13 @@ class TileSegmenter:
 
 if __name__ == '__main__':
 
-    # Load TILES data
-    tiles_dataset = load_tiles_dataset_from_cache('data/tiles_protocol_02.pickle')
+    # Download tiles data
+    GoogleDriveDownloader.download_file_from_google_drive(file_id='1W58D4qVZtUAFprDdoC9KRyBWT0k0ie5r',
+                                                          dest_path='./tiles.zip',
+                                                          overwrite=True,
+                                                          unzip=True)
+    # Load tiles dataset
+    tiles_dataset = TilesDataset(dataset_root='./toy_dataset_tiles')
 
     # Placeholders
     x       = tf.placeholder(dtype=tf.float32, shape=[None, 64, 64, 3])         # input

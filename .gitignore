@@ -1,5 +1,9 @@
 # Binary files
 *.pickle
+*.zip
+*.tar
+*.gz
+
 checkpoints/
 
 # Python stuff

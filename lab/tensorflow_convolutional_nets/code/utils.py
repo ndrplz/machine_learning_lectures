@@ -1,12 +1,8 @@
-import csv
 import cv2
 import numpy as np
 import os.path as path
 import pickle
 from tensorflow.examples.tutorials.mnist import input_data
-
-
-EPS = np.finfo('float32').eps
 
 
 def get_mnist_data(download_data_path, one_hot=True, verbose=False):
@@ -45,45 +41,10 @@ def get_mnist_data(download_data_path, one_hot=True, verbose=False):
     return mnist
 
 
-def get_brain_body_data(csv_file):
-    """
-    Load brain - weight data to test linear regression.
-
-    The data records the average weight of the brain and body for a number of mammal species.
-    More details here: http://people.sc.fsu.edu/~jburkardt/datasets/regression/x01.txt
-
-    Parameters
-    ----------
-    csv_file : basestring
-        path of csv file containing data
-
-    Returns
-    -------
-    body_weight, brain_weight : lists
-        list of body and brain weight
-    """
-    body_weight = []
-    brain_weight = []
-
-    with open(csv_file, 'rt') as file:
-        csv_reader = csv.reader(file)
-
-        for row in csv_reader:
-            if row:
-                idx, brain_w, body_w = row[0].split()
-                brain_weight.append(float(brain_w))
-                body_weight.append(float(body_w))
-
-    return body_weight, brain_weight
-
-
 class TilesDataset:
 
     def __init__(self, dataset_root):
 
-        # Store dataset root
-        if not path.exists(dataset_root):
-            raise IOError('Directory {} does NOT exist.'.format(dataset_root))
         self.dataset_root = dataset_root
 
         # Store locations of train, val and test directories
@@ -107,7 +68,7 @@ class TilesDataset:
         self.test_x       = []
         self.test_y       = []
 
-    def initialize_dataset(self):
+        # Load images from `dataset_root`
         self._fill_data_arrays()
 
     def _fill_data_arrays(self):
@@ -141,22 +102,15 @@ class TilesDataset:
             pickle.dump(self, f, protocol=protocol)
 
 
-def load_tiles_dataset_from_cache(file_path):
+def convert_target_to_one_hot(target_batch):
     """
-
-    Parameters
-    ----------
-    file_path : basestring
-        Path of the pickle file containing the tiles dataset dumped
-
-    Returns
-    -------
-    dataset : TilesDataset
-        Segmentation practice data embedded into TilesDataset class
-
+    Convert a batch of targets from (height,width,1) to (height,width,2) one-hot encoding.
     """
-    if not path.exists(file_path):
-        raise IOError('File {} does NOT exist.'.format(file_path))
-    with open(file_path, 'rb') as f:
-        dataset = pickle.load(f)
-    return dataset
+    b, h, w, c = target_batch.shape
+    out_tensor = np.zeros(shape=(b, h, w, 2))
+    for k, cur_example in enumerate(target_batch):
+        foreground_mask = np.squeeze(cur_example > 0)
+        background_mask = np.squeeze(cur_example == 0)
+        out_tensor[k, background_mask, 0] = 1.0
+        out_tensor[k, foreground_mask, 1] = 1.0
+    return out_tensor

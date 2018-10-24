@@ -1,5 +1,6 @@
+import numpy as np
 import tensorflow as tf
-from lab_utils import get_mnist_data, EPS
+from utils import get_mnist_data
 
 
 def single_layer_net(x):
@@ -57,7 +58,7 @@ if __name__ == '__main__':
     y = multi_layer_net(x)
 
     # Define loss function
-    loss = tf.reduce_mean(-tf.reduce_sum(targets * tf.log(y + EPS), axis=1))
+    loss = tf.reduce_mean(-tf.reduce_sum(targets * tf.log(y + np.finfo('float32').eps), axis=1))
 
     # Define train step
     train_step = tf.train.AdamOptimizer(learning_rate=0.001).minimize(loss)
