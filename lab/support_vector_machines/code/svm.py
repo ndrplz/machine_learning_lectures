@@ -10,8 +10,8 @@ def main_svm():
     Main function to experiment with SVM on synthetic points.
     """
 
-    X_train, Y_train, X_test, Y_test = gaussians_dataset(2, [100, 150], [[1, 3], [-4, 8]], [[2, 3], [4, 1]])
-    # X_train, Y_train, X_test, Y_test = two_moon_dataset(n_samples=300, noise=0.2)
+    # X_train, Y_train, X_test, Y_test = gaussians_dataset(2, [100, 150], [[1, 3], [-4, 8]], [[2, 3], [4, 1]])
+    X_train, Y_train, X_test, Y_test = two_moon_dataset(n_samples=300, noise=0.2)
 
     C = 100
     kernel = 'rbf'
@@ -47,5 +47,5 @@ def main_people_classification():
 
 
 if __name__ == '__main__':
-    # main_svm()
-    main_people_classification()
+    main_svm()
+    # main_people_classification()

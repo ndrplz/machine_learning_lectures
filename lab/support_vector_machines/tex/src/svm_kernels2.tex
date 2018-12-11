@@ -1,13 +1,13 @@
 \begin{frame}{SVM: kernels (2)}
-You can replace that dot product with a kernel $\phi$
+You can replace that dot product with a kernel $K(\vec{x}_i,\vec{x}_j)=\langle\phi(\vec{x}_i),\phi(\vec{x}_j)\rangle$. Here, $\phi$ is a non linear mapping to a new space, but you don't really need to compute it!
 \begin{equation}
-L = \sum_i \alpha_i - \frac{1}{2} \sum_i \sum_j \alpha_i \alpha_j y_i y_j \phi(\vec{x_i}, \vec{x_j})
+L = \sum_i \alpha_i - \frac{1}{2} \sum_i \sum_j \alpha_i \alpha_j y_i y_j K(\vec{x_i}, \vec{x_j})
 \end{equation}
 Choose a kernel:
 \begin{itemize}
-\item linear: $\phi(\vec{x_i}, \vec{x_j}) = \vec{x_i}\cdot\vec{x_j}$
-\item polynomial: $\phi(\vec{x_i}, \vec{x_j}) = (\vec{x_i}\cdot\vec{x_j}+c)^d$
-\item gaussian: $\phi(\vec{x_i}, \vec{x_j}) = \exp(-\frac{||\vec{x_i}-\vec{x_j}||^2}{2\sigma^2})$
+\item linear: $K(\vec{x_i}, \vec{x_j}) = \langle \vec{x_i},\vec{x_j}\rangle$
+\item polynomial: $K(\vec{x_i}, \vec{x_j}) = (\langle \vec{x_i},\vec{x_j}\rangle+c)^d$
+\item gaussian: $K(\vec{x_i}, \vec{x_j}) = \exp(-\frac{||\vec{x_i}-\vec{x_j}||^2}{2\sigma^2})$
 \end{itemize}
-This way, you draw the line in a transformed space, leading to non linear decision boundaries in the original space!
+This way, you draw the hyperplane in a transformed space, leading to non linear decision boundaries in the original space!
 \end{frame}

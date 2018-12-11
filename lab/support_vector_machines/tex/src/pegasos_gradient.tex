@@ -1,0 +1,21 @@
+\begin{frame}{Optimizing with PEGASOS}
+We can now employ gradient descent to optimize
+\begin{equation*}
+L(\vec{w}) = \frac{\lambda}{2}||\vec{w}||^2 + \frac{1}{N} \sum_{i=1}^N \max(0, 1-y_i\langle\vec{w}, \vec{x_i}\rangle)
+\end{equation*}
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+\STATE $\vec{w}^0 = \vec{0}$
+\FOR{$t=0,\ldots,\text{n\_steps-1}$}
+\STATE $\vec{w}^{t+1}=\vec{w}^t-\eta^t\nabla L(\vec{w}^t)$
+\ENDFOR
+\end{algorithmic}
+\caption{Gradient descent}
+\label{alg:train}
+\end{algorithm}
+\vspace{-1.5em} Where:
+\begin{itemize}
+\item $\eta^t = \frac{1}{t \lambda}$ (step size)
+\item $\nabla L(\vec{w}^t) = \lambda \vec{w}^t - \frac{1}{N}\sum_{y_i\langle\vec{w}^t,\vec{x_i}\rangle < 1}y_i \vec{x_i}$ 
+\end{itemize}
+\end{frame}

@@ -1,0 +1,20 @@
+\begin{frame}{PEGASOS algorithm}
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+\STATE $\vec{w}^0 = \vec{0}$, $t=0$
+\FOR{epoch in $1,\ldots,\text{n\_epochs}$}
+\FOR{$j=1,\ldots,N$}
+\STATE $t=t+1$
+\STATE $\eta^t=\frac{1}{t\lambda}$
+\IF{$y_j \langle \vec{w}_t \vec{x}_j \rangle < 1$}
+\STATE $\vec{w}^{t+1}=(1-\eta^t\lambda)\vec{w}^t+\eta^ty_jx_j$
+\ELSE
+\STATE $\vec{w}^{t+1}=(1-\eta^t\lambda)\vec{w}^t$
+\ENDIF
+\ENDFOR
+\ENDFOR
+\end{algorithmic}
+\caption{PEGASOS}
+\label{alg:pegasos_train}
+\end{algorithm}
+\end{frame}

@@ -16,6 +16,6 @@
 \begin{frame}{SVM: kernels}
 Math guys find out that if you employ Lagrangian multipliers to solve the optimization the problem, you need to find the extrema of the following function ($\{\alpha\}_{i=1}^N$ are the lagrangian multipliers of each training example):
 \begin{equation}
-L = \sum_i \alpha_i - \frac{1}{2} \sum_i \sum_j \alpha_i \alpha_j y_i y_j \overwrite{\vec{x_i} \cdot \vec{x_j}}{!!!!!!}
+L = \sum_i \alpha_i - \frac{1}{2} \sum_i \sum_j \alpha_i \alpha_j y_i y_j \overwrite{\langle\vec{x_i},\vec{x_j}\rangle}{!!!!!!}
 \end{equation}
 \end{frame}
