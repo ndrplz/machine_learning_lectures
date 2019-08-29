@@ -26,9 +26,13 @@ LaTeX source: [here](https://github.com/ndrplz/machine_learning_lectures/tree/ma
 <br>
 LaTeX source: [here](https://github.com/ndrplz/machine_learning_lectures/tree/master/slides/deep_learning/recurrent_neural_networks).
 
+---
+
 ## Reinforcement Learning
 - **[Introduction and Model Free Learning](https://github.com/ndrplz/machine_learning_lectures/blob/master/slides/reinforcement_learning/01_introduction_and_model_free_learning/01_introduction_and_model_free_learning.pdf)** - Introduction to reinforcement learning and model free learning.
 - **[Function Approximation](https://github.com/ndrplz/machine_learning_lectures/blob/master/slides/reinforcement_learning/02_function_approximation/02_function_approximation.pdf)** - Overview of function approximation methods
+
+---
 
 ## Machine Learning
 
