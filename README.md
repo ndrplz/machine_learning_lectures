@@ -46,3 +46,8 @@ LaTeX source: [here](https://github.com/ndrplz/machine_learning_lectures/tree/ma
 - **[Convolutional Networks (TensorFlow)](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/tensorflow_convolutional_nets)**
 - **[Recurrent Networks (TensorFlow)](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/tensorflow_recurrent_nets)**
  
+## F.A.Q.
+
+* **How did you make the thumbnails?** 
+
+Please see [`make_thumbs.py`](./make_thumbs.py). The script assumes that [ImageMagick](https://imagemagick.org/index.php) library is already installed in your system.
