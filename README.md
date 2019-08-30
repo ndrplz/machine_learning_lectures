@@ -16,12 +16,12 @@ LaTeX source: [here](https://github.com/ndrplz/machine_learning_lectures/tree/ma
 <br>
 LaTeX source: [here](https://github.com/ndrplz/machine_learning_lectures/blob/master/slides/deep_learning/deep_neural_networks/).
 
-### Convolutional Neural Netowrks
+### Convolutional Neural Networks
 <a href="https://github.com/ndrplz/machine_learning_lectures/blob/master/slides/deep_learning/convolutional_neural_networks/convolutional_neural_networks.pdf"><img src="./thumbs/convolutional_neural_networks.gif" alt="thumb_convnets" height="256px"></a>
 <br>
 LaTeX source: [here](https://github.com/ndrplz/machine_learning_lectures/tree/master/slides/deep_learning/convolutional_neural_networks).
 
-### Recurrent Neural Netowrks
+### Recurrent Neural Networks
 <a href="https://github.com/ndrplz/machine_learning_lectures/blob/master/slides/deep_learning/recurrent_neural_networks/recurrent_neural_networks.pdf"><img src="./thumbs/recurrent_neural_networks.gif" alt="thumb_recurrent" height="256px"></a>
 <br>
 LaTeX source: [here](https://github.com/ndrplz/machine_learning_lectures/tree/master/slides/deep_learning/recurrent_neural_networks).
