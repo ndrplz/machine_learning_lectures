@@ -7,7 +7,7 @@
 ## Deep Learning
 
 ### Gradient Descent
-<a href="https://github.com/ndrplz/machine_learning_lectures/blob/master/slides/deep_learning/gradient_descent/gradient_descent.pdf"><img src="https://github.com/ndrplz/machine_learning_lectures/blob/master/thumbs/gradient_descent.gif" alt="thumb_gradient_descent" height="256px"></a>
+<a href="https://github.com/ndrplz/machine_learning_lectures/blob/master/slides/deep_learning/gradient_descent/gradient_descent.pdf"><img src="../thumbs/gradient_descent.gif" alt="thumb_gradient_descent" height="256px"></a>
 <br>
 LaTeX source: [here](https://github.com/ndrplz/machine_learning_lectures/tree/master/slides/deep_learning/gradient_descent).
 <br>
