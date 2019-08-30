@@ -29,8 +29,16 @@ LaTeX source: [here](https://github.com/ndrplz/machine_learning_lectures/tree/ma
 ---
 
 ## Reinforcement Learning
-- **[Introduction and Model Free Learning](https://github.com/ndrplz/machine_learning_lectures/blob/master/slides/reinforcement_learning/01_introduction_and_model_free_learning/01_introduction_and_model_free_learning.pdf)** - Introduction to reinforcement learning and model free learning.
-- **[Function Approximation](https://github.com/ndrplz/machine_learning_lectures/blob/master/slides/reinforcement_learning/02_function_approximation/02_function_approximation.pdf)** - Overview of function approximation methods
+
+### Introduction and Model Free Learning
+<a href="https://github.com/ndrplz/machine_learning_lectures/blob/master/slides/reinforcement_learning/01_introduction_and_model_free_learning/01_introduction_and_model_free_learning.pdf"><img src="./thumbs/01_introduction_and_model_free_learning.gif" alt="thumb_recurrent" height="256px"></a>
+<br>
+LaTeX source: [here](https://github.com/ndrplz/machine_learning_lectures/blob/master/slides/reinforcement_learning/01_introduction_and_model_free_learning/).
+
+### Function Approximation
+<a href="https://github.com/ndrplz/machine_learning_lectures/blob/master/slides/reinforcement_learning/02_function_approximation/02_function_approximation.pdf"><img src="./thumbs/02_function_approximation.gif" alt="thumb_recurrent" height="256px"></a>
+<br>
+LaTeX source: [here](https://github.com/ndrplz/machine_learning_lectures/blob/master/slides/reinforcement_learning/02_function_approximation/).
 
 ---
 
