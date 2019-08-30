@@ -53,7 +53,7 @@ Practice code: [here](https://github.com/ndrplz/machine_learning_lectures/tree/m
 
 ### Clustering
 
-<a href="https://github.com/ndrplz/machine_learning_lectures/blob/master/lab/clustering/tex/clustering.pdf"><img src="./thumbs/clustering.gif" alt="thumb_boosting" height="256px"></a>
+<a href="https://github.com/ndrplz/machine_learning_lectures/blob/master/lab/clustering/tex/clustering.pdf"><img src="./thumbs/clustering.gif" alt="thumb_clustering" height="256px"></a>
 <br>
 LaTeX source: [here](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/clustering/tex).
 <br>
@@ -61,17 +61,37 @@ Practice code: [here](https://github.com/ndrplz/machine_learning_lectures/tree/m
 
 ### Dimensionality Reduction
 
-<a href="https://github.com/ndrplz/machine_learning_lectures/blob/master/lab/dimensionality_reduction/tex/dimensionality_reduction.pdf"><img src="./thumbs/dimensionality_reduction.gif" alt="thumb_boosting" height="256px"></a>
+<a href="https://github.com/ndrplz/machine_learning_lectures/blob/master/lab/dimensionality_reduction/tex/dimensionality_reduction.pdf"><img src="./thumbs/dimensionality_reduction.gif" alt="thumb_dim_reduction" height="256px"></a>
 <br>
 LaTeX source: [here](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/dimensionality_reduction/tex).
 <br>
 Practice code: [here](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/dimensionality_reduction/code).
 
+### Logistic Regression
 
-- **[Logistic Regression](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/logistic_regression)**
-- **[Naive Bayes](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/naive_bayes)**
+<a href="https://github.com/ndrplz/machine_learning_lectures/blob/master/lab/logistic_regression/tex/logistic_regression.pdf"><img src="./thumbs/logistic_regression.gif" alt="thumb_logistic_regression" height="256px"></a>
+<br>
+LaTeX source: [here](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/logistic_regression/tex).
+<br>
+Practice code: [here](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/logistic_regression/code).
+
+### Naive Bayes
+
+<a href="https://github.com/ndrplz/machine_learning_lectures/blob/master/lab/naive_bayes/tex/naive_bayes.pdf"><img src="./thumbs/naive_bayes.gif" alt="thumb_bayes" height="256px"></a>
+<br>
+LaTeX source: [here](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/naive_bayes/tex).
+<br>
+Practice code: [here](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/naive_bayes/code).
+
+### Support Vector Machine (SVM)
+
+<a href="https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/support_vector_machines/tex/support_vector_machines.pdf"><img src="./thumbs/support_vector_machines.gif" alt="thumb_svm" height="256px"></a>
+<br>
+LaTeX source: [here](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/support_vector_machines/tex).
+<br>
+Practice code: [here](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/support_vector_machines/code).
+
 - **[Q Learning](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/q_learning)**
-- **[Support Vector Machine](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/support_vector_machines)**
 - **[Introduction to TensorFlow](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/tensorflow_introduction/)**
 - **[Linear Regression (TensorFlow)](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/tensorflow_linear_regression)**
 - **[Neural Networks (TensorFlow)](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/tensorflow_neural_network)**
