@@ -31,12 +31,12 @@ LaTeX source: [here](https://github.com/ndrplz/machine_learning_lectures/tree/ma
 ## Reinforcement Learning
 
 ### Introduction and Model Free Learning
-<a href="https://github.com/ndrplz/machine_learning_lectures/blob/master/slides/reinforcement_learning/01_introduction_and_model_free_learning/01_introduction_and_model_free_learning.pdf"><img src="./thumbs/01_introduction_and_model_free_learning.gif" alt="thumb_recurrent" height="256px"></a>
+<a href="https://github.com/ndrplz/machine_learning_lectures/blob/master/slides/reinforcement_learning/01_introduction_and_model_free_learning/01_introduction_and_model_free_learning.pdf"><img src="./thumbs/01_introduction_and_model_free_learning.gif" alt="thumb_model_free" height="256px"></a>
 <br>
 LaTeX source: [here](https://github.com/ndrplz/machine_learning_lectures/blob/master/slides/reinforcement_learning/01_introduction_and_model_free_learning/).
 
 ### Function Approximation
-<a href="https://github.com/ndrplz/machine_learning_lectures/blob/master/slides/reinforcement_learning/02_function_approximation/02_function_approximation.pdf"><img src="./thumbs/02_function_approximation.gif" alt="thumb_recurrent" height="256px"></a>
+<a href="https://github.com/ndrplz/machine_learning_lectures/blob/master/slides/reinforcement_learning/02_function_approximation/02_function_approximation.pdf"><img src="./thumbs/02_function_approximation.gif" alt="thumb_fun_approx" height="256px"></a>
 <br>
 LaTeX source: [here](https://github.com/ndrplz/machine_learning_lectures/blob/master/slides/reinforcement_learning/02_function_approximation/).
 
@@ -44,10 +44,30 @@ LaTeX source: [here](https://github.com/ndrplz/machine_learning_lectures/blob/ma
 
 ## Machine Learning
 
-## PRACTICE
-- **[Boosting](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/boosting)**
-- **[Clustering](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/clustering)**
-- **[Dimensionality Reduction](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/dimensionality_reduction)**
+### Boosting
+<a href="https://github.com/ndrplz/machine_learning_lectures/blob/master/lab/boosting/tex/boosting.pdf"><img src="./thumbs/boosting.gif" alt="thumb_boosting" height="256px"></a>
+<br>
+LaTeX source: [here](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/boosting/tex).
+<br>
+Practice code: [here](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/boosting/code).
+
+### Clustering
+
+<a href="https://github.com/ndrplz/machine_learning_lectures/blob/master/lab/clustering/tex/clustering.pdf"><img src="./thumbs/clustering.gif" alt="thumb_boosting" height="256px"></a>
+<br>
+LaTeX source: [here](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/clustering/tex).
+<br>
+Practice code: [here](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/clustering/code).
+
+### Dimensionality Reduction
+
+<a href="https://github.com/ndrplz/machine_learning_lectures/blob/master/lab/dimensionality_reduction/tex/dimensionality_reduction.pdf"><img src="./thumbs/dimensionality_reduction.gif" alt="thumb_boosting" height="256px"></a>
+<br>
+LaTeX source: [here](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/dimensionality_reduction/tex).
+<br>
+Practice code: [here](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/dimensionality_reduction/code).
+
+
 - **[Logistic Regression](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/logistic_regression)**
 - **[Naive Bayes](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/naive_bayes)**
 - **[Q Learning](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/q_learning)**
