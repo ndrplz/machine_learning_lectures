@@ -10,21 +10,31 @@
 <a href="https://github.com/ndrplz/machine_learning_lectures/blob/master/slides/deep_learning/gradient_descent/gradient_descent.pdf"><img src="./thumbs/gradient_descent.gif" alt="thumb_gradient_descent" height="256px"></a>
 <br>
 LaTeX source: [here](https://github.com/ndrplz/machine_learning_lectures/tree/master/slides/deep_learning/gradient_descent).
+<br>
+Practice (1) [slides](https://github.com/ndrplz/machine_learning_lectures/blob/master/lab/tensorflow_introduction/tex/tensorflow_intro.pdf).
+<br>
+Practice (2) [slides](https://github.com/ndrplz/machine_learning_lectures/blob/master/lab/tensorflow_linear_regression/tex/tensorflow_regression.pdf) and [code](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/tensorflow_linear_regression/code) (TensorFlow).
 
 ### Neural Networks and Deep Neural Networks
 <a href="https://github.com/ndrplz/machine_learning_lectures/blob/master/slides/deep_learning/deep_neural_networks/deep_neural_networks.pdf"><img src="./thumbs/deep_neural_networks.gif" alt="thumb_neural_networks" height="256px"></a>
 <br>
 LaTeX source: [here](https://github.com/ndrplz/machine_learning_lectures/blob/master/slides/deep_learning/deep_neural_networks/).
+<br>
+Practice [slides](https://github.com/ndrplz/machine_learning_lectures/blob/master/lab/tensorflow_neural_network/tex/tensorflow_neural_nets.pdf) and [code](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/tensorflow_neural_network/code) (TensorFlow).
 
 ### Convolutional Neural Networks
 <a href="https://github.com/ndrplz/machine_learning_lectures/blob/master/slides/deep_learning/convolutional_neural_networks/convolutional_neural_networks.pdf"><img src="./thumbs/convolutional_neural_networks.gif" alt="thumb_convnets" height="256px"></a>
 <br>
 LaTeX source: [here](https://github.com/ndrplz/machine_learning_lectures/tree/master/slides/deep_learning/convolutional_neural_networks).
+<br>
+Practice [slides](https://github.com/ndrplz/machine_learning_lectures/blob/master/lab/tensorflow_convolutional_nets/tex/tensorflow_convnets.pdf) and [code](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/tensorflow_convolutional_nets/code) (TensorFlow).
 
 ### Recurrent Neural Networks
 <a href="https://github.com/ndrplz/machine_learning_lectures/blob/master/slides/deep_learning/recurrent_neural_networks/recurrent_neural_networks.pdf"><img src="./thumbs/recurrent_neural_networks.gif" alt="thumb_recurrent" height="256px"></a>
 <br>
 LaTeX source: [here](https://github.com/ndrplz/machine_learning_lectures/tree/master/slides/deep_learning/recurrent_neural_networks).
+<br>
+Practice [slides](https://github.com/ndrplz/machine_learning_lectures/blob/master/lab/tensorflow_recurrent_nets/tex/tensorflow_lstm.pdf) and [code](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/tensorflow_recurrent_nets/code) (TensorFlow).
 
 ---
 
@@ -34,6 +44,8 @@ LaTeX source: [here](https://github.com/ndrplz/machine_learning_lectures/tree/ma
 <a href="https://github.com/ndrplz/machine_learning_lectures/blob/master/slides/reinforcement_learning/01_introduction_and_model_free_learning/01_introduction_and_model_free_learning.pdf"><img src="./thumbs/01_introduction_and_model_free_learning.gif" alt="thumb_model_free" height="256px"></a>
 <br>
 LaTeX source: [here](https://github.com/ndrplz/machine_learning_lectures/blob/master/slides/reinforcement_learning/01_introduction_and_model_free_learning/).
+<br>
+Practice [slides](https://github.com/ndrplz/machine_learning_lectures/blob/master/lab/q_learning/tex/q_learning.pdf) and [code](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/q_learning/code) (TensorFlow).
 
 ### Function Approximation
 <a href="https://github.com/ndrplz/machine_learning_lectures/blob/master/slides/reinforcement_learning/02_function_approximation/02_function_approximation.pdf"><img src="./thumbs/02_function_approximation.gif" alt="thumb_fun_approx" height="256px"></a>
@@ -91,13 +103,6 @@ LaTeX source: [here](https://github.com/ndrplz/machine_learning_lectures/tree/ma
 <br>
 Practice code: [here](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/support_vector_machines/code).
 
-- **[Q Learning](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/q_learning)**
-- **[Introduction to TensorFlow](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/tensorflow_introduction/)**
-- **[Linear Regression (TensorFlow)](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/tensorflow_linear_regression)**
-- **[Neural Networks (TensorFlow)](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/tensorflow_neural_network)**
-- **[Convolutional Networks (TensorFlow)](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/tensorflow_convolutional_nets)**
-- **[Recurrent Networks (TensorFlow)](https://github.com/ndrplz/machine_learning_lectures/tree/master/lab/tensorflow_recurrent_nets)**
- 
 ## F.A.Q.
 
 * **How did you make the thumbnails?** 
