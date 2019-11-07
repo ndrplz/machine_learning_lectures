@@ -7,6 +7,7 @@ import skimage.io as io
 from os.path import join, basename, isdir
 from glob import glob
 from google_drive_downloader import GoogleDriveDownloader
+from sklearn.model_selection import train_test_split
 
 
 GoogleDriveDownloader.download_file_from_google_drive(file_id='1SpyIe1jwiFV4s5ulinHiW2CfviPN06er',
@@ -14,7 +15,8 @@ GoogleDriveDownloader.download_file_from_google_drive(file_id='1SpyIe1jwiFV4s5ul
                                                       unzip=True)
 
 
-def get_faces_dataset(path, train_split=60):
+def get_faces_dataset(path: str, train_split: float = 0.6):
+
     """
     Loads Olivetti dataset from files.
     
@@ -39,27 +41,13 @@ def get_faces_dataset(path, train_split=60):
         img_list = glob(join(path, cl_f, '*.pgm'))
 
         for i, img_path in enumerate(img_list):
-            X.append(io.imread(img_path, as_grey=True).ravel())
+            X.append(io.imread(img_path).ravel())
             Y.append(cl)
 
     X = np.array(X, dtype=np.float32)
     Y = np.array(Y, dtype=np.float32)
 
-    n_samples = Y.size
-    n_train_samples = (n_samples * train_split) // 100
-
-    # shuffle
-    tot = np.concatenate((X, np.reshape(Y, newshape=(-1, 1))), axis=-1)
-
-    np.random.seed(30101990)
-    np.random.shuffle(tot)
-    X = tot[:, :-1]
-    Y = tot[:, -1]
-
-    X_train = X[:n_train_samples]
-    Y_train = Y[:n_train_samples]
-
-    X_test = X[n_train_samples:]
-    Y_test = Y[n_train_samples:]
+    X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=(1-train_split), stratify=Y,
+                                                        random_state=30101990)
 
     return X_train, Y_train, X_test, Y_test

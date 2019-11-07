@@ -4,119 +4,168 @@ Eigenfaces main script.
 
 import numpy as np
 
-from utils import show_eigenfaces, show_3d_faces_with_class
+from utils import show_eigenfaces
+from utils import show_nearest_neighbor
 from data_io import get_faces_dataset
 
 import matplotlib.pyplot as plt
 plt.ion()
 
-
-def eigenfaces(X, n_comp):
+class Eigenfaces:
     """
     Performs PCA to project faces in a reduced space.
-
-    Parameters
-    ----------
-    X: ndarray
-        faces to project (shape: (n_samples, w*h))
-    n_comp: int
-        number of principal components
-
-    Returns
-    -------
-    tuple
-        proj_faces: the projected faces shape=(n_samples, n_comp).
-        ef: eigenfaces (the principal directions)
     """
 
-    n_samples, dim = X.shape
+    def __init__(self, n_components: int):
+        """
+        Parameters
+        ----------
+        n_components: int
+            number of principal component
+        """
+        self.n_components = n_components
 
-    # compute mean vector
-    X_mean = np.mean(X, axis=0)
+        # Per-feature empirical mean, estimated from the training set.
+        self._x_mean = None
 
-    # show mean face
-    plt.imshow(np.reshape(X_mean, newshape=(112, 92)))
-    plt.title('mean face')
-    plt.waitforbuttonpress()
+        #Principal axes in feature space, representing the directions
+        # of maximum variance in the data.
+        self._ef = None
 
-    # normalize data (remove mean)
-    X_norm = X - X_mean
+    def fit(self, X: np.ndarray, verbose: bool = False):
+        """
+        Parameters
+        ----------
+        X: ndarray
+            Training set will be used for fitting the PCA
+                (shape: (n_samples, w*h))
+        verbose: bool
+        """
 
-    # trick (transpose data matrix)
-    X_norm = X_norm.T
+        # compute mean vector and store it for the inference stage
+        self._x_mean = np.mean(X, axis=0)
 
-    # compute covariance
-    cov = np.dot(X_norm.T, X_norm)
+        if verbose:
+            # show mean face
+            plt.imshow(np.reshape(self._x_mean, newshape=(112, 92)), cmap='gray')
+            plt.title('mean face')
+            plt.waitforbuttonpress()
+            plt.close()
 
-    # compute (sorted) eigenvectors of the covariance matrix
-    eigval, eigvec = np.linalg.eig(cov)
-    idxs = np.argsort(eigval)[::-1]
-    eigvec = eigvec[:, idxs]
-    eigvec = eigvec[:, 0:n_comp]
+        # normalize data (remove mean)
+        X_norm = X - self._x_mean
 
-    # retrieve original eigenvec
-    ef = np.dot(X.T, eigvec)
+        # Eigen-trick (transpose data matrix)
+        X_norm = X_norm.T
 
-    # show eigenfaces
-    show_eigenfaces(ef, (112, 92))
+        # compute covariance
+        cov = np.dot(X_norm.T, X_norm)
 
-    # project faces according to the computed directions
-    proj_faces = np.dot(X, ef)
+        # compute (sorted) eigenvectors of the covariance matrix
+        eigval, eigvec = np.linalg.eig(cov)
+        idxs = np.argsort(eigval)[::-1]
+        eigvec = eigvec[:, idxs]
+        eigvec = eigvec[:, 0:self.n_components]
 
-    return proj_faces, ef
+        # retrieve original eigenvec
+        self._ef = np.dot(X.T, eigvec)
 
+        # normalize the retrieved eigenvectors to have unit length
+        self._ef = self._ef / np.sqrt(eigval[idxs][0:self.n_components])
+
+        if verbose:
+            # show eigenfaces
+            show_eigenfaces(self._ef, (112, 92))
+            plt.waitforbuttonpress()
+            plt.close()
+
+    def transform(self, X: np.ndarray):
+        """
+        Parameters
+        ----------
+        X: ndarray
+            faces to project (shape: (n_samples, w*h))
+        Returns
+        -------
+        out: ndarray
+            projections (shape: (n_samples, self.n_components)
+        """
+
+        # project faces according to the computed directions
+        return np.dot(X-self._x_mean, self._ef)
+
+    def inverse_transform(self, X: np.ndarray):
+        return np.dot(X, self._ef.T) + self._x_mean
+
+
+class NearestNeighbor:
+
+    def __init__(self):
+        self._X_db, self._Y_db = None, None
+
+    def fit(self, X: np.ndarray, y: np.ndarray,):
+        """
+        Fit the model using X as training data and y as target values
+        """
+        self._X_db = X
+        self._Y_db = y
+
+    def predict(self, X: np.ndarray):
+        """
+        Finds the 1-neighbor of a point. Returns predictions as well as indices of
+        the neighbors of each point.
+        """
+        num_test_samples = X.shape[0]
+
+        # predict test faces
+        predictions = np.zeros((num_test_samples,))
+        nearest_neighbors = np.zeros((num_test_samples,), dtype=np.int32)
+
+        for i in range(num_test_samples):
+
+            distances = np.sum(np.square(self._X_db - X[i]), axis=1)
+
+            # nearest neighbor classification
+            nearest_neighbor = np.argmin(distances)
+            nearest_neighbors[i] = nearest_neighbor
+            predictions[i] = self._Y_db[nearest_neighbor]
+
+        return predictions, nearest_neighbors
 
 def main():
-    """
-    Main function.
-    """
-
-    # number of principal components
-    n_comp = 10
 
     # get_data
-    X_train, Y_train, X_test, Y_test = get_faces_dataset(path='att_faces')
+    X_train, Y_train, X_test, Y_test = get_faces_dataset(path='att_faces', train_split=0.6)
 
-    proj_train, ef = eigenfaces(X_train, n_comp=n_comp)
+    # number of principal components
+    n_components = 30
 
-    # visualize projections if 3d
-    if n_comp == 3:
-        show_3d_faces_with_class(proj_train, Y_train)
+    # fit the PCA transform
+    eigpca = Eigenfaces(n_components)
+    eigpca.fit(X_train, verbose=True)
 
-    # project test data
-    test_proj = np.dot(X_test, ef)
+    # project the training data
+    proj_train = eigpca.transform(X_train)
 
-    # predict test faces
-    predictions = np.zeros_like(Y_test)
-    nearest_neighbors = np.zeros_like(Y_test, dtype=np.int32)
-    for i in range(0, test_proj.shape[0]):
+    # project the test data
+    proj_test = eigpca.transform(X_test)
 
-        cur_test = test_proj[i]
+    # fit a 1-NN classifier on PCA features
+    nn = NearestNeighbor()
+    nn.fit(proj_train, Y_train)
 
-        distances = np.sum(np.square(proj_train - cur_test), axis=1)
+    # Compute predictions and indices of 1-NN samples for the test set
+    predictions, nearest_neighbors = nn.predict(proj_test)
 
-        # nearest neighbor classification
-        nearest_neighbor = np.argmin(distances)
-        nearest_neighbors[i] = nearest_neighbor
-        predictions[i] = Y_train[nearest_neighbor]
+    # Compute the accuracy on the test set
+    test_set_accuracy = float(np.sum(predictions == Y_test))/len(predictions)
+    print(f'Test set accuracy: {test_set_accuracy}')
 
-    print('Error: {}'.format(float(np.sum(predictions != Y_test))/len(predictions)))
-
-    # visualize nearest neighbors
-    _, (ax0, ax1) = plt.subplots(1, 2)
-    while True:
-
-        # extract random index
-        test_idx = np.random.randint(0, X_test.shape[0])
-
-        ax0.imshow(np.reshape(X_test[test_idx], newshape=(112, 92)), cmap='gray')
-        ax0.set_title('Test face')
-        ax1.imshow(np.reshape(X_train[nearest_neighbors[test_idx]], newshape=(112, 92)), cmap='gray')
-        ax1.set_title('Nearest neighbor')
-
-        # plot faces
-        plt.waitforbuttonpress()
+    # Show results.
+    show_nearest_neighbor(X_train, Y_train,
+                          X_test, Y_test, nearest_neighbors)
 
 
 if __name__ == '__main__':
     main()
+
