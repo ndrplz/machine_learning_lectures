@@ -1,40 +1,36 @@
+import warnings
+
 import matplotlib.pyplot as plt
 import numpy as np
-
-from utils import cmap
+from numpy.random import choice
 
 
 class WeakClassifier:
     """
-    Function that models a WeakClassifier
+    Class that models a WeakClassifier
     """
-
     def __init__(self):
-
-        # initialize a few stuff
         self._dim = None
         self._threshold = None
         self._label_above_split = None
 
     def fit(self, X: np.ndarray, Y: np.ndarray):
 
-        n, d = X.shape
+        # Select random feature (see np.random.choice)
+        _, n_feats = X.shape
+        self._dim = choice(a=range(0, n_feats))
+
+        # Select random split threshold
+        feat_min = np.min(X[:, self._dim])
+        feat_max = np.max(X[:, self._dim])
+        self._threshold = np.random.uniform(low=feat_min, high=feat_max)
+
+        # Select random verse
         possible_labels = np.unique(Y)
-
-        # select random feature (see np.random.choice)
-        self._dim = np.random.choice(a=range(0, d))
-
-        # select random split (see np.random.uniform)
-        M, m = np.max(X[:, self._dim]), np.min(X[:, self._dim])
-        self._threshold = np.random.uniform(low=m, high=M)
-
-        # select random verse (see np.random.choice)
-        self._label_above_split = np.random.choice(a=possible_labels)
+        self._label_above_split = choice(a=possible_labels)
 
     def predict(self, X: np.ndarray):
-
-        num_samples = X.shape[0]
-        y_pred = np.zeros(shape=num_samples)
+        y_pred = np.zeros(shape=X.shape[0])
         y_pred[X[:, self._dim] >= self._threshold] = self._label_above_split
         y_pred[X[:, self._dim] < self._threshold] = -1 * self._label_above_split
 
@@ -43,20 +39,17 @@ class WeakClassifier:
 
 class AdaBoostClassifier:
     """
-    Function that models a Adaboost classifier
+    Class encapsulating AdaBoost classifier
     """
-
     def __init__(self, n_learners: int, n_max_trials: int = 200):
         """
-        Model constructor
+        Initialize an AdaBoost classifier.
 
         Parameters
         ----------
         n_learners: int
-            number of weak classifiers.
+            Number of weak classifiers.
         """
-
-        # initialize a few stuff
         self.n_learners = n_learners
         self.learners = []
         self.alphas = np.zeros(shape=n_learners)
@@ -69,73 +62,67 @@ class AdaBoostClassifier:
 
         Parameters
         ----------
-        X: ndarray
-            features having shape (n_samples, dim).
-        Y: ndarray
-            class labels having shape (n_samples,).
+        X: np.ndarray
+            Features having shape (n_samples, dim).
+        Y: np.ndarray
+            Class labels having shape (n_samples,).
         verbose: bool
-            whether or not to visualize the learning process.
-            Default is False
+            Whether or not to visualize the learning process (default=False).
         """
 
-        # some inits
-        n, d = X.shape
-        if d != 2:
-            verbose = False  # only plot learning if 2 dimensional
+        n_examples, n_feats = X.shape
 
-        possible_labels = np.unique(Y)
+        distinct_labels = len(np.unique(Y))
+        if distinct_labels == 1:
+            warnings.warn('Fitting {} on a dataset with only one label.'.format(
+                self.__class__.__name__))
+        elif distinct_labels > 2:
+            raise NotImplementedError('Only binary classification is supported.')
 
-        # only binary problems please
-        assert possible_labels.size == 2, 'Error: data is not binary'
+        # Initialize all examples with equal weights
+        weights = np.ones(shape=n_examples) / n_examples
 
-        # initialize the sample weights as equally probable
-        sample_weights = np.ones(shape=n) / n
-
-        # start training
+        # Train ensemble
         for l in range(self.n_learners):
+            # Perform a weighted re-sampling (with replacement) of the dataset
+            #  to create a new dataset on which the current weak learner will
+            #  be trained.
+            sampled_idxs = choice(a=range(0, n_examples), size=n_examples,
+                                  replace=True, p=weights)
+            cur_X = X[sampled_idxs]
+            cur_Y = Y[sampled_idxs]
 
-            # choose the indexes of 'difficult' samples (np.random.choice)
-            cur_idx = np.random.choice(a=range(0, n), size=n, replace=True, p=sample_weights)
-
-            # extract 'difficult' samples
-            cur_X = X[cur_idx]
-            cur_Y = Y[cur_idx]
-
-              # search for a weak classifier
-            error = 1
+            # Search for a weak classifier
             n_trials = 0
-            cur_wclass = None
-            y_pred = None
-
+            error = 1.
             while error > 0.5:
+                weak_learner = WeakClassifier()
+                weak_learner.fit(cur_X, cur_Y)
+                y_pred = weak_learner.predict(cur_X)
 
-                cur_wclass = WeakClassifier()
-                cur_wclass.fit(cur_X, cur_Y)
-                y_pred = cur_wclass.predict(cur_X)
+                # Compute current weak learner error
+                error = np.sum(weights[sampled_idxs[cur_Y != y_pred]])
 
-                # compute error
-                error = np.sum(sample_weights[cur_idx[cur_Y != y_pred]])
-
+                # Re-initialize sample weights if number of trials is exceeded
                 n_trials += 1
                 if n_trials > self.n_max_trials:
-                    # initialize the sample weights again
-                    sample_weights = np.ones(shape=n) / n
+                    weights = np.ones(shape=n_examples) / n_examples
 
-            # save weak learner parameter
+            # Store weak learner parameter
             self.alphas[l] = alpha = np.log((1 - error) / error) / 2
 
-            # append the weak classifier to the chain
-            self.learners.append(cur_wclass)
+            # Append the weak classifier to the chain
+            self.learners.append(weak_learner)
 
-            # update sample weights
-            sample_weights[cur_idx[cur_Y != y_pred]] *= np.exp(alpha)
-            sample_weights[cur_idx[cur_Y == y_pred]] *= np.exp(-alpha)
-            sample_weights /= np.sum(sample_weights)
+            # Update examples weights
+            weights[sampled_idxs[cur_Y != y_pred]] *= np.exp(alpha)
+            weights[sampled_idxs[cur_Y == y_pred]] *= np.exp(-alpha)
+            weights /= np.sum(weights)  # re-normalize
 
-            if verbose:
-                self._plot(cur_X, y_pred, sample_weights[cur_idx],
+            # Possibly plot the predictions (if these are 2D)
+            if verbose and n_feats == 2:
+                self._plot(cur_X, y_pred, weights[sampled_idxs],
                            self.learners[-1], l)
-
 
     def predict(self, X: np.ndarray):
         """
@@ -167,10 +154,10 @@ class AdaBoostClassifier:
 
         return pred
 
-    def _plot(self, X: np.ndarray, y_pred: np.ndarray, weights: np.ndarray,
-              learner: WeakClassifier, iteration: int):
+    @staticmethod
+    def _plot(X: np.ndarray, y_pred: np.ndarray, weights: np.ndarray,
+              learner: WeakClassifier, iteration: int, cmap: str = 'jet'):
 
-        # plot
         plt.clf()
         plt.scatter(X[:, 0], X[:, 1], c=y_pred, s=weights * 50000,
                     cmap=cmap, edgecolors='k')
